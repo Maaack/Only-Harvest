@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=11 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
 [ext_resource type="Texture2D" uid="uid://d1c7tdeg77os" path="res://Assets/Sourced/Sprout Lands/Tilesets/Tilled Dirt.png" id="2_vqeu0"]
 [ext_resource type="Texture2D" uid="uid://2bsfgjphvmox" path="res://Assets/Sourced/Sprout Lands/Tilesets/Fences.png" id="3_cy8f2"]
 [ext_resource type="PackedScene" uid="uid://df6fcrlg0kjsv" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="3_vvfm4"]
+[ext_resource type="Script" path="res://Scenes/World/AStarGridServer.gd" id="6_gb1ut"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -883,5 +884,10 @@ layer_2/tile_data = PackedInt32Array(196617, 65538, 3, 196618, 131074, 3, 196619
 process_callback = 0
 wait_time = 10.0
 autostart = true
+
+[node name="AStarGridServer" type="Node2D" parent="." node_paths=PackedStringArray("exclude_tilemaps")]
+script = ExtResource("6_gb1ut")
+exclude_tilemaps = [NodePath("../TileMap")]
+exclude_tilemap_layer = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
