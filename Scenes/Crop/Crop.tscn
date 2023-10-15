@@ -1,0 +1,292 @@
+[gd_scene load_steps=40 format=3 uid="uid://b3nta46qomnol"]
+
+[ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="1_5u3hn"]
+[ext_resource type="Script" path="res://Scenes/Crop/Crop.gd" id="1_amieh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5wor"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_pemxj"]
+resource_name = "Eggplant1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_e3sjy"]
+resource_name = "Eggplant2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_wilc8"]
+resource_name = "Eggplant3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_5a1ba"]
+resource_name = "Eggplant4"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_misfr"]
+resource_name = "Empty"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_xvdrh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_cw6hv"]
+resource_name = "Wheat1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_urut5"]
+resource_name = "Wheat2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_6pu2c"]
+resource_name = "Wheat3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_h2vka"]
+resource_name = "Wheat4"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exnhr"]
+_data = {
+"Eggplant1": SubResource("Animation_pemxj"),
+"Eggplant2": SubResource("Animation_e3sjy"),
+"Eggplant3": SubResource("Animation_wilc8"),
+"Eggplant4": SubResource("Animation_5a1ba"),
+"Empty": SubResource("Animation_misfr"),
+"RESET": SubResource("Animation_xvdrh"),
+"Wheat1": SubResource("Animation_cw6hv"),
+"Wheat2": SubResource("Animation_urut5"),
+"Wheat3": SubResource("Animation_6pu2c"),
+"Wheat4": SubResource("Animation_h2vka")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4bc8d"]
+animation = &"Eggplant1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_po00v"]
+animation = &"Eggplant2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2dki"]
+animation = &"Eggplant3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ojchm"]
+animation = &"Eggplant4"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5hits"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6q1m0"]
+advance_condition = &"stage2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v4kje"]
+advance_condition = &"stage3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwnld"]
+advance_condition = &"stage4"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mlfct"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_55g0m"]
+states/Eggplant1/node = SubResource("AnimationNodeAnimation_4bc8d")
+states/Eggplant1/position = Vector2(347, 100)
+states/Eggplant2/node = SubResource("AnimationNodeAnimation_po00v")
+states/Eggplant2/position = Vector2(503, 100)
+states/Eggplant3/node = SubResource("AnimationNodeAnimation_x2dki")
+states/Eggplant3/position = Vector2(669, 100)
+states/Eggplant4/node = SubResource("AnimationNodeAnimation_ojchm")
+states/Eggplant4/position = Vector2(823, 100)
+states/End/position = Vector2(962, 100)
+transitions = ["Start", "Eggplant1", SubResource("AnimationNodeStateMachineTransition_5hits"), "Eggplant1", "Eggplant2", SubResource("AnimationNodeStateMachineTransition_6q1m0"), "Eggplant2", "Eggplant3", SubResource("AnimationNodeStateMachineTransition_v4kje"), "Eggplant3", "Eggplant4", SubResource("AnimationNodeStateMachineTransition_uwnld"), "Eggplant4", "End", SubResource("AnimationNodeStateMachineTransition_mlfct")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sqtf8"]
+animation = &"Wheat1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w6irq"]
+animation = &"Wheat2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ok53"]
+animation = &"Wheat3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dhnii"]
+animation = &"Wheat4"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kun4v"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t0b1j"]
+advance_condition = &"stage2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_or23j"]
+advance_condition = &"stage3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pwg86"]
+advance_condition = &"stage4"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88r2u"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7yi5i"]
+states/Wheat1/node = SubResource("AnimationNodeAnimation_sqtf8")
+states/Wheat1/position = Vector2(332, 100)
+states/Wheat2/node = SubResource("AnimationNodeAnimation_w6irq")
+states/Wheat2/position = Vector2(474, 100)
+states/Wheat3/node = SubResource("AnimationNodeAnimation_8ok53")
+states/Wheat3/position = Vector2(626, 100)
+states/Wheat4/node = SubResource("AnimationNodeAnimation_dhnii")
+states/Wheat4/position = Vector2(785, 100)
+transitions = ["Start", "Wheat1", SubResource("AnimationNodeStateMachineTransition_kun4v"), "Wheat1", "Wheat2", SubResource("AnimationNodeStateMachineTransition_t0b1j"), "Wheat2", "Wheat3", SubResource("AnimationNodeStateMachineTransition_or23j"), "Wheat3", "Wheat4", SubResource("AnimationNodeStateMachineTransition_pwg86"), "Wheat4", "End", SubResource("AnimationNodeStateMachineTransition_88r2u")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t5cd0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f76xq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t1ge"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_suuwr"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_76yge"]
+states/Eggplant/node = SubResource("AnimationNodeStateMachine_55g0m")
+states/Eggplant/position = Vector2(373, 100)
+states/End/position = Vector2(584, 100)
+states/Start/position = Vector2(161, 100)
+states/Wheat/node = SubResource("AnimationNodeStateMachine_7yi5i")
+states/Wheat/position = Vector2(373, 192)
+transitions = ["Start", "Eggplant", SubResource("AnimationNodeStateMachineTransition_t5cd0"), "Start", "Wheat", SubResource("AnimationNodeStateMachineTransition_f76xq"), "Wheat", "End", SubResource("AnimationNodeStateMachineTransition_8t1ge"), "Eggplant", "End", SubResource("AnimationNodeStateMachineTransition_suuwr")]
+graph_offset = Vector2(-140, -15)
+
+[node name="Crop" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_amieh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5u3hn")
+hframes = 6
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l5wor")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_exnhr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_76yge")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Eggplant/conditions/stage2 = false
+parameters/Eggplant/conditions/stage3 = false
+parameters/Eggplant/conditions/stage4 = false
+parameters/Wheat/conditions/stage2 = false
+parameters/Wheat/conditions/stage3 = false
+parameters/Wheat/conditions/stage4 = false

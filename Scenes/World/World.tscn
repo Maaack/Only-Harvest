@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=13 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://df6fcrlg0kjsv" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="3_vvfm4"]
 [ext_resource type="Script" path="res://Scenes/World/AStarGridServer.gd" id="6_gb1ut"]
 [ext_resource type="PackedScene" uid="uid://b8h64mseoitm" path="res://Scenes/GuardDog/GuardDog.tscn" id="7_n0m51"]
+[ext_resource type="PackedScene" uid="uid://b3nta46qomnol" path="res://Scenes/Crop/Crop.tscn" id="8_r1mtf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -857,6 +858,7 @@ sources/1 = SubResource("TileSetAtlasSource_1kfwu")
 sources/2 = SubResource("TileSetAtlasSource_pwjgx")
 
 [node name="World" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_rdfhq")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -897,5 +899,133 @@ y_sort_enabled = true
 
 [node name="GuardDog" parent="Characters" instance=ExtResource("7_n0m51")]
 position = Vector2(209, -5)
+
+[node name="Crop" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(248, 72)
+crop = 0
+
+[node name="Crop2" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(248, 88)
+crop = 0
+
+[node name="Crop3" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(248, 104)
+crop = 0
+
+[node name="Crop4" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(248, 120)
+crop = 0
+
+[node name="Crop5" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(264, 72)
+crop = 0
+
+[node name="Crop6" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(264, 88)
+crop = 0
+
+[node name="Crop7" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(264, 104)
+crop = 0
+
+[node name="Crop8" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(264, 120)
+crop = 0
+
+[node name="Crop9" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(280, 72)
+crop = 0
+
+[node name="Crop10" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(280, 88)
+crop = 0
+
+[node name="Crop11" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(280, 104)
+crop = 0
+
+[node name="Crop12" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(280, 120)
+crop = 0
+
+[node name="Crop13" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(144, 176)
+crop = 1
+
+[node name="Crop14" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(144, 192)
+crop = 1
+
+[node name="Crop15" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(144, 208)
+crop = 1
+
+[node name="Crop16" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(144, 224)
+crop = 1
+
+[node name="Crop17" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(160, 176)
+crop = 1
+
+[node name="Crop18" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(160, 192)
+crop = 1
+
+[node name="Crop19" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(160, 208)
+crop = 1
+
+[node name="Crop20" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(160, 224)
+crop = 1
+
+[node name="Crop21" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(176, 176)
+crop = 1
+
+[node name="Crop22" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(176, 192)
+crop = 1
+
+[node name="Crop23" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(176, 208)
+crop = 1
+
+[node name="Crop24" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(176, 224)
+crop = 1
+
+[node name="Crop25" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(192, 176)
+crop = 1
+
+[node name="Crop26" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(192, 192)
+crop = 1
+
+[node name="Crop27" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(192, 208)
+crop = 1
+
+[node name="Crop28" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(192, 224)
+crop = 1
+
+[node name="Crop29" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(208, 176)
+crop = 1
+
+[node name="Crop30" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(208, 192)
+crop = 1
+
+[node name="Crop31" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(208, 208)
+crop = 1
+
+[node name="Crop32" parent="Characters" instance=ExtResource("8_r1mtf")]
+position = Vector2(208, 224)
+crop = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
