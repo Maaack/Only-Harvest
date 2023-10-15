@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cwtkbtxbn4diy" path="res://Assets/Sourced/Sprout Lands/Characters/Basic Charakter Spritesheet.png" id="1_fufgy"]
 [ext_resource type="Texture2D" uid="uid://my27r3aidjhe" path="res://Assets/Originals/Sprites/ShadowShape.png" id="2_uvjc1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vg1us"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3el4"]
+radius = 4.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_sg7jg"]
 resource_name = "FaceE"
@@ -610,7 +612,9 @@ motion_mode = 1
 script = ExtResource("1_a1020")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_vg1us")
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l3el4")
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.141176)
