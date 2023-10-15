@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=10 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
+[ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
 [ext_resource type="Texture2D" uid="uid://d1c7tdeg77os" path="res://Assets/Sourced/Sprout Lands/Tilesets/Tilled Dirt.png" id="2_vqeu0"]
 [ext_resource type="Texture2D" uid="uid://2bsfgjphvmox" path="res://Assets/Sourced/Sprout Lands/Tilesets/Fences.png" id="3_cy8f2"]
 [ext_resource type="PackedScene" uid="uid://df6fcrlg0kjsv" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="3_vvfm4"]
@@ -854,6 +855,7 @@ sources/1 = SubResource("TileSetAtlasSource_1kfwu")
 sources/2 = SubResource("TileSetAtlasSource_pwjgx")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_rdfhq")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_eqd0k")
@@ -876,3 +878,10 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(196617, 65538, 3, 196618, 131074, 3, 196619, 131074, 3, 262156, 2, 2, 196621, 131074, 3, 196622, 131074, 3, 196623, 131074, 3, 458771, 2, 1, 524307, 2, 1, 589843, 196610, 1, 589842, 65538, 0, 655378, 65538, 2, 655379, 196610, 2, 393235, 2, 1, 327699, 2, 1, 262163, 2, 1, 196627, 196610, 0, 196626, 131074, 3, 196625, 131074, 3, 196624, 131074, 3, 196620, 131074, 0)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_vvfm4")]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
