@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=15 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
 [ext_resource type="Texture2D" uid="uid://d1c7tdeg77os" path="res://Assets/Sourced/Sprout Lands/Tilesets/Tilled Dirt.png" id="2_vqeu0"]
 [ext_resource type="Texture2D" uid="uid://2bsfgjphvmox" path="res://Assets/Sourced/Sprout Lands/Tilesets/Fences.png" id="3_cy8f2"]
 [ext_resource type="PackedScene" uid="uid://df6fcrlg0kjsv" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="3_vvfm4"]
+[ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="5_05bd4"]
 [ext_resource type="Script" path="res://Scenes/World/AStarGridServer.gd" id="6_gb1ut"]
 [ext_resource type="PackedScene" uid="uid://b8h64mseoitm" path="res://Scenes/GuardDog/GuardDog.tscn" id="7_n0m51"]
 [ext_resource type="PackedScene" uid="uid://b3nta46qomnol" path="res://Scenes/Crop/Crop.tscn" id="8_r1mtf"]
@@ -845,6 +846,33 @@ texture = ExtResource("3_cy8f2")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0/terrains_peering_bit/left_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmme2"]
+texture = ExtResource("5_05bd4")
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_eqd0k"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -856,6 +884,7 @@ terrain_set_1/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_2v0he")
 sources/1 = SubResource("TileSetAtlasSource_1kfwu")
 sources/2 = SubResource("TileSetAtlasSource_pwjgx")
+sources/3 = SubResource("TileSetAtlasSource_rmme2")
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -881,6 +910,13 @@ layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(196617, 65538, 3, 196618, 131074, 3, 196619, 131074, 3, 262156, 2, 2, 196621, 131074, 3, 196622, 131074, 3, 196623, 131074, 3, 458771, 2, 1, 524307, 2, 1, 589843, 196610, 1, 589842, 65538, 0, 655378, 65538, 2, 655379, 196610, 2, 393235, 2, 1, 327699, 2, 1, 262163, 2, 1, 196627, 196610, 0, 196626, 131074, 3, 196625, 131074, 3, 196624, 131074, 3, 196620, 131074, 0)
+layer_3/name = "Crops"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array(393227, 262147, 0, 327692, 262147, 0, 65539, 262147, 0, 131075, 262147, 0, 196611, 262147, 0, 196610, 262147, 0, 131074, 262147, 0, 65538, 262147, 0, 65537, 262147, 0, 131073, 262147, 0, 196609, 262147, 0, 131071, 196611, 0, 196607, 196611, 0, 262143, 196611, 0, 262142, 196611, 0, 262141, 196611, 0, 196605, 196611, 0, 131069, 196611, 0, 131070, 196611, 0, 196606, 196611, 0, 393213, 131075, 0, 393214, 131075, 0, 393215, 131075, 0, 458751, 131075, 0, 524287, 131075, 0, 524286, 131075, 0, 524285, 131075, 0, 458749, 131075, 0, 458750, 131075, 0, 917501, 131075, 1, 917502, 131075, 1, 983038, 131075, 1, 983039, 131075, 1, 917503, 131075, 1, 983037, 131075, 1, 1048573, 131075, 1, 1048574, 131075, 1, 1048575, 131075, 1, 851969, 196611, 1, 917505, 196611, 1, 983041, 196611, 1, 983042, 196611, 1, 983043, 196611, 1, 917507, 196611, 1, 851971, 196611, 1, 851970, 196611, 1, 917506, 196611, 1, 851973, 262147, 1, 917509, 262147, 1, 983045, 262147, 1, 983046, 262147, 1, 983047, 262147, 1, 917511, 262147, 1, 851975, 262147, 1, 851974, 262147, 1, 917510, 262147, 1)
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -949,83 +985,83 @@ position = Vector2(280, 120)
 crop = 0
 
 [node name="Crop13" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(144, 176)
+position = Vector2(280, 264)
 crop = 1
 
 [node name="Crop14" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(144, 192)
+position = Vector2(280, 280)
 crop = 1
 
 [node name="Crop15" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(144, 208)
+position = Vector2(280, 296)
 crop = 1
 
 [node name="Crop16" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(144, 224)
+position = Vector2(280, 312)
 crop = 1
 
 [node name="Crop17" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(160, 176)
+position = Vector2(296, 264)
 crop = 1
 
 [node name="Crop18" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(160, 192)
+position = Vector2(296, 280)
 crop = 1
 
 [node name="Crop19" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(160, 208)
+position = Vector2(296, 296)
 crop = 1
 
 [node name="Crop20" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(160, 224)
+position = Vector2(296, 312)
 crop = 1
 
 [node name="Crop21" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(176, 176)
+position = Vector2(312, 264)
 crop = 1
 
 [node name="Crop22" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(176, 192)
+position = Vector2(312, 280)
 crop = 1
 
 [node name="Crop23" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(176, 208)
+position = Vector2(312, 296)
 crop = 1
 
 [node name="Crop24" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(176, 224)
+position = Vector2(312, 312)
 crop = 1
 
 [node name="Crop25" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(192, 176)
+position = Vector2(328, 264)
 crop = 1
 
 [node name="Crop26" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(192, 192)
+position = Vector2(328, 280)
 crop = 1
 
 [node name="Crop27" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(192, 208)
+position = Vector2(328, 296)
 crop = 1
 
 [node name="Crop28" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(192, 224)
+position = Vector2(328, 312)
 crop = 1
 
 [node name="Crop29" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(208, 176)
+position = Vector2(344, 264)
 crop = 1
 
 [node name="Crop30" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(208, 192)
+position = Vector2(344, 280)
 crop = 1
 
 [node name="Crop31" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(208, 208)
+position = Vector2(344, 296)
 crop = 1
 
 [node name="Crop32" parent="Characters" instance=ExtResource("8_r1mtf")]
-position = Vector2(208, 224)
+position = Vector2(344, 312)
 crop = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
