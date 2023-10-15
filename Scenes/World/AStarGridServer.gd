@@ -12,7 +12,7 @@ var astar : AStarGrid2D
 @export var update_points_per_frame : int = 50
 @export_category("Debugging")
 @export var debug_cell_texture : Texture
-@export var debug_update_time : float = 0
+@export var debug_update_time : float = 5
 var nonsolid_astar_points : Array[Vector2i]
 var nonsolid_astar_iter : int = 0
 var dynamic_nodes_array : Array
@@ -119,6 +119,8 @@ func _call_update_nonsolid_points(max_point_checks : int = 100):
 		cells_checked += 1
 
 func _process_debug(delta):
+	if not get_tree().debug_navigation_hint:
+		return
 	if debug_update_time <= 0:
 		return
 	current_debug_update_time += delta
