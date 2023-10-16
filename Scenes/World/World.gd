@@ -53,7 +53,6 @@ func _replace_crop_tiles_with_objects():
 		_clear_crop_tile(used_cell)
 
 func _update_guard_dog_nav(guard_dog_node : GuardDog):
-	print("getting here")
 	guard_dog_node.next_navigation_points = [player_character.position]
 
 func _connect_guard_dog(guard_dog_node : GuardDog):
