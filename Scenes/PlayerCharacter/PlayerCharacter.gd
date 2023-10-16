@@ -49,12 +49,14 @@ func face_direction(new_direction : Vector2):
 	animation_tree.set("parameters/Harvest/blend_position", facing_direction)
 
 func start_jump():
+	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	animation_state.travel("Jump")
 	is_jumping = true
 	emit_signal("jump")
 
 func finish_jump():
+	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	is_jumping = false
 	jump_input_flag = false

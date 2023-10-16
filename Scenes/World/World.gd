@@ -8,6 +8,7 @@ signal time_updated
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 
 @onready var characters_container = $Characters
+@onready var player_character = %PlayerCharacter
 var world_time : int = 0
 var hours_in_day : int = 24
 
@@ -51,5 +52,19 @@ func _replace_crop_tiles_with_objects():
 		_place_crop_scene_at_tile(crop_stage_data, used_cell)
 		_clear_crop_tile(used_cell)
 
+func _update_guard_dog_nav(guard_dog_node : GuardDog):
+	print("getting here")
+	guard_dog_node.next_navigation_points = [player_character.position]
+
+func _connect_guard_dog(guard_dog_node : GuardDog):
+	guard_dog_node.connect("nav_update_requested", _update_guard_dog_nav.bind(guard_dog_node))
+
+func _connect_guard_dogs():
+	var children : Array[Node] = characters_container.get_children()
+	for child in children:
+		if child is GuardDog:
+			_connect_guard_dog(child)
+
 func _ready():
 	_replace_crop_tiles_with_objects()
+	_connect_guard_dogs()

@@ -935,6 +935,7 @@ exclude_tilemap_layer = 2
 y_sort_enabled = true
 
 [node name="PlayerCharacter" parent="Characters" instance=ExtResource("3_vvfm4")]
+unique_name_in_owner = true
 
 [node name="GuardDog" parent="Characters" instance=ExtResource("7_n0m51")]
 position = Vector2(209, -5)
