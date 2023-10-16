@@ -59,6 +59,12 @@ action={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="character"
+2d_physics/layer_2="walls"
+2d_physics/layer_3="crops"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
