@@ -54,7 +54,7 @@ func _check_crop_age():
 	for iter in range(growth_rate_iter + 1):
 		total_growth_stage_duration += growth_rates[iter]
 	if raw_crop_age > 0 and raw_crop_age % total_growth_stage_duration == 0:
-		growth_stage += Constants.Stages.ONE
+		growth_stage += 1
 		_set_growth_rate_iter_from_stage()
 		_update_growth_stage()
 

@@ -26,7 +26,6 @@ func set_path_length(point_path: Array, max_distance: int) -> Array:
 
 func exclude_tilemap(tilemap : TileMap):
 	var excluded_tiles : Array[Vector2i] = []
-	var layer_count = tilemap.get_layers_count()
 	var x_size = region.size.x
 	var y_size = region.size.y
 	for x in range(x_size):

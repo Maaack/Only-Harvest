@@ -43,7 +43,6 @@ func _clear_crop_tile(tile_coord : Vector2i):
 func _replace_crop_tiles_with_objects():
 	var crop_tilemap_map = Constants.get_crop_tilemap()
 	var used_cells : Array[Vector2i] = crop_tilemap.get_used_cells_by_id(crop_tilemap_layer, crop_source_id)
-	print(used_cells)
 	for used_cell in used_cells:
 		var atlas_coord = crop_tilemap.get_cell_atlas_coords(crop_tilemap_layer, used_cell)
 		if not atlas_coord in crop_tilemap_map:

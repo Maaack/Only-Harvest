@@ -25,7 +25,7 @@ var can_take_damage : bool = true
 var health : float = max_health
 var accessible_interactables : Array = []
 
-func pickup_item(item):
+func pickup_item(_item):
 	pass
 
 func cycle_next():
@@ -39,8 +39,7 @@ func get_current_item():
 
 func face_direction(new_direction : Vector2):
 	facing_direction = new_direction.normalized()
-	var facing_angle = facing_direction.angle()
-	var arm_rotation = facing_angle
+	# var facing_angle = facing_direction.angle()
 	animation_tree.set("parameters/Idle/blend_position", facing_direction)
 	animation_tree.set("parameters/Walk/blend_position", facing_direction)
 	animation_tree.set("parameters/Jump/blend_position", facing_direction)
