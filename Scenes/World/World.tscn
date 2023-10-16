@@ -920,7 +920,7 @@ layer_3/tile_data = PackedInt32Array(393227, 262147, 0, 327692, 262147, 0, 65539
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="AStarGridServer" type="Node2D" parent="." node_paths=PackedStringArray("exclude_tilemaps")]
@@ -938,202 +938,211 @@ position = Vector2(209, -5)
 
 [node name="Crop" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(248, 72)
-crop = 0
+crop_type = 0
 
 [node name="Crop2" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(248, 88)
-crop = 0
+crop_type = 0
+growth_stage = 2
 
 [node name="Crop3" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(248, 104)
-crop = 0
+crop_type = 0
+growth_stage = 3
 
 [node name="Crop4" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(248, 120)
-crop = 0
+crop_type = 0
+growth_stage = 4
 
 [node name="Crop5" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(264, 72)
-crop = 0
+crop_type = 0
 
 [node name="Crop6" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(264, 88)
-crop = 0
+crop_type = 0
+growth_stage = 2
 
 [node name="Crop7" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(264, 104)
-crop = 0
+crop_type = 0
+growth_stage = 3
 
 [node name="Crop8" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(264, 120)
-crop = 0
+crop_type = 0
+growth_stage = 4
 
 [node name="Crop9" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 72)
-crop = 0
+crop_type = 0
 
 [node name="Crop10" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 88)
-crop = 0
+crop_type = 0
+growth_stage = 2
 
 [node name="Crop11" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 104)
-crop = 0
+crop_type = 0
+growth_stage = 3
 
 [node name="Crop12" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 120)
-crop = 0
+crop_type = 0
+growth_stage = 4
 
 [node name="Crop13" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 264)
-crop = 1
+crop_type = 1
 
 [node name="Crop14" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 280)
-crop = 1
+crop_type = 1
 
 [node name="Crop15" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 296)
-crop = 1
+crop_type = 1
 
 [node name="Crop16" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(280, 312)
-crop = 1
+crop_type = 1
 
 [node name="Crop17" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(296, 264)
-crop = 1
+crop_type = 1
 
 [node name="Crop18" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(296, 280)
-crop = 1
+crop_type = 1
 
 [node name="Crop19" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(296, 296)
-crop = 1
+crop_type = 1
 
 [node name="Crop20" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(296, 312)
-crop = 1
+crop_type = 1
 
 [node name="Crop21" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(312, 264)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop22" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(312, 280)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop23" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(312, 296)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop24" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(312, 312)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop25" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(328, 264)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop26" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(328, 280)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop27" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(328, 296)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop28" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(328, 312)
-crop = 1
+crop_type = 1
 growth_stage = 2
 
 [node name="Crop29" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(344, 264)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop30" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(344, 280)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop31" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(344, 296)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop32" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(344, 312)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop33" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(360, 264)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop34" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(360, 280)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop35" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(360, 296)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop36" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(360, 312)
-crop = 1
+crop_type = 1
 growth_stage = 3
 
 [node name="Crop37" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(376, 264)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop38" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(376, 280)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop39" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(376, 296)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop40" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(376, 312)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop41" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(392, 264)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop42" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(392, 280)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop43" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(392, 296)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [node name="Crop44" parent="Characters" instance=ExtResource("8_r1mtf")]
 position = Vector2(392, 312)
-crop = 1
+crop_type = 1
 growth_stage = 4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
