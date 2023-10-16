@@ -886,9 +886,12 @@ sources/1 = SubResource("TileSetAtlasSource_1kfwu")
 sources/2 = SubResource("TileSetAtlasSource_pwjgx")
 sources/3 = SubResource("TileSetAtlasSource_rmme2")
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" node_paths=PackedStringArray("crop_tilemap")]
 texture_filter = 1
 script = ExtResource("1_rdfhq")
+crop_tilemap = NodePath("TileMap")
+crop_tilemap_layer = 3
+crop_source_id = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
