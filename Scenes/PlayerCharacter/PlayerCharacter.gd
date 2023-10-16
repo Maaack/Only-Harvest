@@ -156,3 +156,7 @@ func _input(event):
 		action_input_flag = true
 	else:
 		action_input_flag = false
+
+
+func _on_action_area_area_entered(area):
+	pass

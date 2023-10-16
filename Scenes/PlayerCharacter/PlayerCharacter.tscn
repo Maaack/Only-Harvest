@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://df6fcrlg0kjsv"]
+[gd_scene load_steps=55 format=3 uid="uid://df6fcrlg0kjsv"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/PlayerCharacter.gd" id="1_a1020"]
 [ext_resource type="Texture2D" uid="uid://cwtkbtxbn4diy" path="res://Assets/Sourced/Sprout Lands/Characters/Basic Charakter Spritesheet.png" id="1_fufgy"]
@@ -491,6 +491,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ActionArea:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ActionArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4)]
+}
 
 [sub_resource type="Animation" id="Animation_1wg2r"]
 resource_name = "WalkE"
@@ -714,6 +738,30 @@ tracks/3/keys = {
 "method": &"finish_action"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionArea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ActionArea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1an7e"]
 resource_name = "HarvestE"
@@ -768,6 +816,30 @@ tracks/3/keys = {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionArea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ActionArea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -2)]
 }
 
 [sub_resource type="Animation" id="Animation_5bjlx"]
@@ -824,6 +896,30 @@ tracks/3/keys = {
 "method": &"finish_action"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionArea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ActionArea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -2)]
+}
 
 [sub_resource type="Animation" id="Animation_x3y30"]
 resource_name = "HarvestN"
@@ -878,6 +974,30 @@ tracks/3/keys = {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionArea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ActionArea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jxgy"]
@@ -1029,6 +1149,9 @@ states/Walk/position = Vector2(635, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mgog4"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_bf3qj"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2sqec"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_jdwvh"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_agaxn"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_2wvqd"), "Idle", "Harvest", SubResource("AnimationNodeStateMachineTransition_hgh5m"), "Harvest", "Idle", SubResource("AnimationNodeStateMachineTransition_rurew"), "Walk", "Harvest", SubResource("AnimationNodeStateMachineTransition_oc8lf")]
 graph_offset = Vector2(126, -71.3159)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6o2gc"]
+size = Vector2(16, 16)
+
 [node name="PlayerCharacter" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_a1020")
@@ -1073,3 +1196,14 @@ texture = ExtResource("4_6ld34")
 hframes = 2
 vframes = 12
 frame = 8
+
+[node name="ActionArea" type="Area2D" parent="."]
+position = Vector2(0, 4)
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+shape = SubResource("RectangleShape2D_6o2gc")
+
+[connection signal="area_entered" from="ActionArea" to="." method="_on_action_area_area_entered"]
