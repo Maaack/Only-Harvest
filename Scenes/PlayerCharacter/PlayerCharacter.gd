@@ -19,8 +19,11 @@ signal died
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 var facing_direction : Vector2
-var can_jump : bool = true
 var is_jumping : bool = false
+var jump_input_flag : bool = false
+var is_acting : bool = false
+var action_input_flag : bool = false
+var can_swing : bool = false
 var can_take_damage : bool = true
 var health : float = max_health
 var accessible_interactables : Array = []
@@ -43,28 +46,40 @@ func face_direction(new_direction : Vector2):
 	animation_tree.set("parameters/Idle/blend_position", facing_direction)
 	animation_tree.set("parameters/Walk/blend_position", facing_direction)
 	animation_tree.set("parameters/Jump/blend_position", facing_direction)
-
+	animation_tree.set("parameters/Harvest/blend_position", facing_direction)
 
 func start_jump():
 	set_collision_mask_value(1, false)
 	animation_state.travel("Jump")
-	can_jump = false
+	is_jumping = true
 	emit_signal("jump")
 
 func finish_jump():
 	set_collision_mask_value(1, true)
-	can_jump = true
 	is_jumping = false
+	jump_input_flag = false
+
+func start_action():
+	animation_state.travel("Harvest")
+	is_acting = true
+
+func finish_action():
+	is_acting = false
+	action_input_flag = false
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	input_vector = input_vector.normalized()
-	if is_jumping and can_jump:
+	if jump_input_flag and not is_jumping:
 		start_jump()
+	if action_input_flag and not is_acting:
+		start_action()
 	if is_jumping:
 		pass
+	elif is_acting:
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	elif input_vector != Vector2.ZERO:
 		face_direction(input_vector)
 		velocity = velocity.move_toward(input_vector * max_speed * delta, acceleration * delta)
@@ -134,4 +149,10 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("jump"):
-		is_jumping = true
+		jump_input_flag = true
+	else:
+		jump_input_flag = false
+	if event.is_action_pressed("action"):
+		action_input_flag = true
+	else:
+		action_input_flag = false
