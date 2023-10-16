@@ -31,7 +31,7 @@ func _set_growth_rate_iter_from_stage():
 			growth_rate_iter = 0
 		Constants.Stages.TWO:
 			growth_rate_iter = 1
-		Constants.Stages.THREE:
+		Constants.Stages.THREE, Constants.Stages.FOUR:
 			growth_rate_iter = 2
 
 func _update_growth_stage():
@@ -49,10 +49,13 @@ func _update_growth_stage():
 
 func _check_crop_age():
 	var total_growth_stage_duration : int = 0
+	if growth_rate_iter >= growth_rates.size():
+		growth_rate_iter = growth_rates.size() - 1
 	for iter in range(growth_rate_iter + 1):
 		total_growth_stage_duration += growth_rates[iter]
 	if raw_crop_age > 0 and raw_crop_age % total_growth_stage_duration == 0:
 		growth_stage += Constants.Stages.ONE
+		_set_growth_rate_iter_from_stage()
 		_update_growth_stage()
 
 func _ready():
