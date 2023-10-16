@@ -183,13 +183,11 @@ animation = &"Eggplant4"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6q1m0"]
-advance_condition = &"stage2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v4kje"]
 advance_condition = &"stage3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwnld"]
-advance_condition = &"stage4"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mlfct"]
 
@@ -221,13 +219,10 @@ animation = &"Wheat4"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t0b1j"]
-advance_condition = &"stage2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_or23j"]
-advance_condition = &"stage3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pwg86"]
-advance_condition = &"stage4"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88r2u"]
 
@@ -284,9 +279,4 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_76yge")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Eggplant/conditions/stage2 = false
 parameters/Eggplant/conditions/stage3 = false
-parameters/Eggplant/conditions/stage4 = false
-parameters/Wheat/conditions/stage2 = false
-parameters/Wheat/conditions/stage3 = false
-parameters/Wheat/conditions/stage4 = false
