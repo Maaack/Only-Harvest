@@ -10,8 +10,8 @@ radius = 4.0
 
 [node name="PickupCollector" type="Node2D"]
 script = ExtResource("1_1icwb")
-pull_area_force = 100.0
-pull_max_speed = 300.0
+pull_area_force = 400.0
+pull_max_speed = 400.0
 pull_area_shape = SubResource("CircleShape2D_skodp")
 collect_area_shape = SubResource("CircleShape2D_toes4")
 
