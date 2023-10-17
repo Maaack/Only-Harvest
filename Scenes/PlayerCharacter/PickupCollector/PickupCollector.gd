@@ -26,18 +26,26 @@ func _update_areas():
 		$CollectArea2D/CollisionShape2D.shape = collect_area_shape
 
 func _pull_pickup(pickup : Pickup, delta : float):
+	pickup.is_dragged = true
 	var parent_position = get_parent().position
 	var direction = pickup.position.direction_to(parent_position)
 	pickup.velocity = pickup.velocity.move_toward(direction * pull_max_speed, pull_area_force * delta)
+
+func _drop_pickup(pickup : Pickup):
+	pickup.is_dragged = false
 
 func _physics_process(delta):
 	if pulling_pickups.size() == 0:
 		return
 	var pickups_array : Array = pulling_pickups.values()
 	var max_pickups : int = min(pickups_array.size(), pull_pickup_count)
-	for pickup_iter in range(max_pickups):
-		var pickup : Pickup = pickups_array[pickup_iter]
-		_pull_pickup(pickup, delta)
+	var pickup_iter : int = 0
+	for pickup in pickups_array:
+		if pickup_iter >= max_pickups:
+			break
+		if pickup.is_draggable:
+			_pull_pickup(pickup, delta)
+			pickup_iter += 1
 	var collecting_array : Array = collecting_pickups.values()
 	if can_collect and collecting_array.size() > 0:
 		var pickup : Pickup = collecting_array[0]
@@ -49,12 +57,11 @@ func _physics_process(delta):
 
 func _on_pull_area_2d_body_entered(body):
 	if body is Pickup and not body.is_dragged:
-		body.is_dragged = true
 		pulling_pickups[body.get_instance_id()] = body
 
 func _on_pull_area_2d_body_exited(body):
 	if body is Pickup:
-		body.is_dragged = false
+		_drop_pickup(body)
 		pulling_pickups.erase(body.get_instance_id())
 
 func _on_collect_area_2d_body_entered(body):

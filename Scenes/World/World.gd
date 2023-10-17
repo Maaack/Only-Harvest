@@ -72,6 +72,7 @@ func drop_crop_pickups(crop_type : Constants.Crops, center_position : Vector2, c
 		collectibles_container.call_deferred("add_child", crop_pickup_instance)
 		crop_pickup_instance.position = center_position
 		crop_pickup_instance.crop_type = crop_type
+		crop_pickup_instance.bounce_away()
 
 func _on_crop_harvested(crop_node : Crop):
 	if crop_node == null:
