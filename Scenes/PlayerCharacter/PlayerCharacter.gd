@@ -58,6 +58,7 @@ func start_jump():
 func finish_jump():
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
+	await(get_tree().create_timer(0.05).timeout)
 	is_jumping = false
 	jump_input_flag = false
 
@@ -66,6 +67,7 @@ func start_action():
 	is_acting = true
 
 func finish_action():
+	await(get_tree().create_timer(0.05).timeout)
 	is_acting = false
 	action_input_flag = false
 
