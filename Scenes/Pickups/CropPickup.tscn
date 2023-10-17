@@ -6,8 +6,8 @@
 
 [node name="CropPickup" instance=ExtResource("1_xj87w")]
 script = ExtResource("2_x7lhq")
+crop_type = -1
 texture = ExtResource("3_4rwm1")
-crop_type = 0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_4rwm1")

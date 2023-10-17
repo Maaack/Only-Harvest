@@ -1,6 +1,8 @@
 extends Area2D
 class_name Crop
 
+signal harvested
+
 @export var crop_type : Constants.Crops = Constants.Crops.NONE
 @export var growth_stage : Constants.Stages = Constants.Stages.ONE
 
@@ -69,4 +71,5 @@ func increment_crop_age(amount : int = 1):
 
 func try_harvest():
 	if growth_stage == Constants.Stages.FOUR:
+		emit_signal("harvested")
 		queue_free()

@@ -6,8 +6,10 @@ signal time_updated
 @export var crop_tilemap_layer : int = 0
 @export var crop_source_id : int = 0
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
+var base_crop_pickups_scene = preload("res://Scenes/Pickups/CropPickup.tscn")
 
 @onready var characters_container = $Characters
+@onready var collectibles_container = $Collectibles
 @onready var player_character = %PlayerCharacter
 var world_time : int = 0
 var hours_in_day : int = 24
@@ -64,6 +66,29 @@ func _connect_guard_dogs():
 		if child is GuardDog:
 			_connect_guard_dog(child)
 
+func drop_crop_pickups(crop_type : Constants.Crops, center_position : Vector2, count : int = 1):
+	for i in range(count):
+		var crop_pickup_instance = base_crop_pickups_scene.instantiate()
+		collectibles_container.call_deferred("add_child", crop_pickup_instance)
+		crop_pickup_instance.position = center_position
+		crop_pickup_instance.crop_type = crop_type
+
+func _on_crop_harvested(crop_node : Crop):
+	if crop_node == null:
+		return
+	var random_dist = min(max(0, randfn(2, 1)), 4)
+	drop_crop_pickups(crop_node.crop_type, crop_node.position, random_dist)
+
+func _connect_crop(crop_node : Crop):
+	crop_node.connect("harvested", _on_crop_harvested.bind(crop_node))
+
+func _connect_crops():
+	var children : Array[Node] = characters_container.get_children()
+	for child in children:
+		if child is Crop:
+			_connect_crop(child)
+
 func _ready():
 	_replace_crop_tiles_with_objects()
 	_connect_guard_dogs()
+	_connect_crops()

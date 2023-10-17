@@ -13,4 +13,6 @@ const EGGPLANT_FRAME = 11
 					$Sprite2D.frame = WHEAT_FRAME
 				Constants.Crops.EGGPLANT:
 					$Sprite2D.frame = EGGPLANT_FRAME
-				
+
+func _ready():
+	crop_type = crop_type
