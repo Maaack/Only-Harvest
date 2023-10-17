@@ -163,4 +163,5 @@ func _input(event):
 
 
 func _on_action_area_area_entered(area):
-	pass
+	if area is Crop:
+		area.try_harvest()

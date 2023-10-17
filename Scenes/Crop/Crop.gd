@@ -66,3 +66,7 @@ func _ready():
 func increment_crop_age(amount : int = 1):
 	raw_crop_age += amount
 	_check_crop_age()
+
+func try_harvest():
+	if growth_stage == Constants.Stages.FOUR:
+		queue_free()
