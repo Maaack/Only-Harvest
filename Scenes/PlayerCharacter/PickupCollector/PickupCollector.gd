@@ -15,6 +15,7 @@ signal pickup_collected(pickup)
 		collect_area_shape = value
 		_update_areas()
 @export var collect_delay : float = 0.25
+@export var pull_distance_exponent : float = 2.0
 
 var can_collect : bool = true
 var pulling_pickups : Dictionary = {}
@@ -27,9 +28,13 @@ func _update_areas():
 
 func _pull_pickup(pickup : Pickup, delta : float):
 	pickup.is_dragged = true
+	var shape_2d : CircleShape2D = $PullArea2D/CollisionShape2D.shape
 	var parent_position = get_parent().position
+	var distance = pickup.position.distance_to(parent_position)
+	var ratio = shape_2d.radius / (distance + 0.0001)
+	var squared_ratio = pow(ratio, pull_distance_exponent)
 	var direction = pickup.position.direction_to(parent_position)
-	pickup.velocity = pickup.velocity.move_toward(direction * pull_max_speed, pull_area_force * delta)
+	pickup.velocity = pickup.velocity.move_toward(direction * pull_max_speed, squared_ratio * pull_area_force * delta)
 
 func _drop_pickup(pickup : Pickup):
 	pickup.is_dragged = false

@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/PickupCollector/PickupCollector.gd" id="1_1icwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skodp"]
-radius = 32.0
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_toes4"]
 radius = 4.0
 
 [node name="PickupCollector" type="Node2D"]
 script = ExtResource("1_1icwb")
-pull_area_force = 400.0
-pull_max_speed = 400.0
+pull_area_force = 350.0
+pull_max_speed = 250.0
 pull_area_shape = SubResource("CircleShape2D_skodp")
 collect_area_shape = SubResource("CircleShape2D_toes4")
 
