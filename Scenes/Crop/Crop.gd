@@ -27,14 +27,25 @@ func _update_crop_type():
 	animation_state.travel(crop_type_name)
 	growth_rates = Constants.CROP_GROWTH_RATES[crop_type_name]
 
-func _set_growth_rate_iter_from_stage():
-	match(growth_stage):
-		Constants.Stages.ONE:
-			growth_rate_iter = 0
-		Constants.Stages.TWO:
-			growth_rate_iter = 1
-		Constants.Stages.THREE, Constants.Stages.FOUR:
-			growth_rate_iter = 2
+func _get_age_for_crop_stage(input_stage : Constants.Stages):
+	var age_for_stage : int = 0
+	if input_stage > growth_rates.size():
+		input_stage = growth_rates.size()
+	for iter in range(input_stage):
+		age_for_stage += growth_rates[iter]
+	return age_for_stage
+
+func _set_crop_age_iter_from_stage():
+	raw_crop_age = _get_age_for_crop_stage(growth_stage-1)
+
+func _set_growth_rate_iter_from_age():
+	growth_rate_iter = 0
+	var total_duration = 0
+	for duration in growth_rates:
+		total_duration += duration
+		if total_duration > raw_crop_age:
+			break
+		growth_rate_iter += 1
 
 func _update_growth_stage():
 	if crop_stage_animation_state == null:
@@ -49,20 +60,30 @@ func _update_growth_stage():
 		Constants.Stages.FOUR:
 			crop_stage_animation_state.travel(crop_type_name + "4")
 
+func _increment_growth_stage():
+	var next_stage : Constants.Stages
+	match(growth_stage):
+		Constants.Stages.ONE:
+			next_stage = Constants.Stages.TWO
+		Constants.Stages.TWO:
+			next_stage = Constants.Stages.THREE
+		Constants.Stages.THREE:
+			next_stage = Constants.Stages.FOUR
+		Constants.Stages.FOUR:
+			next_stage = Constants.Stages.FOUR
+	growth_stage = next_stage
+
 func _check_crop_age():
-	var total_growth_stage_duration : int = 0
-	if growth_rate_iter >= growth_rates.size():
-		growth_rate_iter = growth_rates.size() - 1
-	for iter in range(growth_rate_iter + 1):
-		total_growth_stage_duration += growth_rates[iter]
-	if raw_crop_age > 0 and raw_crop_age % total_growth_stage_duration == 0:
-		growth_stage += 1
-		_set_growth_rate_iter_from_stage()
+	var total_growth_stage_duration : int = _get_age_for_crop_stage(growth_stage)
+	if raw_crop_age >= total_growth_stage_duration:
+		_increment_growth_stage()
+		_set_growth_rate_iter_from_age()
 		_update_growth_stage()
 
 func _ready():
 	_update_crop_type()
-	_set_growth_rate_iter_from_stage()
+	_set_crop_age_iter_from_stage()
+	_set_growth_rate_iter_from_age()
 	_update_growth_stage()
 
 func increment_crop_age(amount : int = 1):

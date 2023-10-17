@@ -5,7 +5,6 @@ signal pickup_collected(pickup)
 
 @export var pull_area_force : float = 10
 @export var pull_max_speed : float = 100
-@export var pull_distance_exponent : float = 2.0
 @export var pull_pickup_count : int = 1
 @export var pull_area_shape : Shape2D : 
 	set(value):
@@ -27,13 +26,9 @@ func _update_areas():
 		$CollectArea2D/CollisionShape2D.shape = collect_area_shape
 
 func _pull_pickup(pickup : Pickup, delta : float):
-	var shape_2d : CircleShape2D = $PullArea2D/CollisionShape2D.shape
 	var parent_position = get_parent().position
-	var distance = pickup.position.distance_to(parent_position)
-	var ratio = shape_2d.radius / (distance + 0.0001)
-	var squared_ratio = pow(ratio, pull_distance_exponent)
 	var direction = pickup.position.direction_to(parent_position)
-	pickup.velocity = pickup.velocity.move_toward(direction * pull_max_speed, squared_ratio * pull_area_force * delta)
+	pickup.velocity = pickup.velocity.move_toward(direction * pull_max_speed, pull_area_force * delta)
 
 func _physics_process(delta):
 	if pulling_pickups.size() == 0:
