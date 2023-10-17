@@ -12,7 +12,6 @@ radius = 4.0
 script = ExtResource("1_1icwb")
 pull_area_shape = SubResource("CircleShape2D_skodp")
 collect_area_shape = SubResource("CircleShape2D_toes4")
-collect_delay = 0.5
 
 [node name="PullArea2D" type="Area2D" parent="."]
 collision_layer = 0

@@ -43,7 +43,7 @@ func _physics_process(delta):
 	for pickup_iter in range(max_pickups):
 		var pickup : Pickup = pickups_array[pickup_iter]
 		_pull_pickup(pickup, delta)
-	var collecting_array : Array = pulling_pickups.values()
+	var collecting_array : Array = collecting_pickups.values()
 	if can_collect and collecting_array.size() > 0:
 		var pickup : Pickup = collecting_array[0]
 		emit_signal("pickup_collected", pickup)
