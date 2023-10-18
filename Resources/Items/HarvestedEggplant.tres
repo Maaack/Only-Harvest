@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseQuantity" load_steps=4 format=3 uid="uid://pg2dgllggq7e"]
+
+[ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="1_bsn4p"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="2_t2183"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yau86"]
+atlas = ExtResource("1_bsn4p")
+region = Rect2(80, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_t2183")
+quantity = 1.0
+name = "Eggplant"
+icon = SubResource("AtlasTexture_yau86")
+taxonomy = "Harvest"
+numerical_unit = 0

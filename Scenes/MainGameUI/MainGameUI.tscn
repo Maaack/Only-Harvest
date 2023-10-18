@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=5 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
 [ext_resource type="PackedScene" uid="uid://burp6ip1d6yo" path="res://Scenes/MainGameUI/DateTime/DateTime.tscn" id="2_4pd0i"]
+[ext_resource type="PackedScene" uid="uid://cj8ogciftt4ml" path="res://Scenes/Quickslots/Quickslots.tscn" id="4_igd4l"]
 
 [node name="MainGameUI" type="Control"]
 layout_mode = 3
@@ -49,4 +50,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 1
 
+[node name="Quickslots" parent="MarginContainer/InGameUI" instance=ExtResource("4_igd4l")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 0.0
+
+[connection signal="quickslots_updated" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_quickslots_updated"]
 [connection signal="time_updated" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_time_updated"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/PickupCollector/PickupCollector.gd" id="1_1icwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skodp"]
-radius = 40.0
+radius = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_toes4"]
 radius = 4.0

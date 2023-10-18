@@ -942,3 +942,4 @@ position = Vector2(209, -5)
 [node name="Collectibles" type="Node2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]

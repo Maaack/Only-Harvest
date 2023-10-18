@@ -6,6 +6,7 @@ signal item_equipped(item_name : String)
 signal item_received(item_name : String)
 signal health_changed(health : float, max_health : float)
 signal died
+signal quickslots_updated(slot_array : Array)
 
 @export var max_health : float = 10
 @export var health_per_heart : float = 2
@@ -27,6 +28,7 @@ var can_swing : bool = false
 var can_take_damage : bool = true
 var health : float = max_health
 var accessible_interactables : Array = []
+var inventory : BaseContainer
 
 func pickup_item(_item):
 	pass
@@ -150,6 +152,7 @@ func _set_health_to_max():
 func _ready():
 	await get_tree().create_timer(0.05).timeout
 	_set_health_to_max()
+	inventory = BaseContainer.new()
 
 func _input(event):
 	if event.is_action_pressed("jump"):
@@ -164,3 +167,26 @@ func _input(event):
 func _on_action_area_area_entered(area):
 	if area is Crop:
 		area.try_harvest()
+
+func add_to_inventory(item:BaseUnit):
+	if item == null:
+		return
+	inventory.add_content(item)
+	var quantity = inventory.find_quantity(item.name)
+	$QuickslotManager.add_quantity(quantity)
+	emit_signal("quickslots_updated", $QuickslotManager.slot_array)
+
+func remove_from_inventory(content:BaseUnit):
+	if content == null:
+		return
+	inventory.remove_content(content)
+	emit_signal("quickslots_updated", $QuickslotManager.slot_array)
+
+func get_selected_item():
+	var quantity = $QuickslotManager.get_selected_quantity()
+	if is_instance_valid(quantity) and quantity is BaseQuantity:
+		return inventory.find_content(quantity.name)
+
+func _on_pickup_collector_pickup_collected(pickup):
+	if pickup is CropPickup:
+		add_to_inventory(pickup.item.duplicate())

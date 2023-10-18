@@ -1,10 +1,11 @@
-[gd_scene load_steps=56 format=3 uid="uid://df6fcrlg0kjsv"]
+[gd_scene load_steps=57 format=3 uid="uid://df6fcrlg0kjsv"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/PlayerCharacter.gd" id="1_a1020"]
 [ext_resource type="Texture2D" uid="uid://cwtkbtxbn4diy" path="res://Assets/Sourced/Sprout Lands/Characters/Basic Charakter Spritesheet.png" id="1_fufgy"]
 [ext_resource type="Texture2D" uid="uid://my27r3aidjhe" path="res://Assets/Originals/Sprites/ShadowShape.png" id="2_uvjc1"]
 [ext_resource type="Texture2D" uid="uid://c7twc7fi4270a" path="res://Assets/Sourced/Sprout Lands/Characters/Basic Charakter Actions.png" id="4_6ld34"]
 [ext_resource type="PackedScene" uid="uid://dtgs43ojd5an4" path="res://Scenes/PlayerCharacter/PickupCollector/PickupCollector.tscn" id="5_33mgi"]
+[ext_resource type="Script" path="res://Scenes/PlayerCharacter/QuickslotManager.gd" id="6_japog"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3el4"]
 radius = 4.0
@@ -1210,4 +1211,8 @@ shape = SubResource("RectangleShape2D_6o2gc")
 
 [node name="PickupCollector" parent="." instance=ExtResource("5_33mgi")]
 
+[node name="QuickslotManager" type="Node" parent="."]
+script = ExtResource("6_japog")
+
 [connection signal="area_entered" from="ActionArea" to="." method="_on_action_area_area_entered"]
+[connection signal="pickup_collected" from="PickupCollector" to="." method="_on_pickup_collector_pickup_collected"]

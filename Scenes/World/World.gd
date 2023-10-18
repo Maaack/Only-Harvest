@@ -1,6 +1,7 @@
 extends Node2D
 
 signal time_updated
+signal quickslots_updated(slot_array)
 
 @export var crop_tilemap : TileMap
 @export var crop_tilemap_layer : int = 0
@@ -93,3 +94,8 @@ func _ready():
 	_replace_crop_tiles_with_objects()
 	_connect_guard_dogs()
 	_connect_crops()
+
+
+
+func _on_player_character_quickslots_updated(slot_array):
+	emit_signal("quickslots_updated", slot_array)
