@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=15 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="5_05bd4"]
 [ext_resource type="Script" path="res://Scenes/World/AStarGridServer.gd" id="6_gb1ut"]
 [ext_resource type="PackedScene" uid="uid://b8h64mseoitm" path="res://Scenes/GuardDog/GuardDog.tscn" id="7_n0m51"]
+[ext_resource type="PackedScene" uid="uid://by5xvbhtw6dfp" path="res://Scenes/PrivateProperty/PrivateProperty.tscn" id="9_vhaf2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -941,5 +942,16 @@ position = Vector2(209, -5)
 
 [node name="Collectibles" type="Node2D" parent="."]
 
+[node name="Properties" type="Node2D" parent="."]
+
+[node name="PrivateProperty" parent="Properties" instance=ExtResource("9_vhaf2")]
+position = Vector2(168, -24)
+faction = 1
+
+[node name="CollisionPolygon2D" parent="Properties/PrivateProperty" index="0"]
+polygon = PackedVector2Array(-8, -8, 88, -8, 88, 80, -8, 80)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]
+
+[editable path="Properties/PrivateProperty"]

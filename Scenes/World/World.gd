@@ -2,6 +2,8 @@ extends Node2D
 
 signal time_updated
 signal quickslots_updated(slot_array)
+signal player_started_trespassing(faction : Constants.Factions)
+signal player_stopped_trespassing(faction : Constants.Factions)
 
 @export var crop_tilemap : TileMap
 @export var crop_tilemap_layer : int = 0
@@ -11,6 +13,7 @@ var base_crop_pickups_scene = preload("res://Scenes/Pickups/CropPickup.tscn")
 
 @onready var characters_container = $Characters
 @onready var collectibles_container = $Collectibles
+@onready var properties_container = $Properties
 @onready var player_character = %PlayerCharacter
 var world_time : int = 0
 var hours_in_day : int = 24
@@ -90,12 +93,27 @@ func _connect_crops():
 		if child is Crop:
 			_connect_crop(child)
 
+func _on_player_started_trespassing(faction : Constants.Factions):
+	emit_signal("player_started_trespassing", faction)
+
+func _on_player_stopped_trespassing(faction : Constants.Factions):
+	emit_signal("player_stopped_trespassing", faction)
+
+func _connect_property(property : PrivateProperty):
+	property.connect("player_started_trespassing", _on_player_started_trespassing)
+	property.connect("player_stopped_trespassing", _on_player_stopped_trespassing)
+
+func _connect_properties():
+	var children : Array[Node] = properties_container.get_children()
+	for child in children:
+		if child is PrivateProperty:
+			_connect_property(child)
+
 func _ready():
 	_replace_crop_tiles_with_objects()
 	_connect_guard_dogs()
 	_connect_crops()
-
-
+	_connect_properties()
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)

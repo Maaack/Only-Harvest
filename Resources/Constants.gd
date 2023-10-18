@@ -14,12 +14,30 @@ enum Stages{
 	FOUR,
 }
 
+enum Factions{
+	PLAYER,
+	MCGREGOR,
+	JOHANSONSON,
+	MADISONSON,
+	MCFICKLEFECKER,
+	DORATHORY,
+	FEELBAGGINS,
+	MEANERRABBIT,
+}
+
 const EGGPLANT_NAME : String = "Eggplant"
 const WHEAT_NAME : String = "Wheat"
+const MEANERRABBIT_NAME :String = "Meaner Rabbit"
+const MCGREGOR_NAME :String = "McGregor"
 
 const CROP_GROWTH_RATES : Dictionary = {
 	EGGPLANT_NAME : [6,6,6],
 	WHEAT_NAME : [3,3,3],
+}
+
+const FACTION_NAMES : Dictionary = {
+	Factions.MEANERRABBIT : MEANERRABBIT_NAME,
+	Factions.MCGREGOR : MCGREGOR_NAME
 }
 
 static func get_crop_tilemap():
