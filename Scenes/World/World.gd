@@ -17,6 +17,7 @@ var base_crop_pickups_scene = preload("res://Scenes/Pickups/CropPickup.tscn")
 @onready var player_character = %PlayerCharacter
 var world_time : int = 0
 var hours_in_day : int = 24
+var player_trespassing_properties : Array[Constants.Factions]
 
 func increment_world_time(amount : int = 1):
 	world_time += amount
@@ -59,7 +60,10 @@ func _replace_crop_tiles_with_objects():
 		_clear_crop_tile(used_cell)
 
 func _update_guard_dog_nav(guard_dog_node : GuardDog):
-	guard_dog_node.next_navigation_points = [player_character.position]
+	if guard_dog_node.faction in player_trespassing_properties:
+		guard_dog_node.next_navigation_points = [player_character.position]
+	else:
+		guard_dog_node.next_navigation_points = [guard_dog_node.guard_position]
 
 func _connect_guard_dog(guard_dog_node : GuardDog):
 	guard_dog_node.connect("nav_update_requested", _update_guard_dog_nav.bind(guard_dog_node))
@@ -95,9 +99,11 @@ func _connect_crops():
 
 func _on_player_started_trespassing(faction : Constants.Factions):
 	emit_signal("player_started_trespassing", faction)
+	player_trespassing_properties.append(faction)
 
 func _on_player_stopped_trespassing(faction : Constants.Factions):
 	emit_signal("player_stopped_trespassing", faction)
+	player_trespassing_properties.erase(faction)
 
 func _connect_property(property : PrivateProperty):
 	property.connect("player_started_trespassing", _on_player_started_trespassing)
