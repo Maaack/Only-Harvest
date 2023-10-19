@@ -96,11 +96,10 @@ func drop_crop_pickups(crop_type : Constants.Crops, center_position : Vector2, c
 		crop_pickup_instance.crop_type = crop_type
 		crop_pickup_instance.bounce_away()
 
-func _on_crop_harvested(crop_node : Crop):
+func _on_crop_harvested(dropped : int, crop_node : Crop):
 	if crop_node == null:
 		return
-	var random_dist = min(max(0, randfn(2, 1)), 4)
-	drop_crop_pickups(crop_node.crop_type, crop_node.position, random_dist)
+	drop_crop_pickups(crop_node.crop_type, crop_node.position, dropped)
 
 func _connect_crop(crop_node : Crop):
 	crop_node.connect("harvested", _on_crop_harvested.bind(crop_node))
