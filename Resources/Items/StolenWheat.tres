@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseQuantity" load_steps=4 format=3 uid="uid://cl5ip8klst0mo"]
+
+[ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="1_5lrwx"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="2_wdx12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlo12"]
+atlas = ExtResource("1_5lrwx")
+region = Rect2(80, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_wdx12")
+quantity = 1.0
+name = "Stolen Wheat"
+icon = SubResource("AtlasTexture_nlo12")
+taxonomy = "Harvest"
+numerical_unit = 0

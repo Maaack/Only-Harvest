@@ -5,7 +5,10 @@ signal harvested(dropped : BaseQuantity)
 
 @export var crop_type : Constants.Crops = Constants.Crops.NONE
 @export var growth_stage : Constants.Stages = Constants.Stages.ONE
-@export var faction : Constants.Factions = Constants.Factions.NONE
+@export var faction : Constants.Factions = Constants.Factions.NONE :
+	set(value):
+		faction = value
+		_update_crop_type()
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
@@ -19,10 +22,16 @@ var drops : Resource
 func _update_crop_type():
 	match(crop_type):
 		Constants.Crops.WHEAT:
-			drops = load("res://Resources/Items/HarvestedWheat.tres")
+			if faction == Constants.Factions.PLAYER:
+				drops = load("res://Resources/Items/HarvestedWheat.tres")
+			else:
+				drops = load("res://Resources/Items/StolenWheat.tres")
 			crop_type_name = Constants.WHEAT_NAME
 		Constants.Crops.EGGPLANT:
-			drops = load("res://Resources/Items/HarvestedEggplant.tres")
+			if faction == Constants.Factions.PLAYER:
+				drops = load("res://Resources/Items/HarvestedEggplant.tres")
+			else:
+				drops = load("res://Resources/Items/StolenEggplant.tres")
 			crop_type_name = Constants.EGGPLANT_NAME
 	if crop_type_name == null or crop_type_name == "":
 		return
