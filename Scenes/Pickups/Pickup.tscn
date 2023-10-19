@@ -96,6 +96,8 @@ collision_layer = 8
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_r0x85")
+friction = 100.0
+bounce_force = 64.0
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.141176)
