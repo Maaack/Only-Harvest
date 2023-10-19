@@ -97,17 +97,27 @@ func remove_contents(values):
 	for value in values:
 		remove_content(value)
 
-func remove_content(value:BaseUnit):
+func has_content(value:BaseUnit):
 	if value == null:
+		return false
+	if value is BaseQuantity:
+		var content = find_content(value.name)
+		if content is BaseQuantity:
+			return content.quantity >= value.quantity
+	else:
+		return find_content(value.name) != null
+
+func remove_content(value:BaseUnit):
+	if value == null or not has_content(value):
 		return
 	if value is BaseQuantity:
 		var content = find_content(value.name)
 		if content is BaseQuantity:
 			content.quantity -= value.quantity
-			update_quantities()
-			return
-	contents.erase(value)
+	else:
+		contents.erase(value)
 	update_quantities()
+	return value.duplicate()
 
 func find_quantity(name_query:String):
 	for quantity in quantities:

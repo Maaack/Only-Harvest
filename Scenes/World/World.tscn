@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=23 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -890,6 +890,18 @@ sources/1 = SubResource("TileSetAtlasSource_1kfwu")
 sources/2 = SubResource("TileSetAtlasSource_pwjgx")
 sources/3 = SubResource("TileSetAtlasSource_rmme2")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlo12"]
+atlas = ExtResource("5_05bd4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_2gssn"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Wheat"
+icon = SubResource("AtlasTexture_nlo12")
+taxonomy = "Harvest"
+numerical_unit = 0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxqgp"]
 atlas = ExtResource("11_wwwc8")
 region = Rect2(16, 0, 16, 16)
@@ -960,6 +972,7 @@ position = Vector2(209, -5)
 
 [node name="TradingChest" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(72, -72)
+buying = SubResource("Resource_2gssn")
 selling = SubResource("Resource_3g100")
 
 [node name="Collectibles" type="Node2D" parent="."]
@@ -979,5 +992,7 @@ unique_name_in_owner = true
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]
+[connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
+[connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 
 [editable path="Properties/PrivateProperty"]

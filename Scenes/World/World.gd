@@ -5,6 +5,8 @@ signal quickslots_updated(slot_array)
 signal player_started_trespassing(faction : Constants.Factions)
 signal player_stopped_trespassing(faction : Constants.Factions)
 signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
+signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
+signal trading_revoked
 
 @export var crop_tilemap : TileMap
 @export var crop_tilemap_layer : int = 0
@@ -182,3 +184,8 @@ func _kill_player():
 func _on_player_character_killed():
 	_kill_player()
 
+func _on_player_character_trading_offered(buying, selling):
+	emit_signal("trading_offered", buying, selling)
+
+func _on_player_character_trading_revoked():
+	emit_signal("trading_revoked")

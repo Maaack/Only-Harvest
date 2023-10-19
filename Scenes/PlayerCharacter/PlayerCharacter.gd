@@ -7,6 +7,8 @@ signal item_received(item_name : String)
 signal health_changed(health : float, max_health : float)
 signal killed
 signal quickslots_updated(slot_array : Array)
+signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
+signal trading_revoked
 
 @export var max_health : float = 10
 @export var health_per_heart : float = 2
@@ -29,6 +31,7 @@ var can_take_damage : bool = true
 var health : float = max_health
 var accessible_interactables : Array = []
 var inventory : BaseContainer
+var active_node
 
 func pickup_item(_item):
 	pass
@@ -154,13 +157,23 @@ func _ready():
 	_set_health_to_max()
 	inventory = BaseContainer.new()
 
+func _attempt_trade():
+	if not active_node is TradingChest:
+		return
+	if inventory.has_content(active_node.buying):
+		var trade_quantity = inventory.remove_content(active_node.buying)
+		active_node.trade(trade_quantity)
+
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jump_input_flag = true
 	else:
 		jump_input_flag = false
 	if event.is_action_pressed("action"):
-		action_input_flag = true
+		if active_node == null:
+			action_input_flag = true
+		else:
+			_attempt_trade()
 	else:
 		action_input_flag = false
 
@@ -201,3 +214,11 @@ func revive():
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	set_physics_process(true)
+
+func offer_trade(chest_node : TradingChest):
+	active_node = chest_node
+	emit_signal("trading_offered", chest_node.buying, chest_node.selling)
+
+func revoke_trade():
+	active_node = null
+	emit_signal("trading_revoked")

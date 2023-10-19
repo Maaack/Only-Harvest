@@ -24,3 +24,11 @@ func _on_world_game_ended(days_passed, quantities):
 	$GameOver.days_passed = days_passed
 	$GameOver.earnings = quantities
 	$GameOver.refresh_text()
+
+func _on_world_trading_offered(buying, selling):
+	%TradePanel.show()
+	%BuyingSlot.quantity = buying
+	%SellingSlot.quantity = selling
+
+func _on_world_trading_revoked():
+	%TradePanel.hide()
