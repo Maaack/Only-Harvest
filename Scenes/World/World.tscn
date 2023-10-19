@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=43 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -1723,15 +1723,18 @@ sources/5 = SubResource("TileSetAtlasSource_8rwgx")
 sources/7 = SubResource("TileSetAtlasSource_ec0i7")
 sources/8 = SubResource("TileSetAtlasSource_jobb0")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nlo12"]
-atlas = ExtResource("5_05bd4")
-region = Rect2(80, 0, 16, 16)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_timxd"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
 
-[sub_resource type="Resource" id="Resource_2gssn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1wck"]
+atlas = SubResource("CompressedTexture2D_timxd")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_0unv2"]
 script = ExtResource("12_1gmxm")
 quantity = 5.0
-name = "Wheat"
-icon = SubResource("AtlasTexture_nlo12")
+name = "Stolen Wheat"
+icon = SubResource("AtlasTexture_b1wck")
 taxonomy = "Harvest"
 numerical_unit = 0
 
@@ -1744,6 +1747,73 @@ script = ExtResource("12_1gmxm")
 quantity = 10.0
 name = "Darko Crypto"
 icon = SubResource("AtlasTexture_yxqgp")
+taxonomy = "Money"
+numerical_unit = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlo12"]
+atlas = ExtResource("5_05bd4")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_l8rh1"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Stolen Eggplant"
+icon = SubResource("AtlasTexture_nlo12")
+taxonomy = "Harvest"
+numerical_unit = 0
+
+[sub_resource type="Resource" id="Resource_mxybt"]
+script = ExtResource("12_1gmxm")
+quantity = 20.0
+name = "Darko Crypto"
+icon = SubResource("AtlasTexture_yxqgp")
+taxonomy = "Money"
+numerical_unit = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m14h"]
+atlas = ExtResource("5_05bd4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_xsimk"]
+script = ExtResource("12_1gmxm")
+quantity = 10.0
+name = "Wheat"
+icon = SubResource("AtlasTexture_4m14h")
+taxonomy = "Harvest"
+numerical_unit = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jrjr"]
+atlas = ExtResource("11_wwwc8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_66d52"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Credit"
+icon = SubResource("AtlasTexture_4jrjr")
+taxonomy = "Money"
+numerical_unit = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2xye"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hsv4"]
+atlas = SubResource("CompressedTexture2D_k2xye")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_4dxyk"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Eggplant"
+icon = SubResource("AtlasTexture_4hsv4")
+taxonomy = "Harvest"
+numerical_unit = 0
+
+[sub_resource type="Resource" id="Resource_vtvd7"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Credit"
+icon = SubResource("AtlasTexture_4jrjr")
 taxonomy = "Money"
 numerical_unit = 0
 
@@ -1836,8 +1906,23 @@ position = Vector2(728, 432)
 
 [node name="TradingChest" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(576, 128)
-buying = SubResource("Resource_2gssn")
+buying = SubResource("Resource_0unv2")
 selling = SubResource("Resource_3g100")
+
+[node name="TradingChest3" parent="Characters" instance=ExtResource("10_38t6v")]
+position = Vector2(608, 224)
+buying = SubResource("Resource_l8rh1")
+selling = SubResource("Resource_mxybt")
+
+[node name="TradingChest2" parent="Characters" instance=ExtResource("10_38t6v")]
+position = Vector2(424, 128)
+buying = SubResource("Resource_xsimk")
+selling = SubResource("Resource_66d52")
+
+[node name="TradingChest4" parent="Characters" instance=ExtResource("10_38t6v")]
+position = Vector2(400, 224)
+buying = SubResource("Resource_4dxyk")
+selling = SubResource("Resource_vtvd7")
 
 [node name="Collectibles" type="Node2D" parent="."]
 

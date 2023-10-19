@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="1_onj3m"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="2_b4b4f"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yxqgp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jrjr"]
 atlas = ExtResource("1_onj3m")
 region = Rect2(0, 0, 16, 16)
 
@@ -11,6 +11,6 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("2_b4b4f")
 quantity = 1.0
 name = "Credit"
-icon = SubResource("AtlasTexture_yxqgp")
+icon = SubResource("AtlasTexture_4jrjr")
 taxonomy = "Money"
 numerical_unit = 0
