@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=6 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
 [ext_resource type="PackedScene" uid="uid://burp6ip1d6yo" path="res://Scenes/MainGameUI/DateTime/DateTime.tscn" id="2_4pd0i"]
 [ext_resource type="PackedScene" uid="uid://cj8ogciftt4ml" path="res://Scenes/Quickslots/Quickslots.tscn" id="4_igd4l"]
+[ext_resource type="PackedScene" uid="uid://rriqgw05uops" path="res://Scenes/GameOver/GameOver.tscn" id="5_j3o8h"]
 
 [node name="MainGameUI" type="Control"]
 layout_mode = 3
@@ -64,6 +65,11 @@ offset_bottom = 23.0
 grow_horizontal = 2
 horizontal_alignment = 1
 
+[node name="GameOver" parent="." instance=ExtResource("5_j3o8h")]
+visible = false
+layout_mode = 1
+
+[connection signal="game_ended" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_game_ended"]
 [connection signal="player_started_trespassing" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_player_started_trespassing"]
 [connection signal="player_stopped_trespassing" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_player_stopped_trespassing"]
 [connection signal="quickslots_updated" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_quickslots_updated"]

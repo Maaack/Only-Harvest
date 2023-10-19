@@ -4,10 +4,12 @@ signal time_updated
 signal quickslots_updated(slot_array)
 signal player_started_trespassing(faction : Constants.Factions)
 signal player_stopped_trespassing(faction : Constants.Factions)
+signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
 
 @export var crop_tilemap : TileMap
 @export var crop_tilemap_layer : int = 0
 @export var crop_source_id : int = 0
+@export var game_over_days : int = 7
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_crop_pickups_scene = preload("res://Scenes/Pickups/CropPickup.tscn")
 
@@ -19,12 +21,20 @@ var world_time : int = 0
 var hours_in_day : int = 24
 var player_trespassing_properties : Array[Constants.Factions]
 
+func _stop_player():
+	player_character.set_collision_layer_value(1, false)
+	player_character.set_collision_layer_value(5, false)
+	player_character.set_physics_process(false)
+
 func increment_world_time(amount : int = 1):
 	world_time += amount
 	var container_children : Array[Node] = characters_container.get_children()
 	for child in container_children:
 		if child is Crop:
 			child.increment_crop_age(amount)
+	if get_day() == game_over_days:
+		_stop_player()
+		emit_signal("game_ended", get_day(), player_character.inventory.quantities)
 	emit_signal("time_updated")
 
 func _on_timer_timeout():

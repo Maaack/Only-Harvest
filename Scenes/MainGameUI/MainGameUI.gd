@@ -18,3 +18,9 @@ func _on_world_player_started_trespassing(faction):
 
 func _on_world_player_stopped_trespassing(faction):
 	%TrespassingWarning.hide()
+
+func _on_world_game_ended(days_passed, quantities):
+	$GameOver.show()
+	$GameOver.days_passed = days_passed
+	$GameOver.earnings = quantities
+	$GameOver.refresh_text()
