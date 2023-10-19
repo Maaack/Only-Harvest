@@ -12,7 +12,7 @@ signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
 @export var game_over_days : int = 7
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_crop_pickups_scene = preload("res://Scenes/Pickups/CropPickup.tscn")
-
+var base_money_pickups_scene = preload("res://Scenes/Pickups/MoneyPickup.tscn")
 @onready var characters_container = $Characters
 @onready var collectibles_container = $Collectibles
 @onready var properties_container = $Properties
@@ -128,11 +128,33 @@ func _connect_properties():
 		if child is PrivateProperty:
 			_connect_property(child)
 
+func drop_money_pickups(center_position : Vector2, quantity : BaseQuantity):
+	var money_pickup_instance = base_money_pickups_scene.instantiate()
+	collectibles_container.call_deferred("add_child", money_pickup_instance)
+	money_pickup_instance.position = center_position
+	money_pickup_instance.money_type = Constants.Monies.CRYPTOS
+	money_pickup_instance.bounce_away()
+		
+func _on_chest_dropped(quantity : BaseQuantity, chest_node : Node2D):
+	if chest_node == null:
+		return
+	drop_money_pickups(chest_node.position, quantity)
+
+func _connect_chest(chest_node : Node2D):
+	chest_node.connect("dropped", _on_chest_dropped.bind(chest_node))
+
+func _connect_chests():
+	var children : Array[Node] = characters_container.get_children()
+	for child in children:
+		if child is TradingChest:
+			_connect_chest(child)
+
 func _ready():
 	_replace_crop_tiles_with_objects()
 	_connect_guard_dogs()
 	_connect_crops()
 	_connect_properties()
+	_connect_chests()
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)
@@ -158,3 +180,4 @@ func _kill_player():
 
 func _on_player_character_killed():
 	_kill_player()
+

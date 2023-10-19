@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=21 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b8h64mseoitm" path="res://Scenes/GuardDog/GuardDog.tscn" id="7_n0m51"]
 [ext_resource type="PackedScene" uid="uid://by5xvbhtw6dfp" path="res://Scenes/PrivateProperty/PrivateProperty.tscn" id="9_vhaf2"]
 [ext_resource type="PackedScene" uid="uid://bwa30ox5nmgq7" path="res://Scenes/TradingChest/TradingChest.tscn" id="10_38t6v"]
+[ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="11_wwwc8"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="12_1gmxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -888,6 +890,18 @@ sources/1 = SubResource("TileSetAtlasSource_1kfwu")
 sources/2 = SubResource("TileSetAtlasSource_pwjgx")
 sources/3 = SubResource("TileSetAtlasSource_rmme2")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxqgp"]
+atlas = ExtResource("11_wwwc8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_3g100"]
+script = ExtResource("12_1gmxm")
+quantity = 10.0
+name = "Darko Crypto"
+icon = SubResource("AtlasTexture_yxqgp")
+taxonomy = "Money"
+numerical_unit = 0
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("crop_tilemap")]
 texture_filter = 1
 script = ExtResource("1_rdfhq")
@@ -946,6 +960,7 @@ position = Vector2(209, -5)
 
 [node name="TradingChest" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(72, -72)
+selling = SubResource("Resource_3g100")
 
 [node name="Collectibles" type="Node2D" parent="."]
 

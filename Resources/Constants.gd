@@ -6,6 +6,13 @@ enum Crops{
 	EGGPLANT,
 	WHEAT,
 }
+
+enum Monies{
+	NONE = -1,
+	CREDITS,
+	CRYPTOS,
+}
+
 enum Stages{
 	ZERO,
 	ONE,
