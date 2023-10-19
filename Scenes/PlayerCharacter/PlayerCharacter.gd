@@ -188,8 +188,8 @@ func get_selected_item():
 		return inventory.find_content(quantity.name)
 
 func _on_pickup_collector_pickup_collected(pickup):
-	if pickup is CropPickup:
-		add_to_inventory(pickup.item.duplicate())
+	if pickup is QuantityPickup:
+		add_to_inventory(pickup.quantity.duplicate())
 
 func kill():
 	emit_signal("killed")

@@ -11,8 +11,7 @@ signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
 @export var crop_source_id : int = 0
 @export var game_over_days : int = 7
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
-var base_crop_pickups_scene = preload("res://Scenes/Pickups/CropPickup.tscn")
-var base_money_pickups_scene = preload("res://Scenes/Pickups/MoneyPickup.tscn")
+var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
 @onready var characters_container = $Characters
 @onready var collectibles_container = $Collectibles
 @onready var properties_container = $Properties
@@ -88,18 +87,20 @@ func _connect_guard_dogs():
 		if child is GuardDog:
 			_connect_guard_dog(child)
 
-func drop_crop_pickups(crop_type : Constants.Crops, center_position : Vector2, count : int = 1):
-	for i in range(count):
-		var crop_pickup_instance = base_crop_pickups_scene.instantiate()
+func drop_crop_pickups(center_position : Vector2, quantity : BaseQuantity):
+	var normalized_quantity : BaseQuantity = quantity.duplicate()
+	normalized_quantity.quantity = 1
+	for i in quantity.quantity:
+		var crop_pickup_instance = base_pickups_scene.instantiate()
 		collectibles_container.call_deferred("add_child", crop_pickup_instance)
 		crop_pickup_instance.position = center_position
-		crop_pickup_instance.crop_type = crop_type
+		crop_pickup_instance.quantity = normalized_quantity
 		crop_pickup_instance.bounce_away()
 
-func _on_crop_harvested(dropped : int, crop_node : Crop):
+func _on_crop_harvested(dropped : BaseQuantity, crop_node : Crop):
 	if crop_node == null:
 		return
-	drop_crop_pickups(crop_node.crop_type, crop_node.position, dropped)
+	drop_crop_pickups(crop_node.position, dropped)
 
 func _connect_crop(crop_node : Crop):
 	crop_node.connect("harvested", _on_crop_harvested.bind(crop_node))
@@ -129,10 +130,10 @@ func _connect_properties():
 			_connect_property(child)
 
 func drop_money_pickups(center_position : Vector2, quantity : BaseQuantity):
-	var money_pickup_instance = base_money_pickups_scene.instantiate()
+	var money_pickup_instance = base_pickups_scene.instantiate()
 	collectibles_container.call_deferred("add_child", money_pickup_instance)
 	money_pickup_instance.position = center_position
-	money_pickup_instance.money_type = Constants.Monies.CRYPTOS
+	money_pickup_instance.quantity = quantity
 	money_pickup_instance.bounce_away()
 		
 func _on_chest_dropped(quantity : BaseQuantity, chest_node : Node2D):

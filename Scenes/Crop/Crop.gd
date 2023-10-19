@@ -1,7 +1,7 @@
 extends Area2D
 class_name Crop
 
-signal harvested(dropped : int)
+signal harvested(dropped : BaseQuantity)
 
 @export var crop_type : Constants.Crops = Constants.Crops.NONE
 @export var growth_stage : Constants.Stages = Constants.Stages.ONE
@@ -14,12 +14,15 @@ var crop_type_name : String = ""
 var growth_rates : Array = []
 var growth_rate_iter : int = 0
 var raw_crop_age : int = 0
+var drops : Resource
 
 func _update_crop_type():
 	match(crop_type):
 		Constants.Crops.WHEAT:
+			drops = load("res://Resources/Items/HarvestedWheat.tres")
 			crop_type_name = Constants.WHEAT_NAME
 		Constants.Crops.EGGPLANT:
+			drops = load("res://Resources/Items/HarvestedEggplant.tres")
 			crop_type_name = Constants.EGGPLANT_NAME
 	if crop_type_name == null or crop_type_name == "":
 		return
@@ -93,5 +96,7 @@ func increment_crop_age(amount : int = 1):
 
 func try_harvest():
 	if growth_stage == Constants.Stages.FOUR:
-		emit_signal("harvested", min(max(1, randfn(3, 1)), 6))
+		var drop_quantity = drops.duplicate()
+		drop_quantity.quantity = min(max(1, randfn(3, 1)), 6)
+		emit_signal("harvested", drop_quantity)
 		queue_free()

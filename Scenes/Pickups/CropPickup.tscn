@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://buqkf1qcesebj"]
-
-[ext_resource type="PackedScene" uid="uid://osw81onoxa08" path="res://Scenes/Pickups/Pickup.tscn" id="1_xj87w"]
-[ext_resource type="Script" path="res://Scenes/Pickups/CropPickup.gd" id="2_x7lhq"]
-
-[node name="CropPickup" instance=ExtResource("1_xj87w")]
-script = ExtResource("2_x7lhq")
-crop_type = -1

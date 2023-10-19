@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqecagnr3tss"]
+
+[ext_resource type="PackedScene" uid="uid://osw81onoxa08" path="res://Scenes/Pickups/Pickup.tscn" id="1_djr55"]
+[ext_resource type="Script" path="res://Scenes/Pickups/QuantityPickup.gd" id="2_ceihd"]
+
+[node name="QuantityPickup" instance=ExtResource("1_djr55")]
+script = ExtResource("2_ceihd")
+quantity = null
