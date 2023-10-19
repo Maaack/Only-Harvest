@@ -5,7 +5,7 @@ var astar : AStarGrid2D
 @export var region : Rect2i = Rect2i(0, 0, 32, 32)
 @export var cell_size : Vector2i = Vector2i(16, 16)
 @export var exclude_tilemaps : Array[TileMap]
-@export var exclude_tilemap_layer : int = 0
+@export var exclude_tilemap_layers : Array[int] = []
 @export var collision_groups : Array[String]
 @export var radius_padding : float = 0
 @export var size_padding : float = 0 
@@ -28,20 +28,21 @@ func exclude_tilemap(tilemap : TileMap):
 	var excluded_tiles : Array[Vector2i] = []
 	var x_size = region.size.x
 	var y_size = region.size.y
-	for x in range(x_size):
-		for y in range(y_size):
-			var astar_vector = Vector2i(x, y) + region.position
-			var ratio = Vector2(cell_size) / Vector2(tilemap.tile_set.tile_size)
-			var x_total = floor(astar_vector.x * ratio.x)
-			var y_total = floor(astar_vector.y * ratio.y)
-			var coord2i = Vector2i(x_total, y_total)
-			if coord2i in excluded_tiles:
-				astar.set_point_solid(astar_vector, true)
-				continue
-			var results = tilemap.get_cell_source_id(exclude_tilemap_layer, coord2i)
-			if results > -1:
-				astar.set_point_solid(astar_vector, true)
-				excluded_tiles.append(coord2i)
+	for layer in exclude_tilemap_layers:
+		for x in range(x_size):
+			for y in range(y_size):
+				var astar_vector = Vector2i(x, y) + region.position
+				var ratio = Vector2(cell_size) / Vector2(tilemap.tile_set.tile_size)
+				var x_total = floor(astar_vector.x * ratio.x)
+				var y_total = floor(astar_vector.y * ratio.y)
+				var coord2i = Vector2i(x_total, y_total)
+				if coord2i in excluded_tiles:
+					astar.set_point_solid(astar_vector, true)
+					continue
+				var results = tilemap.get_cell_source_id(layer, coord2i)
+				if results > -1:
+					astar.set_point_solid(astar_vector, true)
+					excluded_tiles.append(coord2i)
 
 func _save_nonsolid_points():
 	nonsolid_astar_points.clear()
