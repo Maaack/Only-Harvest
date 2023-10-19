@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scenes/TradingChest/TradingChest.gd" id="1_l7t0c"]
 [ext_resource type="Texture2D" uid="uid://bhjytby2ycvpn" path="res://Assets/Sourced/Sprout Lands/Objects/Chest.png" id="1_tli8s"]
 
-[sub_resource type="Animation" id="Animation_roa3l"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_guclc"]
+resource_name = "Idle"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,9 +35,8 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_guclc"]
-resource_name = "Idle"
-length = 0.1
+[sub_resource type="Animation" id="Animation_roa3l"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
