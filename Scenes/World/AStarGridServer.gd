@@ -137,7 +137,7 @@ func _ready_astargrid():
 	astar = AStarGrid2D.new()
 	astar.region = region
 	astar.cell_size = Vector2(cell_size)
-	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_AT_LEAST_ONE_WALKABLE
+	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	astar.jumping_enabled = true
 	astar.update()
 

@@ -60,10 +60,14 @@ func _replace_crop_tiles_with_objects():
 		_clear_crop_tile(used_cell)
 
 func _update_guard_dog_nav(guard_dog_node : GuardDog):
+	var target_position : Vector2
 	if guard_dog_node.faction in player_trespassing_properties:
-		guard_dog_node.next_navigation_points = [player_character.position]
+		target_position = player_character.position
 	else:
-		guard_dog_node.next_navigation_points = [guard_dog_node.guard_position]
+		target_position = guard_dog_node.guard_position
+	var points_array : Array = $AStarGridServer.get_world_path_avoiding_points(guard_dog_node.position, target_position)
+	points_array.pop_front()
+	guard_dog_node.next_navigation_points = points_array
 
 func _connect_guard_dog(guard_dog_node : GuardDog):
 	guard_dog_node.connect("nav_update_requested", _update_guard_dog_nav.bind(guard_dog_node))

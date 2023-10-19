@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_car6v"]
 radius = 4.0
-height = 24.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_c4cb2"]
 resource_name = "FaceE"
@@ -204,6 +204,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 collision_layer = 17
 collision_mask = 3
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_i2w6n")
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]

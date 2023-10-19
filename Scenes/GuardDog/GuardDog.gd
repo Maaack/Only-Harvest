@@ -48,7 +48,7 @@ func _process_movement(target : Vector2, speed : float, delta : float):
 
 func _get_navigation_point():
 	if next_navigation_points.is_empty():
-		return Vector2.ZERO
+		return position
 	var next_navigation_point = next_navigation_points[0]
 	if next_navigation_points.size() > 1 and (next_navigation_point - position).length_squared() < pow(MIN_TARGET_MOVE_DISTANCE,2):
 		next_navigation_points = next_navigation_points.slice(1)

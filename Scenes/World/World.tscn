@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=16 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://df6fcrlg0kjsv" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="3_vvfm4"]
 [ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="5_05bd4"]
 [ext_resource type="Script" path="res://Scenes/World/AStarGridServer.gd" id="6_gb1ut"]
+[ext_resource type="Texture2D" uid="uid://cgcm6qhrgqdlq" path="res://Assets/Originals/Sprites/navigation_point.png" id="7_4003p"]
 [ext_resource type="PackedScene" uid="uid://b8h64mseoitm" path="res://Scenes/GuardDog/GuardDog.tscn" id="7_n0m51"]
 [ext_resource type="PackedScene" uid="uid://by5xvbhtw6dfp" path="res://Scenes/PrivateProperty/PrivateProperty.tscn" id="9_vhaf2"]
 
@@ -928,8 +929,10 @@ autostart = true
 
 [node name="AStarGridServer" type="Node2D" parent="." node_paths=PackedStringArray("exclude_tilemaps")]
 script = ExtResource("6_gb1ut")
+region = Rect2i(0, -10, 32, 32)
 exclude_tilemaps = [NodePath("../TileMap")]
 exclude_tilemap_layer = 2
+debug_cell_texture = ExtResource("7_4003p")
 
 [node name="Characters" type="Node2D" parent="."]
 y_sort_enabled = true
