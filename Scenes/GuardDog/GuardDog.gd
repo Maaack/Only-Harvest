@@ -7,9 +7,11 @@ const MIN_TARGET_MOVE_DISTANCE = 3.0
 
 @export var movement_speed = 4000
 @export var friction : float = 1000
+@export var faction : Constants.Factions = Constants.Factions.NONE
 
 @onready var character_animation_tree = $AnimationTree
 @onready var character_state_machine : AnimationNodeStateMachinePlayback = character_animation_tree.get("parameters/playback")
+@onready var guard_position : Vector2 = position
 
 var sees_player : bool = true
 var move_target : Vector2

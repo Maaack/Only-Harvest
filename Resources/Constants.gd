@@ -15,6 +15,7 @@ enum Stages{
 }
 
 enum Factions{
+	NONE = -1,
 	PLAYER,
 	MCGREGOR,
 	JOHANSONSON,

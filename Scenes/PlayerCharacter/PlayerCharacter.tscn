@@ -1151,6 +1151,7 @@ graph_offset = Vector2(126, -71.3159)
 size = Vector2(16, 16)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+collision_layer = 17
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_a1020")

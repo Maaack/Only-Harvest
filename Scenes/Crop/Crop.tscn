@@ -256,7 +256,7 @@ transitions = ["Start", "Eggplant", SubResource("AnimationNodeStateMachineTransi
 graph_offset = Vector2(-140, -15)
 
 [node name="Crop" type="Area2D"]
-collision_layer = 4
+collision_layer = 20
 collision_mask = 0
 script = ExtResource("1_amieh")
 

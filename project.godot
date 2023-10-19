@@ -65,6 +65,7 @@ action={
 2d_physics/layer_2="walls"
 2d_physics/layer_3="crops"
 2d_physics/layer_4="items"
+2d_physics/layer_5="properties"
 
 [rendering]
 

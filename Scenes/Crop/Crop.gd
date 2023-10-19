@@ -5,6 +5,7 @@ signal harvested
 
 @export var crop_type : Constants.Crops = Constants.Crops.NONE
 @export var growth_stage : Constants.Stages = Constants.Stages.ONE
+@export var faction : Constants.Factions = Constants.Factions.NONE
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")

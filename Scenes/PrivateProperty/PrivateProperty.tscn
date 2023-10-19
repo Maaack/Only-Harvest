@@ -3,10 +3,13 @@
 [ext_resource type="Script" path="res://Scenes/PrivateProperty/PrivateProperty.gd" id="1_rdp2r"]
 
 [node name="PrivateProperty" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("1_rdp2r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

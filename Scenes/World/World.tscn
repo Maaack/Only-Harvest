@@ -949,7 +949,7 @@ position = Vector2(168, -24)
 faction = 1
 
 [node name="CollisionPolygon2D" parent="Properties/PrivateProperty" index="0"]
-polygon = PackedVector2Array(-8, -8, 88, -8, 88, 80, -8, 80)
+polygon = PackedVector2Array(-208, 32, -8, 32, -8, -8, 152, -8, 152, 200, -224, 200, -224, 32)
 
 [node name="PlayerRespawnPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
