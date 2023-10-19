@@ -117,3 +117,25 @@ func _ready():
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)
+
+func _respawn_player():
+	player_character.position = %PlayerRespawnPoint.position
+	player_character.revive()
+
+func _pass_world_time(increments : int = 1, delay : float = 0.25):
+	$Timer.paused = true
+	var passed_time = 0
+	while(passed_time < increments):
+		await(get_tree().create_timer(delay, false, true).timeout)
+		increment_world_time()
+		passed_time += 1
+	$Timer.paused = false
+
+func _kill_player():
+	player_character.position = %PlayerRespawnPoint.position
+	_pass_world_time(8, 0.25)
+	await(get_tree().create_timer(2, false, true).timeout)
+	_respawn_player()
+
+func _on_player_character_killed():
+	_kill_player()

@@ -5,7 +5,7 @@ signal jump
 signal item_equipped(item_name : String)
 signal item_received(item_name : String)
 signal health_changed(health : float, max_health : float)
-signal died
+signal killed
 signal quickslots_updated(slot_array : Array)
 
 @export var max_health : float = 10
@@ -190,3 +190,14 @@ func get_selected_item():
 func _on_pickup_collector_pickup_collected(pickup):
 	if pickup is CropPickup:
 		add_to_inventory(pickup.item.duplicate())
+
+func kill():
+	emit_signal("killed")
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+	set_physics_process(false)
+
+func revive():
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(1, true)
+	set_physics_process(true)

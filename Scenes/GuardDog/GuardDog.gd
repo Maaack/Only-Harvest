@@ -38,6 +38,11 @@ func _process_movement(target : Vector2, speed : float, delta : float):
 		_move_to_target(target, speed * delta)
 		character_state_machine.travel("Walk")
 	move_and_slide()
+	for index in get_slide_collision_count():
+		var collision := get_slide_collision(index)
+		var body = collision.get_collider()
+		if body is PlayerCharacter:
+			body.kill()
 
 func _get_navigation_point():
 	if next_navigation_points.is_empty():

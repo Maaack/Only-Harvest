@@ -951,7 +951,11 @@ faction = 1
 [node name="CollisionPolygon2D" parent="Properties/PrivateProperty" index="0"]
 polygon = PackedVector2Array(-8, -8, 88, -8, 88, 80, -8, 80)
 
+[node name="PlayerRespawnPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]
 
 [editable path="Properties/PrivateProperty"]
