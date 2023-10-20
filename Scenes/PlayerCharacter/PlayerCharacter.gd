@@ -9,7 +9,7 @@ signal quickslots_updated(slot_array : Array)
 signal quickslot_selected(slot : int)
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
-signal seed_planted(crop_type : Constants.Crops, target_position : Vector2)
+signal seed_planted(seed : BaseQuantity, target_position : Vector2)
 
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
@@ -69,16 +69,15 @@ func finish_jump():
 func start_planting(target_position : Vector2):
 	target_position += position
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
-	if selected_tool.name.contains(Constants.WHEAT_NAME):
-		emit_signal("seed_planted", Constants.Crops.WHEAT, target_position)
-	elif selected_tool.name.contains(Constants.EGGPLANT_NAME):
-		emit_signal("seed_planted", Constants.Crops.EGGPLANT, target_position)
+	emit_signal("seed_planted", selected_tool, target_position)
 
 func start_action():
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
 	if selected_tool.name == "Axe":
 		animation_state.travel("Harvest")
 	elif selected_tool.name.contains("Seeds"):
+		if selected_tool.quantity < 1:
+			return
 		animation_state.travel("Plant")
 	is_acting = true
 
