@@ -110,7 +110,7 @@ prev_slot={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/MainStory.dialogue", "res://Dialogues/Interactions.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/MainStory.dialogue")
 
 [layer_names]
 
