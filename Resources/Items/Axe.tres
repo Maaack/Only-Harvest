@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseQuantity" load_steps=4 format=3 uid="uid://ck83egwgsqvb4"]
+
+[ext_resource type="Texture2D" uid="uid://b8o37isqmwiws" path="res://Assets/Sourced/Sprout Lands/Objects/Basic tools and meterials.png" id="1_lgxga"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="1_uo6hb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbcmq"]
+atlas = ExtResource("1_lgxga")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_uo6hb")
+quantity = 1.0
+name = "Axe"
+icon = SubResource("AtlasTexture_vbcmq")
+taxonomy = "Tool"
+numerical_unit = 0

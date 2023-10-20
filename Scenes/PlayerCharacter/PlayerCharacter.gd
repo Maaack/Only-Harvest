@@ -19,6 +19,7 @@ signal trading_revoked
 @onready var animation_tree = %CharacterAnimationTree
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
+var axe_item : BaseUnit = preload("res://Resources/Items/Axe.tres")
 var facing_direction : Vector2
 var is_jumping : bool = false
 var jump_input_flag : bool = false
@@ -108,6 +109,9 @@ func _apply_personal_knockback():
 func _ready():
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
+	var axe = axe_item.duplicate()
+	add_to_inventory(axe)
+	_update_quickslot()
 
 func _attempt_trade():
 	if not active_node is TradingChest:
