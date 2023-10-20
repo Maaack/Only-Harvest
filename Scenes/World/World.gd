@@ -38,7 +38,7 @@ func increment_world_time(amount : int = 1):
 		if child is Crop:
 			child.increment_crop_age(amount)
 	if get_day() == game_over_days:
-		_stop_player()
+		get_tree().paused = true
 		emit_signal("game_ended", get_day(), player_character.inventory.quantities)
 	emit_signal("time_updated")
 
@@ -168,6 +168,9 @@ func _connect_chests():
 		if child is TradingChest:
 			_connect_chest(child)
 
+func _start_world_dialogue():
+	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), "Start")
+
 func _ready():
 	_replace_crop_tiles_with_objects()
 	_connect_guard_dogs()
@@ -175,6 +178,8 @@ func _ready():
 	_connect_properties()
 	_connect_chests()
 	emit_signal("time_updated")
+	await(get_tree().create_timer(0.5).timeout)
+	_start_world_dialogue()
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)
