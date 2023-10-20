@@ -13,6 +13,7 @@ signal trading_revoked
 @export var crop_tilemap_layer : int = 0
 @export var crop_source_id : int = 0
 @export var game_over_days : int = 7
+@export var start_time_offset : int = 12
 @export var clear_layers_for_planting : Array[int] = []
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
@@ -44,10 +45,10 @@ func _on_timer_timeout():
 	increment_world_time()
 
 func get_day():
-	return floor(world_time / hours_in_day)
+	return floor((world_time + start_time_offset) / hours_in_day)
 
 func get_hour():
-	return world_time % hours_in_day
+	return (world_time + start_time_offset) % hours_in_day
 
 func _place_crop_scene_at_tile(crop_stage_data : CropStage , tile_coord : Vector2i):
 	var tile_size : Vector2i = crop_tilemap.tile_set.tile_size
@@ -165,6 +166,7 @@ func _ready():
 	_connect_crops()
 	_connect_properties()
 	_connect_chests()
+	emit_signal("time_updated")
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)
