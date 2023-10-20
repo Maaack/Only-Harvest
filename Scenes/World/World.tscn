@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=56 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bkmnb6mm8tpyu" path="res://Assets/Sourced/Sprout Lands/Tilesets/Wooden House.png" id="9_jhxln"]
 [ext_resource type="PackedScene" uid="uid://by5xvbhtw6dfp" path="res://Scenes/PrivateProperty/PrivateProperty.tscn" id="9_vhaf2"]
 [ext_resource type="PackedScene" uid="uid://bwa30ox5nmgq7" path="res://Scenes/TradingChest/TradingChest.tscn" id="10_38t6v"]
+[ext_resource type="Script" path="res://Scenes/World/SceneDirector.gd" id="10_t1sxx"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="11_wwwc8"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="12_1gmxm"]
 
@@ -1946,6 +1947,18 @@ process_callback = 0
 wait_time = 5.0
 autostart = true
 
+[node name="SceneDirector" type="Node" parent="." node_paths=PackedStringArray("player_character", "scene_camera", "family_farm_marker", "neighbor_farm_marker", "cow_marker")]
+process_mode = 3
+script = ExtResource("10_t1sxx")
+player_character = NodePath("../Characters/PlayerCharacter")
+scene_camera = NodePath("../Camera2D")
+family_farm_marker = NodePath("../FamilyFarmMarker")
+neighbor_farm_marker = NodePath("../NeighborFarmMarker")
+cow_marker = NodePath("../CowMarker")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+
 [node name="AStarGridServer" type="Node2D" parent="." node_paths=PackedStringArray("exclude_tilemaps")]
 script = ExtResource("6_gb1ut")
 region = Rect2i(0, 0, 64, 44)
@@ -2019,6 +2032,15 @@ polygon = PackedVector2Array(-208, -232, 96, -232, 96, 360, -208, 360)
 [node name="PlayerRespawnPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(138, 210)
+
+[node name="NeighborFarmMarker" type="Marker2D" parent="."]
+position = Vector2(843, 621)
+
+[node name="FamilyFarmMarker" type="Marker2D" parent="."]
+position = Vector2(169, 438)
+
+[node name="CowMarker" type="Marker2D" parent="."]
+position = Vector2(849, 420)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]

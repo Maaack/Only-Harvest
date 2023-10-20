@@ -168,11 +168,16 @@ func _connect_chests():
 		if child is TradingChest:
 			_connect_chest(child)
 
-func _start_world_dialogue():
-	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), "Start")
+func _start_dialogue(dialogue_title : String):
+	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), dialogue_title)
 	get_tree().paused = true
 	await(DialogueManager.dialogue_ended)
 	get_tree().paused = false
+	GameState.camera_target_player()
+
+func _on_game_start_dialogue():
+	await(get_tree().create_timer(0.5).timeout)
+	_start_dialogue("Start")
 
 func _ready():
 	_replace_crop_tiles_with_objects()
@@ -181,8 +186,7 @@ func _ready():
 	_connect_properties()
 	_connect_chests()
 	emit_signal("time_updated")
-	await(get_tree().create_timer(0.5).timeout)
-	_start_world_dialogue()
+	_on_game_start_dialogue()
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)

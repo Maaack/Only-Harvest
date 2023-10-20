@@ -8,19 +8,52 @@ You: Gee thanks dad, but-
 You: Owning physical property is so last century.
 Ghost: Err. What now?
 You: The future is digital!
+do GameState.camera_target_farm()
 Ghost: But the farm needs caring for-
 Ghost: Land needs hoeing, seeds need planting-
 You: Ha, hoeing.
+do GameState.camera_target_player()
 You: Sorry dad, but I am not about that life.
 You: I live for one thing.
 You: HARVESTING!
 Ghost: But you need to do those other things to have anything to harvest!
-You: There's crops ready to harvest right over there!
+You: There's crops ready to harvest right over there! [do GameState.camera_target_neighbor()]
 Ghost: But those- those aren't yours! That would be theft!
-You: I'll take the load off their hands, free of charge.
+You: [do GameState.camera_target_player()] I'll take the load off their hands, free of charge.
 Ghost: What kind of son did I raise?
 You: Then exchange it for 1k Darko Cryptos to start my data harvesting venture.
 Ghost: Oh, it keeps getting worse. Where's that light? Take me already.
+
+=> END
+
+~ PreTrespassing
+Ghost: Be careful, son! They have guard dogs!
+You: Those look like cows.
+Ghost: You are clearly mistaken, they are obvioiusly vicious attack dogs.
+Guard Dog 1: Roo... f.
+Guard Dog 2: Mroof!
+Ghost: See! They'll tear you to pieces!
+
+=> END
+
+~ McGregorDoor
+
+McGregor: Get out of here!
+
+=> END
+
+~ MarketWelcome
+
+Merchant: Welcome to the market!
+Merchant: Take a look at my offerings in the convenience chests.
+
+=> END
+
+~ BlackmarketWelcome
+
+Dealer: I'll buy any crops you got on you.
+Dealer: No ownership implied.
+Dealer: My convenience chests have deals you won't see anywhere else.
 
 => END
 

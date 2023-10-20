@@ -1707,8 +1707,6 @@ parameters/Jump/blend_position = Vector2(0, 0)
 parameters/Plant/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -8)
 
