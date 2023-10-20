@@ -4,12 +4,12 @@ class_name PlayerCharacter
 signal jump
 signal item_equipped(item_name : String)
 signal item_received(item_name : String)
-signal health_changed(health : float, max_health : float)
 signal killed
 signal quickslots_updated(slot_array : Array)
 signal quickslot_selected(slot : int)
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
+signal seed_planted(crop_type : Constants.Crops, target_position : Vector2)
 
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
@@ -20,6 +20,7 @@ signal trading_revoked
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 var axe_item : BaseUnit = preload("res://Resources/Items/Axe.tres")
+var seed_item : BaseUnit = preload("res://Resources/Items/SeedsWheat.tres")
 var facing_direction : Vector2
 var is_jumping : bool = false
 var jump_input_flag : bool = false
@@ -49,6 +50,7 @@ func face_direction(new_direction : Vector2):
 	animation_tree.set("parameters/Walk/blend_position", facing_direction)
 	animation_tree.set("parameters/Jump/blend_position", facing_direction)
 	animation_tree.set("parameters/Harvest/blend_position", facing_direction)
+	animation_tree.set("parameters/Plant/blend_position", facing_direction)
 
 func start_jump():
 	set_collision_layer_value(1, false)
@@ -64,8 +66,20 @@ func finish_jump():
 	is_jumping = false
 	jump_input_flag = false
 
+func start_planting(target_position : Vector2):
+	target_position += position
+	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
+	if selected_tool.name.contains(Constants.WHEAT_NAME):
+		emit_signal("seed_planted", Constants.Crops.WHEAT, target_position)
+	elif selected_tool.name.contains(Constants.EGGPLANT_NAME):
+		emit_signal("seed_planted", Constants.Crops.EGGPLANT, target_position)
+
 func start_action():
-	animation_state.travel("Harvest")
+	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
+	if selected_tool.name == "Axe":
+		animation_state.travel("Harvest")
+	elif selected_tool.name.contains("Seeds"):
+		animation_state.travel("Plant")
 	is_acting = true
 
 func finish_action():
@@ -110,7 +124,9 @@ func _ready():
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
 	var axe = axe_item.duplicate()
+	var seeds = seed_item.duplicate()
 	add_to_inventory(axe)
+	add_to_inventory(seeds)
 	_update_quickslot()
 
 func _attempt_trade():
@@ -148,10 +164,10 @@ func _input(event):
 			selected_slot -= 1
 			_update_quickslot()
 	if event.get_action_strength("next_slot"):
-		selected_slot += 1
+		selected_slot = $QuickslotManager.get_next_slot_by_taxonomy("Tool")
 		_update_quickslot()
 	elif event.get_action_strength("prev_slot"):
-		selected_slot -= 1
+		selected_slot = $QuickslotManager.get_prev_slot_by_taxonomy("Tool")
 		_update_quickslot()
 
 func _on_action_area_area_entered(area):

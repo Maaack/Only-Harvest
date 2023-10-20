@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=55 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -1817,6 +1817,66 @@ icon = SubResource("AtlasTexture_4jrjr")
 taxonomy = "Money"
 numerical_unit = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q5i65"]
+load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaaic"]
+atlas = SubResource("CompressedTexture2D_q5i65")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_oj80v"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Credit"
+icon = SubResource("AtlasTexture_oaaic")
+taxonomy = "Money"
+numerical_unit = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8opcy"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1722"]
+atlas = SubResource("CompressedTexture2D_8opcy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_gj456"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Wheat Seeds"
+icon = SubResource("AtlasTexture_k1722")
+taxonomy = "Tool"
+numerical_unit = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ctgep"]
+load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsoc4"]
+atlas = SubResource("CompressedTexture2D_ctgep")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_181d6"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Credit"
+icon = SubResource("AtlasTexture_bsoc4")
+taxonomy = "Money"
+numerical_unit = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a7jd1"]
+load_path = "res://.godot/imported/Basic tools and meterials.png-d7a03b4088c1d38bef5c962f78d0a191.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alvr3"]
+atlas = SubResource("CompressedTexture2D_a7jd1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_w43sr"]
+script = ExtResource("12_1gmxm")
+quantity = 1.0
+name = "Hoe"
+icon = SubResource("AtlasTexture_alvr3")
+taxonomy = "Tool"
+numerical_unit = 0
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("crop_tilemap")]
 texture_filter = 1
 script = ExtResource("1_rdfhq")
@@ -1863,7 +1923,7 @@ layer_5/modulate = Color(1, 1, 1, 1)
 layer_5/y_sort_enabled = false
 layer_5/y_sort_origin = 0
 layer_5/z_index = 0
-layer_5/tile_data = PackedInt32Array(1966126, 262147, 0, 2031662, 262147, 0, 2097198, 262147, 0, 2097199, 262147, 0, 2097200, 262147, 0, 2097201, 262147, 0, 2097202, 262147, 0, 2031666, 262147, 0, 1966130, 262147, 0, 1966129, 262147, 0, 1966128, 262147, 0, 1966127, 262147, 0, 2031663, 262147, 0, 2031664, 262147, 0, 2031665, 262147, 0, 1966134, 262147, 0, 2031670, 262147, 0, 2097206, 262147, 0, 2097207, 262147, 0, 2097208, 262147, 0, 2097209, 262147, 0, 2097210, 262147, 0, 2097211, 262147, 0, 2031675, 262147, 0, 1966139, 262147, 0, 1966138, 262147, 0, 1966137, 262147, 0, 1966136, 262147, 0, 1966135, 262147, 0, 2031671, 262147, 0, 2031672, 262147, 0, 2031673, 262147, 0, 2031674, 262147, 0, 1966125, 262147, 0, 2031661, 262147, 0, 2097197, 262147, 0, 2359341, 196611, 0, 2359342, 196611, 0, 2424878, 196611, 0, 2424879, 196611, 0, 2424880, 196611, 0, 2359344, 196611, 0, 2359345, 196611, 0, 2359346, 196611, 0, 2424882, 196611, 0, 2490418, 196611, 0, 2490417, 196611, 0, 2490416, 196611, 0, 2490415, 196611, 0, 2424881, 196611, 0, 2359343, 196611, 0, 2424877, 196611, 0, 2490413, 196611, 0, 2490414, 196611, 0, 2359350, 131075, 0, 2359351, 131075, 0, 2359352, 131075, 0, 2359353, 131075, 0, 2359354, 131075, 0, 2359355, 131075, 0, 2424891, 131075, 0, 2490427, 131075, 0, 2490426, 131075, 0, 2490425, 131075, 0, 2490424, 131075, 0, 2490423, 131075, 0, 2490422, 131075, 0, 2424886, 131075, 0, 2424887, 131075, 0, 2424888, 131075, 0, 2424889, 131075, 0, 2424890, 131075, 0, 2687034, 262147, 1, 2687035, 262147, 1, 2687036, 262147, 1, 2687032, 262147, 1, 2687031, 262147, 1, 2687030, 262147, 1, 2687026, 196611, 1, 2687025, 196611, 1, 2687024, 196611, 1, 1114158, 327684, 0, 1179701, 524292, 0, 1441803, 262147, 0, 1572877, 65539, 0, 1507332, 65539, 0, 1507341, 196611, 0, 1441795, 196611, 0, 2162698, 65539, 0, 2293775, 65539, 0, 2097169, 65539, 0, 2031629, 65539, 0, 1966096, 65539, 0, 2031621, 65539, 0, 1572871, 262147, 0, 1572874, 65539, 0, 1769480, 131075, 0, 1310727, 131075, 0, 983045, 131075, 0, 655375, 65539, 0, 1048591, 65539, 0, 1572875, 131075, 0, 2424846, 131075, 0, 2162702, 131075, 0, 1966091, 131075, 0, 2424838, 131075, 0, 2621443, 65539, 0, 2490377, 65539, 0, 2686992, 65539, 0, 2621460, 65539, 0, 2359314, 65539, 0, 2293767, 65539, 0)
+layer_5/tile_data = PackedInt32Array(1966126, 262147, 0, 2031662, 262147, 0, 2097198, 262147, 0, 2097199, 262147, 0, 2097200, 262147, 0, 2097201, 262147, 0, 2097202, 262147, 0, 2031666, 262147, 0, 1966130, 262147, 0, 1966129, 262147, 0, 1966128, 262147, 0, 1966127, 262147, 0, 2031663, 262147, 0, 2031664, 262147, 0, 2031665, 262147, 0, 1966134, 262147, 0, 2031670, 262147, 0, 2097206, 262147, 0, 2097207, 262147, 0, 2097208, 262147, 0, 2097209, 262147, 0, 2097210, 262147, 0, 2097211, 262147, 0, 2031675, 262147, 0, 1966139, 262147, 0, 1966138, 262147, 0, 1966137, 262147, 0, 1966136, 262147, 0, 1966135, 262147, 0, 2031671, 262147, 0, 2031672, 262147, 0, 2031673, 262147, 0, 2031674, 262147, 0, 1966125, 262147, 0, 2031661, 262147, 0, 2097197, 262147, 0, 2359341, 196611, 0, 2359342, 196611, 0, 2424878, 196611, 0, 2424879, 196611, 0, 2424880, 196611, 0, 2359344, 196611, 0, 2359345, 196611, 0, 2359346, 196611, 0, 2424882, 196611, 0, 2490418, 196611, 0, 2490417, 196611, 0, 2490416, 196611, 0, 2490415, 196611, 0, 2424881, 196611, 0, 2359343, 196611, 0, 2424877, 196611, 0, 2490413, 196611, 0, 2490414, 196611, 0, 2359350, 131075, 0, 2359351, 131075, 0, 2359352, 131075, 0, 2359353, 131075, 0, 2359354, 131075, 0, 2359355, 131075, 0, 2424891, 131075, 0, 2490427, 131075, 0, 2490426, 131075, 0, 2490425, 131075, 0, 2490424, 131075, 0, 2490423, 131075, 0, 2490422, 131075, 0, 2424886, 131075, 0, 2424887, 131075, 0, 2424888, 131075, 0, 2424889, 131075, 0, 2424890, 131075, 0, 2687034, 262147, 1, 2687035, 262147, 1, 2687036, 262147, 1, 2687032, 262147, 1, 2687031, 262147, 1, 2687030, 262147, 1, 2687026, 196611, 1, 2687025, 196611, 1, 2687024, 196611, 1, 1114158, 327684, 0, 1179701, 524292, 0, 1441803, 262147, 0, 1572877, 65539, 0, 1507332, 65539, 0, 1507341, 196611, 0, 1441795, 196611, 0, 2162698, 65539, 0, 2293775, 65539, 0, 2097169, 65539, 0, 2031629, 65539, 0, 1966096, 65539, 0, 2031621, 65539, 0, 1572871, 262147, 0, 1572874, 65539, 0, 1769480, 131075, 0, 1310727, 131075, 0, 983045, 131075, 0, 655375, 65539, 0, 1048591, 65539, 0, 1572875, 131075, 0, 2424846, 131075, 0, 2162702, 131075, 0, 1966091, 131075, 0, 2424838, 131075, 0, 2621443, 65539, 0, 2490377, 65539, 0, 2686992, 65539, 0, 2621460, 65539, 0, 2359314, 65539, 0, 2293767, 65539, 0, 2097172, 262147, 0, 2490373, 262147, 0, 2228237, 196611, 0, 1900551, 196611, 0, 2490384, 196611, 0, 2686984, 196611, 0, 2752529, 196611, 0, 1703954, 196611, 0, 524305, 196611, 0)
 layer_6/name = "Walls"
 layer_6/enabled = true
 layer_6/modulate = Color(1, 1, 1, 1)
@@ -1896,7 +1956,7 @@ y_sort_enabled = true
 
 [node name="PlayerCharacter" parent="Characters" instance=ExtResource("3_vvfm4")]
 unique_name_in_owner = true
-position = Vector2(496, 136)
+position = Vector2(138, 210)
 
 [node name="GuardDog" parent="Characters" instance=ExtResource("7_n0m51")]
 position = Vector2(968, 432)
@@ -1924,6 +1984,16 @@ position = Vector2(400, 224)
 buying = SubResource("Resource_4dxyk")
 selling = SubResource("Resource_vtvd7")
 
+[node name="TradingChest5" parent="Characters" instance=ExtResource("10_38t6v")]
+position = Vector2(416, 384)
+buying = SubResource("Resource_oj80v")
+selling = SubResource("Resource_gj456")
+
+[node name="TradingChest6" parent="Characters" instance=ExtResource("10_38t6v")]
+position = Vector2(416, 496)
+buying = SubResource("Resource_181d6")
+selling = SubResource("Resource_w43sr")
+
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Properties" type="Node2D" parent="."]
@@ -1946,12 +2016,13 @@ polygon = PackedVector2Array(-208, -232, 96, -232, 96, 360, -208, 360)
 
 [node name="PlayerRespawnPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(496, 136)
+position = Vector2(138, 210)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]
 [connection signal="quickslot_selected" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslot_selected"]
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]
+[connection signal="seed_planted" from="Characters/PlayerCharacter" to="." method="_on_player_character_seed_planted"]
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 

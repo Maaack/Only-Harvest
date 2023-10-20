@@ -193,3 +193,8 @@ func _on_player_character_trading_revoked():
 
 func _on_player_character_quickslot_selected(slot):
 	emit_signal("quickslot_selected", slot)
+
+func _on_player_character_seed_planted(crop_type, target_position):
+	var crop_stage_data : CropStage = CropStage.new(crop_type, Constants.Stages.ONE)
+	var cell_coord : Vector2i = Vector2i(target_position) / crop_tilemap.tile_set.tile_size
+	_place_crop_scene_at_tile(crop_stage_data, cell_coord)

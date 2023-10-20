@@ -38,6 +38,11 @@ const WHEAT_NAME : String = "Wheat"
 const MEANERRABBIT_NAME :String = "Meaner Rabbit"
 const MCGREGOR_NAME :String = "McGregor"
 
+const CROP_NAMES : Dictionary = {
+	EGGPLANT_NAME : Crops.EGGPLANT,
+	WHEAT_NAME : Crops.WHEAT,
+}
+
 const CROP_GROWTH_RATES : Dictionary = {
 	EGGPLANT_NAME : [6,6,6],
 	WHEAT_NAME : [3,3,3],

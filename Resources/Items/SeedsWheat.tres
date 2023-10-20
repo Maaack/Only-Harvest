@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseQuantity" load_steps=4 format=3 uid="uid://c4lsst1ute87"]
+
+[ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="1_m2ana"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="2_xj8vc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlo12"]
+atlas = ExtResource("1_m2ana")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_xj8vc")
+quantity = 1.0
+name = "Wheat Seeds"
+icon = SubResource("AtlasTexture_nlo12")
+taxonomy = "Tool"
+numerical_unit = 0

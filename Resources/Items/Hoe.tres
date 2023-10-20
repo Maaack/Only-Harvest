@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseQuantity" load_steps=4 format=3 uid="uid://bjm83iwc4hqy"]
+
+[ext_resource type="Texture2D" uid="uid://b8o37isqmwiws" path="res://Assets/Sourced/Sprout Lands/Objects/Basic tools and meterials.png" id="1_8riv3"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="2_j8y1m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbcmq"]
+atlas = ExtResource("1_8riv3")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_j8y1m")
+quantity = 1.0
+name = "Hoe"
+icon = SubResource("AtlasTexture_vbcmq")
+taxonomy = "Tool"
+numerical_unit = 0
