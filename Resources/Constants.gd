@@ -33,6 +33,11 @@ enum Factions{
 	MEANERRABBIT,
 }
 
+enum Periods{
+	DAY,
+	NIGHT,
+}
+
 const EGGPLANT_NAME : String = "Eggplant"
 const WHEAT_NAME : String = "Wheat"
 const MEANERRABBIT_NAME :String = "Meaner Rabbit"

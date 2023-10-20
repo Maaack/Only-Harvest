@@ -50,6 +50,13 @@ func get_day():
 func get_hour():
 	return (world_time + start_time_offset) % hours_in_day
 
+func get_period() -> Constants.Periods:
+	var hour = get_hour()
+	if hour >= 6 and hour < 18:
+		return Constants.Periods.DAY
+	else:
+		return Constants.Periods.NIGHT
+
 func _place_crop_scene_at_tile(crop_stage_data : CropStage , tile_coord : Vector2i):
 	var tile_size : Vector2i = crop_tilemap.tile_set.tile_size
 	var tiles_offset : Vector2 = (Vector2(tile_size) * 0.5) + crop_tilemap.position
