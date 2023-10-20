@@ -57,9 +57,13 @@ func _place_crop_scene_at_tile(crop_stage_data : CropStage , tile_coord : Vector
 	crop_instance.growth_stage = crop_stage_data.stage
 	crop_instance.position = Vector2(tile_coord * crop_tilemap.tile_set.tile_size) + tiles_offset
 	characters_container.add_child(crop_instance)
+	_set_planted_tile(tile_coord)
 
 func _clear_crop_tile(tile_coord : Vector2i):
 	crop_tilemap.set_cell(crop_tilemap_layer, tile_coord)
+
+func _set_planted_tile(tile_coord : Vector2i):
+	crop_tilemap.set_cell(crop_tilemap_layer, tile_coord, 1, Vector2i(5, 1))
 
 func _replace_crop_tiles_with_objects():
 	var crop_tilemap_map = Constants.get_crop_tilemap()
@@ -70,7 +74,6 @@ func _replace_crop_tiles_with_objects():
 			continue
 		var crop_stage_data : CropStage = crop_tilemap_map[atlas_coord]
 		_place_crop_scene_at_tile(crop_stage_data, used_cell)
-		_clear_crop_tile(used_cell)
 
 func _update_guard_dog_nav(guard_dog_node : GuardDog):
 	var target_position : Vector2
@@ -105,6 +108,8 @@ func _on_crop_harvested(dropped : BaseQuantity, crop_node : Crop):
 	if crop_node == null:
 		return
 	drop_crop_pickups(crop_node.position, dropped)
+	var cell_coord : Vector2i = Vector2i(crop_node.position) / crop_tilemap.tile_set.tile_size
+	_clear_crop_tile(cell_coord)
 
 func _connect_crop(crop_node : Crop):
 	crop_node.connect("harvested", _on_crop_harvested.bind(crop_node))
@@ -197,8 +202,8 @@ func _on_player_character_quickslot_selected(slot):
 
 func _is_tile_clear(tile_coord : Vector2i):
 	for layer in clear_layers_for_planting:
-		var cell_data : TileData = $TileMap.get_cell_tile_data(layer, tile_coord)
-		if cell_data != null and cell_data.terrain > -1:
+		var source_id : int = $TileMap.get_cell_source_id(layer, tile_coord)
+		if source_id > -1:
 			return false
 	return true
 
