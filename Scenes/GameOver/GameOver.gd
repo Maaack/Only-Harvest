@@ -1,14 +1,17 @@
 extends Node
 
+const CREDITS_GOAL = 100
+const CRYPTOS_GOAL = 1000
+
 @export var days_passed : int = 7
 @export var earnings : Array :
 	set(value):
 		earnings = value
 		for quantity in earnings:
 			match(quantity.name):
-				"Credit":
+				Constants.CREDITS_NAME:
 					credits += quantity.quantity
-				"Dark Crypto":
+				Constants.CRYPTOS_NAME:
 					cryptos += quantity.quantity
 
 var credits : int
@@ -28,13 +31,13 @@ func _display_earnings():
 	%Earnings.text = earnings_string
 
 func _display_reward():
-	if credits < 100 and cryptos < 100:
+	if credits < CREDITS_GOAL and cryptos < CRYPTOS_GOAL:
 		%Meaning.text = "You lose the family farm!\nWhat you have left is not much to go on."
-	elif credits >= 100 and cryptos < 100:
+	elif credits >= CREDITS_GOAL and cryptos < CRYPTOS_GOAL:
 		%Meaning.text = "You pay mortgage and keep your family farm!\nFor this week."
-	elif credits < 100 and cryptos >= 100:
+	elif credits < CREDITS_GOAL and cryptos >= CRYPTOS_GOAL:
 		%Meaning.text = "You lose the farm, but you are a king among thieves.\nStill homeless though."
-	elif credits > 100 and cryptos >= 100:
+	elif credits > CREDITS_GOAL and cryptos >= CRYPTOS_GOAL:
 		%Meaning.text = "You keep your family farm,\nand have earned \"honor\" among thieves."
 		
 

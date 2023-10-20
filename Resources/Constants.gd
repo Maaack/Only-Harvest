@@ -42,6 +42,8 @@ const EGGPLANT_NAME : String = "Eggplant"
 const WHEAT_NAME : String = "Wheat"
 const MEANERRABBIT_NAME :String = "Meaner Rabbit"
 const MCGREGOR_NAME :String = "McGregor"
+const CREDITS_NAME : String = "Credit"
+const CRYPTOS_NAME : String = "Darko Crytpo"
 
 const CROP_NAMES : Dictionary = {
 	EGGPLANT_NAME : Crops.EGGPLANT,
