@@ -13,6 +13,7 @@ signal trading_revoked
 @export var crop_tilemap_layer : int = 0
 @export var crop_source_id : int = 0
 @export var game_over_days : int = 7
+@export var clear_layers_for_planting : Array[int] = []
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
 @onready var characters_container = $Characters
@@ -194,6 +195,13 @@ func _on_player_character_trading_revoked():
 func _on_player_character_quickslot_selected(slot):
 	emit_signal("quickslot_selected", slot)
 
+func _is_tile_clear(tile_coord : Vector2i):
+	for layer in clear_layers_for_planting:
+		var cell_data : TileData = $TileMap.get_cell_tile_data(layer, tile_coord)
+		if cell_data != null and cell_data.terrain > -1:
+			return false
+	return true
+
 func _on_player_character_seed_planted(seed, target_position):
 	var crop_type : Constants.Crops
 	if seed.name.contains(Constants.WHEAT_NAME):
@@ -202,6 +210,8 @@ func _on_player_character_seed_planted(seed, target_position):
 		crop_type = Constants.Crops.EGGPLANT
 	var crop_stage_data : CropStage = CropStage.new(crop_type, Constants.Stages.ONE)
 	var cell_coord : Vector2i = Vector2i(target_position) / crop_tilemap.tile_set.tile_size
+	if not _is_tile_clear(cell_coord):
+		return
 	_place_crop_scene_at_tile(crop_stage_data, cell_coord)
 	var one_seed : BaseQuantity = seed.duplicate()
 	one_seed.quantity = 1
