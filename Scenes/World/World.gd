@@ -170,6 +170,9 @@ func _connect_chests():
 
 func _start_world_dialogue():
 	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), "Start")
+	get_tree().paused = true
+	await(DialogueManager.dialogue_ended)
+	get_tree().paused = false
 
 func _ready():
 	_replace_crop_tiles_with_objects()
