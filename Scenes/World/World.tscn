@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=60 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="11_wwwc8"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="12_1gmxm"]
 [ext_resource type="PackedScene" uid="uid://cs8jdsmhf6pce" path="res://Scenes/DialogueTriggers/DialogTrigger.tscn" id="18_ejfg6"]
+[ext_resource type="Script" path="res://Scenes/World/DayNightModulater.gd" id="20_aubqg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -2065,6 +2066,10 @@ position = Vector2(169, 438)
 
 [node name="CowMarker" type="Marker2D" parent="."]
 position = Vector2(849, 420)
+
+[node name="DayNightModulater" type="CanvasModulate" parent="."]
+script = ExtResource("20_aubqg")
+enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]
