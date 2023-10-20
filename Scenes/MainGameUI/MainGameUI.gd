@@ -32,3 +32,6 @@ func _on_world_trading_offered(buying, selling):
 
 func _on_world_trading_revoked():
 	%TradePanel.hide()
+
+func _on_world_quickslot_selected(slot):
+	%Quickslots.select_slot(slot)

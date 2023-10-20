@@ -1950,6 +1950,7 @@ position = Vector2(496, 136)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]
+[connection signal="quickslot_selected" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslot_selected"]
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]

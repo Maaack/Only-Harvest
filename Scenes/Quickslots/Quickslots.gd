@@ -23,7 +23,7 @@ func update_quickslots(slots:Array):
 			continue
 		quickslot.quantity = slots[i]
 
-func update_selected(index:int):
+func select_slot(index:int):
 	if index < 0 or index >= slot_array.size():
 		return
 	for quickslot in slot_array:

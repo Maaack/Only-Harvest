@@ -2,6 +2,7 @@ extends Node2D
 
 signal time_updated
 signal quickslots_updated(slot_array)
+signal quickslot_selected(slot : int)
 signal player_started_trespassing(faction : Constants.Factions)
 signal player_stopped_trespassing(faction : Constants.Factions)
 signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
@@ -189,3 +190,6 @@ func _on_player_character_trading_offered(buying, selling):
 
 func _on_player_character_trading_revoked():
 	emit_signal("trading_revoked")
+
+func _on_player_character_quickslot_selected(slot):
+	emit_signal("quickslot_selected", slot)

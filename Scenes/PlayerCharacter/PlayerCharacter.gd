@@ -7,15 +7,13 @@ signal item_received(item_name : String)
 signal health_changed(health : float, max_health : float)
 signal killed
 signal quickslots_updated(slot_array : Array)
+signal quickslot_selected(slot : int)
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
 
-@export var max_health : float = 10
-@export var health_per_heart : float = 2
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
 @export var friction : float = 600
-@export var current_weapon_iter : int = 0
 
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var animation_tree = %CharacterAnimationTree
@@ -26,12 +24,10 @@ var is_jumping : bool = false
 var jump_input_flag : bool = false
 var is_acting : bool = false
 var action_input_flag : bool = false
-var can_swing : bool = false
-var can_take_damage : bool = true
-var health : float = max_health
 var accessible_interactables : Array = []
 var inventory : BaseContainer
 var active_node
+var selected_slot = 0
 
 func pickup_item(_item):
 	pass
@@ -109,52 +105,8 @@ func _apply_personal_knockback():
 		if body.has_method("stun"):
 			body.stun(0.75, true)
 
-func start_death():
-	pass
-
-func _take_damage():
-	can_take_damage = false
-	$DamageAnimationPlayer.play("damage_blink")
-	$HitStreamPlayer2D.play()
-	_apply_personal_knockback()
-	emit_signal("health_changed", health, max_health)
-
-func _hit(damage : int):
-	if can_take_damage:
-		health -= damage
-		if health <= 0:
-			health = 0
-			start_death()
-			emit_signal("health_changed", health, max_health)
-		else:
-			_take_damage()
-
-func hit_heart(heart_damage : float = 1.0):
-	var total_damage : int = floor(heart_damage * health_per_heart)
-	_hit(total_damage)
-
-func is_health_full():
-	return health >= max_health 
-
-func recover(add_health, temp_invulnerability : bool = false):
-	health += add_health 
-	if health > max_health:
-		_set_health_to_max()
-	if temp_invulnerability:
-		can_take_damage = false
-		$DamageAnimationPlayer.play("damage_blink")
-	emit_signal("health_changed", health, max_health)
-
-func recover_heart(add_hearts : float = 1.0, temp_invulnerability : bool = false):
-	var total_extra_health : float = add_hearts * health_per_heart
-	recover(total_extra_health, temp_invulnerability)
-
-func _set_health_to_max():
-	health = max_health
-
 func _ready():
 	await get_tree().create_timer(0.05).timeout
-	_set_health_to_max()
 	inventory = BaseContainer.new()
 
 func _attempt_trade():
@@ -163,6 +115,14 @@ func _attempt_trade():
 	if inventory.has_content(active_node.buying):
 		var trade_quantity = inventory.remove_content(active_node.buying)
 		active_node.trade(trade_quantity)
+
+func _update_quickslot():
+	if selected_slot < 0:
+		selected_slot = 9
+	if selected_slot > 9:
+		selected_slot = 0
+	$QuickslotManager.select_slot(selected_slot)
+	emit_signal("quickslot_selected", selected_slot)
 
 func _input(event):
 	if event.is_action_pressed("jump"):
@@ -176,6 +136,19 @@ func _input(event):
 			_attempt_trade()
 	else:
 		action_input_flag = false
+	if event is InputEventKey and event.is_action_pressed("select_slot"):
+		var key_code = event.keycode
+		if key_code >= KEY_0 and key_code <= KEY_9 or key_code >= KEY_KP_0 and key_code <= KEY_KP_9:
+			# Extract the numeric value from the key code
+			selected_slot = key_code - KEY_0 if key_code >= KEY_0 and key_code <= KEY_9 else key_code - KEY_KP_0
+			selected_slot -= 1
+			_update_quickslot()
+	if event.get_action_strength("next_slot"):
+		selected_slot += 1
+		_update_quickslot()
+	elif event.get_action_strength("prev_slot"):
+		selected_slot -= 1
+		_update_quickslot()
 
 func _on_action_area_area_entered(area):
 	if area is Crop:
