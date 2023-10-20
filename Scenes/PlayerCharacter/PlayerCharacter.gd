@@ -10,6 +10,7 @@ signal quickslot_selected(slot : int)
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
 signal seed_planted(seed : BaseQuantity, target_position : Vector2)
+signal soil_hoed(target_position : Vector2)
 
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
@@ -31,18 +32,6 @@ var inventory : BaseContainer
 var active_node
 var selected_slot = 0
 
-func pickup_item(_item):
-	pass
-
-func cycle_next():
-	pass
-
-func cycle_prev():
-	pass
-
-func get_current_item():
-	pass
-
 func face_direction(new_direction : Vector2):
 	facing_direction = new_direction.normalized()
 	# var facing_angle = facing_direction.angle()
@@ -51,6 +40,7 @@ func face_direction(new_direction : Vector2):
 	animation_tree.set("parameters/Jump/blend_position", facing_direction)
 	animation_tree.set("parameters/Harvest/blend_position", facing_direction)
 	animation_tree.set("parameters/Plant/blend_position", facing_direction)
+	animation_tree.set("parameters/Hoe/blend_position", facing_direction)
 
 func start_jump():
 	set_collision_layer_value(1, false)
@@ -66,6 +56,10 @@ func finish_jump():
 	is_jumping = false
 	jump_input_flag = false
 
+func start_hoeing(target_position : Vector2):
+	target_position += position
+	emit_signal("soil_hoed", target_position)
+
 func start_planting(target_position : Vector2):
 	target_position += position
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
@@ -75,6 +69,8 @@ func start_action():
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
 	if selected_tool.name == "Axe":
 		animation_state.travel("Harvest")
+	elif selected_tool.name == "Hoe":
+		animation_state.travel("Hoe")
 	elif selected_tool.name.contains("Seeds"):
 		if selected_tool.quantity < 1:
 			return
@@ -110,14 +106,6 @@ func move_state(delta):
 
 func _physics_process(delta):
 	move_state(delta)
-
-func _apply_personal_knockback():
-	for body in $KnockbackArea2D.get_overlapping_bodies():
-		##if body.is_in_group(TeamConstants.ENEMY_GROUP):
-		if body.has_method("knockback"):
-			body.knockback(position, 150)
-		if body.has_method("stun"):
-			body.stun(0.75, true)
 
 func _ready():
 	await get_tree().create_timer(0.05).timeout

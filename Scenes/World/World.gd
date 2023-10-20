@@ -15,6 +15,7 @@ signal trading_revoked
 @export var game_over_days : int = 7
 @export var start_time_offset : int = 12
 @export var clear_layers_for_planting : Array[int] = []
+@export var hoeing_layers : Array[int] = []
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
 @onready var characters_container = $Characters
@@ -211,7 +212,7 @@ func _on_player_character_quickslot_selected(slot):
 
 func _is_tile_clear(tile_coord : Vector2i):
 	for layer in clear_layers_for_planting:
-		var source_id : int = $TileMap.get_cell_source_id(layer, tile_coord)
+		var source_id : int = crop_tilemap.get_cell_source_id(layer, tile_coord)
 		if source_id > -1:
 			return false
 	return true
@@ -230,3 +231,18 @@ func _on_player_character_seed_planted(seed, target_position):
 	var one_seed : BaseQuantity = seed.duplicate()
 	one_seed.quantity = 1
 	player_character.inventory.remove_content(one_seed)
+
+func _on_player_character_soil_hoed(target_position):
+	for layer in hoeing_layers:
+		var cell_coord : Vector2i = Vector2i(target_position) / crop_tilemap.tile_set.tile_size
+		if crop_tilemap.get_cell_source_id(layer, cell_coord) > -1:
+			crop_tilemap.set_cell(layer, cell_coord)
+			if layer == 2:
+				var surrounding_cells = crop_tilemap.get_surrounding_cells(cell_coord)
+				var used_cells = crop_tilemap.get_used_cells(layer)
+				var final_cells : Array = []
+				for cell in surrounding_cells:
+					if cell in used_cells:
+						final_cells.append(cell)
+				crop_tilemap.set_cells_terrain_connect(layer, final_cells, 0, 0)
+			return

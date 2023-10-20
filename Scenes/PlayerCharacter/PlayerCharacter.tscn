@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://df6fcrlg0kjsv"]
+[gd_scene load_steps=81 format=3 uid="uid://df6fcrlg0kjsv"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/PlayerCharacter.gd" id="1_a1020"]
 [ext_resource type="Texture2D" uid="uid://cwtkbtxbn4diy" path="res://Assets/Sourced/Sprout Lands/Characters/Basic Charakter Spritesheet.png" id="1_fufgy"]
@@ -1226,6 +1226,234 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ckwyo"]
+resource_name = "HoeE"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/CharacterActionSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/CharacterSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/CharacterActionSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(14, -2)],
+"method": &"start_hoeing"
+}, {
+"args": [],
+"method": &"finish_action"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_frajr"]
+resource_name = "HoeN"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/CharacterActionSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/CharacterSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/CharacterActionSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(0, -16)],
+"method": &"start_hoeing"
+}, {
+"args": [],
+"method": &"finish_action"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rixfo"]
+resource_name = "HoeS"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/CharacterActionSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/CharacterSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/CharacterActionSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(0, 12)],
+"method": &"start_hoeing"
+}, {
+"args": [],
+"method": &"finish_action"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gcx77"]
+resource_name = "HoeW"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/CharacterActionSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/CharacterSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/CharacterActionSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(-14, -2)],
+"method": &"start_hoeing"
+}, {
+"args": [],
+"method": &"finish_action"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jxgy"]
 _data = {
 "FaceE": SubResource("Animation_sg7jg"),
@@ -1236,6 +1464,10 @@ _data = {
 "HarvestN": SubResource("Animation_x3y30"),
 "HarvestS": SubResource("Animation_jbx3y"),
 "HarvestW": SubResource("Animation_5bjlx"),
+"HoeE": SubResource("Animation_ckwyo"),
+"HoeN": SubResource("Animation_frajr"),
+"HoeS": SubResource("Animation_rixfo"),
+"HoeW": SubResource("Animation_gcx77"),
 "JumpE": SubResource("Animation_d0j60"),
 "JumpN": SubResource("Animation_8fp5y"),
 "JumpS": SubResource("Animation_tjfun"),
@@ -1272,6 +1504,29 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_fcuoo")
 blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_q0gm5")
 blend_point_3/pos = Vector2(0, 1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7gst"]
+animation = &"HoeN"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_msemv"]
+animation = &"HoeS"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_25paq"]
+animation = &"HoeW"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_udcjf"]
+animation = &"HoeE"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wbav3"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_h7gst")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_msemv")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_25paq")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_udcjf")
+blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yqxeu"]
@@ -1397,19 +1652,29 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82wbj"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pn2mr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3p64m"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o76t1"]
 states/Harvest/node = SubResource("AnimationNodeBlendSpace2D_ipctb")
-states/Harvest/position = Vector2(555, -36.3297)
+states/Harvest/position = Vector2(437, -37.3159)
+states/Hoe/node = SubResource("AnimationNodeBlendSpace2D_wbav3")
+states/Hoe/position = Vector2(828, -37.3159)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_cjvy4")
 states/Idle/position = Vector2(437, 100)
 states/Jump/node = SubResource("AnimationNodeBlendSpace2D_3efui")
 states/Jump/position = Vector2(549, 279)
 states/Plant/node = SubResource("AnimationNodeBlendSpace2D_pkgoi")
-states/Plant/position = Vector2(707, -37.3159)
+states/Plant/position = Vector2(635, -37.3159)
 states/Start/position = Vector2(197, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_a837p")
 states/Walk/position = Vector2(635, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mgog4"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_bf3qj"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2sqec"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_jdwvh"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_agaxn"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_2wvqd"), "Idle", "Harvest", SubResource("AnimationNodeStateMachineTransition_hgh5m"), "Harvest", "Idle", SubResource("AnimationNodeStateMachineTransition_rurew"), "Walk", "Harvest", SubResource("AnimationNodeStateMachineTransition_oc8lf"), "Idle", "Plant", SubResource("AnimationNodeStateMachineTransition_55mxs"), "Walk", "Plant", SubResource("AnimationNodeStateMachineTransition_mmf27"), "Plant", "Idle", SubResource("AnimationNodeStateMachineTransition_vc008")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mgog4"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_bf3qj"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2sqec"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_jdwvh"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_agaxn"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_2wvqd"), "Idle", "Harvest", SubResource("AnimationNodeStateMachineTransition_hgh5m"), "Harvest", "Idle", SubResource("AnimationNodeStateMachineTransition_rurew"), "Walk", "Harvest", SubResource("AnimationNodeStateMachineTransition_oc8lf"), "Idle", "Plant", SubResource("AnimationNodeStateMachineTransition_55mxs"), "Walk", "Plant", SubResource("AnimationNodeStateMachineTransition_mmf27"), "Plant", "Idle", SubResource("AnimationNodeStateMachineTransition_vc008"), "Hoe", "Idle", SubResource("AnimationNodeStateMachineTransition_82wbj"), "Idle", "Hoe", SubResource("AnimationNodeStateMachineTransition_pn2mr"), "Walk", "Hoe", SubResource("AnimationNodeStateMachineTransition_3p64m")]
 graph_offset = Vector2(126, -71.3159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6o2gc"]
@@ -1436,9 +1701,10 @@ tree_root = SubResource("AnimationNodeStateMachine_o76t1")
 anim_player = NodePath("../CharacterAnimationPlayer")
 active = true
 parameters/Harvest/blend_position = Vector2(0, 0)
+parameters/Hoe/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Jump/blend_position = Vector2(0, 0)
-parameters/Plant/blend_position = Vector2(0, 0.00779223)
+parameters/Plant/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
