@@ -30,15 +30,10 @@ Ghost: Oh, it keeps getting worse. Where's that light? Take me already.
 Ghost: Be careful, son! They have guard dogs!
 You: Those look like cows.
 Ghost: You are clearly mistaken, they are obvioiusly vicious attack dogs.
+do GameState.camera_target_cows()
 Guard Dog 1: Roo... f.
 Guard Dog 2: Mroof!
 Ghost: See! They'll tear you to pieces!
-
-=> END
-
-~ McGregorDoor
-
-McGregor: Get out of here!
 
 => END
 
@@ -69,4 +64,33 @@ You: I should get out of here.
 You: Harvest time!
 You: I shouldn't yell that anymore.
 
+=> END
+
+~ McGregorDoor
+
+% McGregor: Get out of here!
+% McGregor: Who is that?
+% McGregor: Get off my farm!
+
+=> END
+
+~ MarketInteract
+
+% Merchant: I only buy honestly harvested goods.
+% Merchant: I pay with real citizen Credits, not that crypto bro garbage.
+% Merchant: I got seeds and hoes. Tools for an honest living.
+
+=> END
+
+~ BlackmarketInteract
+
+% Dealer: I exclusively deal in Darko Cryptos. The money of the future.
+% Dealer: I got deals you won't find anywhere else... around here.
+% Dealer: I'll buy just about anything, you know?
+=> END
+
+~ OwnDoorInteract
+Would you like to go to sleep?
+- Yes
+- No => END
 => END

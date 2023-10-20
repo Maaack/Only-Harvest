@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=59 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Scenes/World/SceneDirector.gd" id="10_t1sxx"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="11_wwwc8"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="12_1gmxm"]
+[ext_resource type="PackedScene" uid="uid://cs8jdsmhf6pce" path="res://Scenes/DialogueTriggers/DialogTrigger.tscn" id="18_ejfg6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -1878,6 +1879,12 @@ icon = SubResource("AtlasTexture_alvr3")
 taxonomy = "Tool"
 numerical_unit = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py56d"]
+size = Vector2(20, 447)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u66xe"]
+size = Vector2(100, 230)
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("crop_tilemap")]
 texture_filter = 1
 script = ExtResource("1_rdfhq")
@@ -2009,6 +2016,23 @@ position = Vector2(416, 496)
 buying = SubResource("Resource_181d6")
 selling = SubResource("Resource_w43sr")
 
+[node name="DialogTrigger" parent="Characters" instance=ExtResource("18_ejfg6")]
+position = Vector2(567, 341)
+dialogue_title = "PreTrespassing"
+
+[node name="CollisionShape2D" parent="Characters/DialogTrigger" index="0"]
+shape = SubResource("RectangleShape2D_py56d")
+
+[node name="DialogTrigger2" parent="Characters" instance=ExtResource("18_ejfg6")]
+position = Vector2(420, 314)
+dialogue_title = "MarketInteract"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Characters/DialogTrigger2" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_u66xe")
+
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Properties" type="Node2D" parent="."]
@@ -2051,5 +2075,7 @@ position = Vector2(849, 420)
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 
+[editable path="Characters/DialogTrigger"]
+[editable path="Characters/DialogTrigger2"]
 [editable path="Properties/PrivateProperty"]
 [editable path="Properties/PrivateProperty2"]

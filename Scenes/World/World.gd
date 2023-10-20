@@ -168,6 +168,15 @@ func _connect_chests():
 		if child is TradingChest:
 			_connect_chest(child)
 
+func _connect_dialogue_trigger(dialogue_area : Node2D):
+	dialogue_area.connect("dialogue_triggered", _start_dialogue)
+
+func _connect_dialogue_triggers():
+	var children : Array[Node] = characters_container.get_children()
+	for child in children:
+		if child is DialogueTrigger:
+			_connect_dialogue_trigger(child)
+
 func _start_dialogue(dialogue_title : String):
 	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), dialogue_title)
 	get_tree().paused = true
@@ -185,8 +194,9 @@ func _ready():
 	_connect_crops()
 	_connect_properties()
 	_connect_chests()
+	_connect_dialogue_triggers()
 	emit_signal("time_updated")
-	_on_game_start_dialogue()
+	#_on_game_start_dialogue()
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)

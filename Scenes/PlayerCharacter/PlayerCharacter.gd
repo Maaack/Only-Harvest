@@ -123,6 +123,11 @@ func _attempt_trade():
 		var trade_quantity = inventory.remove_content(active_node.buying)
 		active_node.trade(trade_quantity)
 
+func _attempt_dialogue():
+	if not active_node is DialogueTrigger:
+		return
+	active_node.start_dialogue()
+
 func _update_quickslot():
 	if selected_slot < 0:
 		selected_slot = 9
@@ -141,6 +146,7 @@ func _input(event):
 			action_input_flag = true
 		else:
 			_attempt_trade()
+			_attempt_dialogue()
 	else:
 		action_input_flag = false
 	if event is InputEventKey and event.is_action_pressed("select_slot"):
@@ -202,3 +208,9 @@ func offer_trade(chest_node : TradingChest):
 func revoke_trade():
 	active_node = null
 	emit_signal("trading_revoked")
+
+func offer_dialogue(dialogue_trigger : DialogueTrigger):
+	active_node = dialogue_trigger
+
+func revoke_dialogue():
+	active_node = null
