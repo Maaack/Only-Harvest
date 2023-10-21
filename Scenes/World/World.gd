@@ -29,11 +29,55 @@ var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
 var world_time : int = 0
 var hours_in_day : int = 24
 var player_trespassing_properties : Array[Constants.Factions]
+var period_of_day : Constants.Periods
+
+var has_trespassed_at_day : bool = false
+var has_trespassed_at_night : bool = false
+
 
 func _stop_player():
 	player_character.set_collision_layer_value(1, false)
 	player_character.set_collision_layer_value(5, false)
 	player_character.set_physics_process(false)
+
+func _start_trespassing_dialogue():
+	if player_trespassing_properties.size() == 0:
+		return
+	match period_of_day:
+		Constants.Periods.DAY:
+			if not has_trespassed_at_day:
+				_start_dialogue("DayTrespassing")
+				has_trespassed_at_day = true
+		Constants.Periods.NIGHT:
+			if not has_trespassed_at_night:
+				_start_dialogue("NightTrespassing")
+				has_trespassed_at_night = true
+
+func _check_start_trespassing_timers():
+	if player_trespassing_properties.size() == 0:
+		return
+	if period_of_day == Constants.Periods.NIGHT and not $KillShotTimer.is_stopped():
+		$WarningShotTimer.stop()
+		$KillShotTimer.stop()
+	if period_of_day == Constants.Periods.DAY and $KillShotTimer.is_stopped():
+		$WarningShotTimer.start()
+		$KillShotTimer.start()
+
+func _start_new_day():
+	has_trespassed_at_day = false
+
+func _start_new_night():
+	has_trespassed_at_night = false
+
+func _update_period_of_day():
+	var new_period_of_day = _get_period_from_hour()
+	if period_of_day != new_period_of_day:
+		match(new_period_of_day):
+			Constants.Periods.DAY:
+				_start_new_day()
+			Constants.Periods.NIGHT:
+				_start_new_night()
+		period_of_day = new_period_of_day
 
 func increment_world_time(amount : int = 1):
 	world_time += amount
@@ -44,6 +88,9 @@ func increment_world_time(amount : int = 1):
 			child.increment_crop_age(amount)
 	if world_time >= game_over_days * hours_in_day:
 		emit_signal("game_ended", get_day(), player_character.inventory.quantities)
+	_update_period_of_day()
+	_start_trespassing_dialogue()
+	_check_start_trespassing_timers()
 	emit_signal("time_updated")
 
 func _on_timer_timeout():
@@ -55,7 +102,7 @@ func get_day():
 func get_hour():
 	return (world_time + start_time_offset) % hours_in_day
 
-func get_period() -> Constants.Periods:
+func _get_period_from_hour() -> Constants.Periods:
 	var hour = get_hour()
 	if hour >= 6 and hour < 18:
 		return Constants.Periods.DAY
@@ -134,11 +181,15 @@ func _connect_crops():
 			_connect_crop(child)
 
 func _on_player_started_trespassing(faction : Constants.Factions):
-	emit_signal("player_started_trespassing", faction)
 	player_trespassing_properties.append(faction)
+	_start_trespassing_dialogue()
+	_check_start_trespassing_timers()
+	emit_signal("player_started_trespassing", faction)
 
 func _on_player_stopped_trespassing(faction : Constants.Factions):
 	emit_signal("player_stopped_trespassing", faction)
+	$WarningShotTimer.stop()
+	$KillShotTimer.stop()
 	player_trespassing_properties.erase(faction)
 
 func _connect_property(property : PrivateProperty):
@@ -216,11 +267,15 @@ func pass_world_time(increments : int = 1, delay : float = 0.25):
 	$Timer.paused = false
 	emit_signal("time_passed")
 
-func _kill_player():
+func _player_died():
+	player_trespassing_properties.clear()
 	emit_signal("player_died")
 
 func _on_player_character_killed():
-	_kill_player()
+	_player_died()
+
+func kill_player():
+	player_character.kill()
 
 func _on_player_character_trading_offered(buying, selling):
 	emit_signal("trading_offered", buying, selling)
@@ -267,3 +322,11 @@ func _on_player_character_soil_hoed(target_position):
 						final_cells.append(cell)
 				crop_tilemap.set_cells_terrain_connect(layer, final_cells, 0, 0)
 			return
+
+
+func _on_warning_shot_timer_timeout():
+	_start_dialogue("WarningShot")
+
+
+func _on_kill_shot_timer_timeout():
+	_start_dialogue("KillShot")

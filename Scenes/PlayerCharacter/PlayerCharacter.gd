@@ -191,10 +191,10 @@ func _on_pickup_collector_pickup_collected(pickup):
 		add_to_inventory(pickup.quantity.duplicate())
 
 func kill():
-	emit_signal("killed")
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	set_physics_process(false)
+	emit_signal("killed")
 
 func revive():
 	set_collision_layer_value(1, true)

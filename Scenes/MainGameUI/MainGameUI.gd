@@ -40,7 +40,7 @@ func _on_world_trading_revoked():
 func _on_world_quickslot_selected(slot):
 	%Quickslots.select_slot(slot)
 
-func _on_world_player_died():
+func _player_died():
 	get_tree().paused = true
 	$Transition.close()
 	await($Transition.transition_finished)
@@ -48,6 +48,11 @@ func _on_world_player_died():
 	%World.pass_world_time(24, 0.05)
 	await(%World.time_passed)
 	%World.respawn_player()
+	GameState.player_respawned()
+
+func _on_world_player_died():
+	GameState.player_died()
+	_player_died()
 
 func _on_world_player_spawned():
 	$Transition.open()
@@ -58,3 +63,5 @@ func _on_world_dialogue_started(title : String):
 	await(DialogueManager.dialogue_ended)
 	get_tree().paused = false
 	GameState.camera_target_player()
+	if GameState.is_player_dead:
+		%World.kill_player()

@@ -19,14 +19,14 @@ You: Sorry dad, but I am not about that life.
 You: I live for one thing.
 You: HARVESTING!
 Ghost: But you need to do those other things to have anything to harvest!
-You: Whatever.
-You: There are crops ready to harvest [do GameState.camera_target_neighbor()] right over there! 
+You: No, I don't.
+You: There are crops to harvest [do GameState.camera_target_neighbor()] right over there! 
 Ghost: But those- those aren't yours! They belong to the neighbors!
 do GameState.camera_target_player()
 Ghost: That would be theft!
-You: I'm taking a load off their hands, so it's even.
+You: I'm taking the load off their hands, so it's even.
 Ghost: What kind of son did I raise?
-You: Then exchange it for 1k Darko Cryptos to start my data harvesting venture.
+You: Then I'll exchange it for 1k Darko Cryptos to start my data harvesting venture.
 Ghost: Oh, it keeps getting worse. Where's that light? Take me already.
 
 => END
@@ -59,15 +59,34 @@ Dealer: My convenience chests have deals you won't see anywhere else.
 
 ~ DayTrespassing
 
-You: Day time is nay time for harvesting neighbor's crops. This place is hot.
-You: I should get out of here.
+% You: Day time is nay time for harvesting neighbor's crops.
+% You: This place is hot right now. I should come back when it cools off.
+% You: I should leave before my neighbor gets a clean shot.
 
 => END
 
 ~ NightTrespassing
 
-You: Harvest time!
-You: I shouldn't yell that anymore.
+% You: Night time is the best time for harvesting.
+% You: I should be safe under the cover of darkness.
+% You: At least I'm not going to get shot at this hour.
+
+=> END
+
+~ WarningShot
+
+BANG-WHIZZZzzz!!!
+You aren't sure if that was a warning shot or just a miss.
+Better get out of here before the next shot.
+
+=> END
+
+~ KillShot
+
+% A shot rings out, but you're dead before you could hear it.
+% BANG! A sharp pain- and the world goes dark.
+
+do GameState.player_died()
 
 => END
 
