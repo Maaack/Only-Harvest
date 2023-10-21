@@ -26,7 +26,9 @@ do GameState.camera_target_player()
 Ghost: That would be theft!
 You: I'm taking the load off their hands, so it's even.
 Ghost: What kind of son did I raise?
-You: Then I'll exchange it for 1k Darko Cryptos to start my data harvesting venture.
+You: Then I'll exchange it for 1k Darko Cryptos to start my data mining venture.
+Ghost: Were those words?
+You: I'm a digital-soul-harvesting entrepreneur, dad. You wouldn't understand.
 Ghost: Oh, it keeps getting worse. Where's that light? Take me already.
 
 => END
@@ -34,10 +36,11 @@ Ghost: Oh, it keeps getting worse. Where's that light? Take me already.
 ~ PreTrespassing
 Ghost: Be careful, son! They have guard dogs!
 You: Those look like cows.
-Ghost: You are clearly mistaken, they are obvioiusly vicious attack dogs.
 do GameState.camera_target_cows()
+Ghost: You are clearly mistaken, they are obvioiusly vicious attack dogs.
 Guard Dog 1: Roo... f.
 Guard Dog 2: Mroof!
+do GameState.camera_target_player()
 Ghost: See! They'll tear you to pieces!
 
 => END

@@ -21,6 +21,7 @@ signal soil_hoed(target_position : Vector2)
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 var axe_item : BaseUnit = preload("res://Resources/Items/Axe.tres")
+var hoe_item : BaseUnit = preload("res://Resources/Items/Hoe.tres")
 var seed_item : BaseUnit = preload("res://Resources/Items/SeedsWheat.tres")
 var facing_direction : Vector2
 var is_jumping : bool = false
@@ -110,10 +111,7 @@ func _physics_process(delta):
 func _ready():
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
-	var axe = axe_item.duplicate()
-	var seeds = seed_item.duplicate()
-	add_to_inventory(axe)
-	add_to_inventory(seeds)
+	add_to_inventory(axe_item.duplicate())
 	_update_quickslot()
 
 func _attempt_trade():

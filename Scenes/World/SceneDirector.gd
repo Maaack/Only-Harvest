@@ -1,7 +1,7 @@
 extends Node
 class_name SceneDirector
 
-const CAMERA_LOCK_DISTANCE : float = 32
+const CAMERA_LOCK_DISTANCE : float = 16
 
 @export var player_character : Node2D
 @export var scene_camera : Camera2D
@@ -33,7 +33,7 @@ func _update_camera_position():
 			current_target = cow_marker.position
 	if scene_camera.position.distance_squared_to(current_target) > pow(CAMERA_LOCK_DISTANCE, 2) :
 		_pan_camera_to_target()
-	else:
+	elif not is_panning:
 		scene_camera.position = current_target
 
 func _process(delta):
