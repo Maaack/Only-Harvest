@@ -11,6 +11,7 @@ signal player_spawned
 signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
+signal dialogue_started(title : String)
 
 @export var crop_tilemap : TileMap
 @export var crop_tilemap_layer : int = 0
@@ -181,11 +182,7 @@ func _connect_dialogue_triggers():
 			_connect_dialogue_trigger(child)
 
 func _start_dialogue(dialogue_title : String):
-	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), dialogue_title)
-	get_tree().paused = true
-	await(DialogueManager.dialogue_ended)
-	get_tree().paused = false
-	GameState.camera_target_player()
+	emit_signal("dialogue_started", dialogue_title)
 
 func _on_game_start_dialogue():
 	await(get_tree().create_timer(0.5).timeout)
@@ -199,7 +196,7 @@ func _ready():
 	_connect_chests()
 	_connect_dialogue_triggers()
 	emit_signal("time_updated")
-	#_on_game_start_dialogue()
+	_on_game_start_dialogue()
 
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)

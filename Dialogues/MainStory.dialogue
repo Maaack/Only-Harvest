@@ -3,7 +3,9 @@
 You: I guess this is the place...
 Ghost: ooooOOOOoooo- my son.
 You: Oh, my late father is a ghost now. Yay.
-Ghost: My son, I leave you this family farm, and it's 100 Credit unpaid mortgage.
+Ghost: My son, I leave you this family farm,
+Ghost: and it's 100 Credit unpaid mortgage,
+Ghost: due in a week.
 You: Gee thanks dad, but-
 You: Owning physical property is so last century.
 Ghost: Err. What now?
@@ -17,9 +19,12 @@ You: Sorry dad, but I am not about that life.
 You: I live for one thing.
 You: HARVESTING!
 Ghost: But you need to do those other things to have anything to harvest!
-You: There's crops ready to harvest right over there! [do GameState.camera_target_neighbor()]
-Ghost: But those- those aren't yours! That would be theft!
-You: [do GameState.camera_target_player()] I'll take the load off their hands, free of charge.
+You: Whatever.
+You: There are crops ready to harvest [do GameState.camera_target_neighbor()] right over there! 
+Ghost: But those- those aren't yours! They belong to the neighbors!
+do GameState.camera_target_player()
+Ghost: That would be theft!
+You: I'm taking a load off their hands, so it's even.
 Ghost: What kind of son did I raise?
 You: Then exchange it for 1k Darko Cryptos to start my data harvesting venture.
 Ghost: Oh, it keeps getting worse. Where's that light? Take me already.
