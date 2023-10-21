@@ -207,7 +207,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_i2w6n")
 movement_speed = 3600
-nav_refresh_rate = 0.8
+nav_refresh_rate = 0.6
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.141176)

@@ -4,14 +4,14 @@ You: I guess this is the place...
 Ghost: ooooOOOOoooo- my son.
 You: Oh, my late father is a ghost now. Yay.
 Ghost: My son, I leave you this family farm,
-Ghost: and it's 100 Credit unpaid mortgage,
-Ghost: due in a week.
-You: Gee thanks dad, but-
-You: Owning physical property is so last century.
+Ghost: -and its 100 Credit unpaid mortgage,
+Ghost: -due in a week.
+You: Gee thanks dad, but...
+You: -owning physical property is so last century.
 Ghost: Err. What now?
 You: The future is digital!
 do GameState.camera_target_farm()
-Ghost: But the farm needs caring for-
+Ghost: But the farm needs caring for.
 Ghost: Land needs hoeing, seeds need planting-
 You: Ha, hoeing.
 do GameState.camera_target_player()
@@ -68,59 +68,143 @@ Dealer: My convenience chests have deals you won't see anywhere else.
 => END
 
 ~ DayTrespassing
+if GameState.randomizer < 0.33
+	You: Day time is nay time for harvesting neighbor's crops.
+elif GameState.randomizer < 0.66
+	You: This place is hot right now. I should come back when it cools off.
+else
+	You: I should leave before my neighbor gets a clean shot.
 
-% You: Day time is nay time for harvesting neighbor's crops.
-% You: This place is hot right now. I should come back when it cools off.
-% You: I should leave before my neighbor gets a clean shot.
 
 => END
 
+~ FirstNight
+
+You: If I was going to harvest neighbor's crops, now would be the time.
+
+=> END
+
+
 ~ NightTrespassing
 
-% You: Night time is the best time for harvesting.
-% You: I should be safe under the cover of darkness.
-% You: At least I'm not going to get shot at this hour.
+if GameState.randomizer < 0.33
+	You: Night time is the best time for harvesting neighbors' crops.
+elif GameState.randomizer < 0.66
+	You: I should be safe under the cover of darkness.
+else
+	You: At least I'm not going to get shot at this hour.
 
 => END
 
 ~ WarningShot
 
 BANG-WHIZZZzzz!!!
-You aren't sure if that was a warning shot or just a miss.
-Better get out of here before the next shot.
+if GameState.randomizer < 0.5
+	You aren't sure if that was a warning shot or just a miss.
+else
+	Better get out of here before they take the next shot.
 
 => END
 
 ~ KillShot
 
-% A shot rings out, but you're dead before you could hear it.
-% BANG! A sharp pain- and the world goes dark.
-
+if GameState.randomizer < 0.5
+	A shot rings out, but you're dead before you could hear it.
+else
+	BANG! A sharp pain- and the world goes dark.
 do GameState.player_died()
+
+=> END
+
+~ DorathoryDoor
+
+if GameState.randomizer < 0.25
+	Dorathory: Bless your heart. What do you want?
+elif GameState.randomizer < 0.5
+	Dorathory: Honey, did I know your father?
+elif GameState.randomizer < 0.75
+	Dorathory: The apple fell far from the tree, hun.
+else
+	Dorathory: Aw, sweetie. I pity you.
+
+=> END
+
+~ MeanieRabbitDoor
+
+if GameState.randomizer < 0.25
+	Meanie Rabbit: GET OFF MY PROPERTY!
+elif GameState.randomizer < 0.5
+	Meanie Rabbit: WHAT DO YOU WANT?
+elif GameState.randomizer < 0.75
+	Meanie Rabbit: THIS IS JUST HOW I TALK!
+else
+	Meanie Rabbit: WHY DOES EVERYONE THINK I'M THE JERK?!
+
+=> END
+
+~ JohansonsonDoor
+
+if GameState.randomizer < 0.25
+	Johansonson: No solicitors!
+elif GameState.randomizer < 0.5
+	Johansonson: Could you not, right now?
+elif GameState.randomizer < 0.75
+	Johansonson: Not right now!
+else
+	Johansonson: I'm busy.
+
+=> END
+
+~ MansonsonDoor
+
+if GameState.randomizer < 0.25
+	Mansonson: Bugger off, laddy.
+elif GameState.randomizer < 0.5
+	Mansonson: Poor lad, a shame what happened to your father.
+elif GameState.randomizer < 0.75
+	Mansonson: Try not to repeat your father's mistakes, lad.
+else
+	Mansonson: You're an annoying chap, ain't ya?
 
 => END
 
 ~ McGregorDoor
 
-% McGregor: Get out of here!
-% McGregor: Who is that?
-% McGregor: Get off my farm!
+if GameState.randomizer < 0.25
+	McGregor: Get out of here if you don't want to become an entree.
+elif GameState.randomizer < 0.5
+	McGregor: What's that? An ingredient for my pie?
+elif GameState.randomizer < 0.75
+	McGregor: Get off my farm, or get turned to produce!
+else
+	McGregor: I'll turn you into pie like I did your father!
 
 => END
 
 ~ MarketInteract
 
-% Merchant: I only buy honestly harvested goods.
-% Merchant: I pay with real citizen Credits, not that crypto bro garbage.
-% Merchant: I got seeds and hoes. Tools for an honest living.
+if GameState.randomizer < 0.25
+	Merchant: I only buy honestly harvested goods.
+elif GameState.randomizer < 0.5
+	Merchant: I pay with real citizen Credits, not that crypto bro garbage.
+elif GameState.randomizer < 0.75
+	Merchant: I got seeds and hoes. Tools for an honest living.
+else
+	Merchant: This is no pawn shop. I buy and sell at market value.
 
 => END
 
 ~ BlackmarketInteract
 
-% Dealer: I exclusively deal in Darko Cryptos. The money of the future.
-% Dealer: I got deals you won't find anywhere else... around here.
-% Dealer: I'll buy just about anything, you know?
+if GameState.randomizer < 0.25
+	Dealer: I exclusively deal in Darko Cryptos. The money of the future.
+elif GameState.randomizer < 0.5
+	Dealer: I got deals you won't find anywhere else... around here.
+elif GameState.randomizer < 0.75
+	Dealer: I'll buy just about anything, you know?
+else
+	Dealer: I got some sweet merch. Check it out!
+
 => END
 
 ~ OwnDoorInteract

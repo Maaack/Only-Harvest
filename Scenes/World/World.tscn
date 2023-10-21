@@ -2646,7 +2646,7 @@ size = Vector2(64, 64)
 size = Vector2(224, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u38k"]
-size = Vector2(216, 320)
+size = Vector2(200, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nlrl"]
 size = Vector2(240, 240)
@@ -2895,65 +2895,112 @@ position = Vector2(664, 952)
 buying = SubResource("Resource_gfy3i")
 selling = SubResource("Resource_dbhe7")
 
-[node name="DialogTrigger" parent="Characters" instance=ExtResource("18_ejfg6")]
-visible = false
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Dialogues" type="Node2D" parent="."]
+
+[node name="DialogTrigger" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(848, 536)
 dialogue_title = "PreTrespassing"
 
-[node name="CollisionShape2D" parent="Characters/DialogTrigger" index="0"]
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger" index="0"]
 shape = SubResource("RectangleShape2D_py56d")
 
-[node name="DialogTrigger2" parent="Characters" instance=ExtResource("18_ejfg6")]
-visible = false
+[node name="DialogTrigger2" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(256, 952)
 dialogue_title = "MarketInteract"
 trigger_mode = 1
 trigger_count = 1
 
-[node name="CollisionShape2D" parent="Characters/DialogTrigger2" index="0"]
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger2" index="0"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u66xe")
 
-[node name="DialogTrigger4" parent="Characters" instance=ExtResource("18_ejfg6")]
-visible = false
+[node name="DialogTrigger4" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(304, 952)
 dialogue_title = "MarketWelcome"
 
-[node name="CollisionShape2D" parent="Characters/DialogTrigger4" index="0"]
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger4" index="0"]
 shape = SubResource("RectangleShape2D_28e1t")
 
-[node name="DialogTrigger5" parent="Characters" instance=ExtResource("18_ejfg6")]
-visible = false
-position = Vector2(712, 952)
+[node name="DialogTrigger5" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(720, 952)
 dialogue_title = "ExchangeWelcome"
 
-[node name="CollisionShape2D" parent="Characters/DialogTrigger5" index="0"]
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger5" index="0"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_7u38k")
 
-[node name="DialogTrigger6" parent="Characters" instance=ExtResource("18_ejfg6")]
-visible = false
+[node name="DialogTrigger6" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(1208, 936)
 dialogue_title = "BlackmarketWelcome"
 
-[node name="CollisionShape2D" parent="Characters/DialogTrigger6" index="0"]
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger6" index="0"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_0nlrl")
 
-[node name="DialogTrigger3" parent="Characters" instance=ExtResource("18_ejfg6")]
-visible = false
+[node name="DialogTrigger3" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(280, 200)
 dialogue_title = "OwnDoorInteract"
 trigger_mode = 1
 trigger_count = 1
 
-[node name="CollisionShape2D" parent="Characters/DialogTrigger3" index="0"]
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger3" index="0"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_j1sge")
 
-[node name="Collectibles" type="Node2D" parent="."]
+[node name="DialogTrigger7" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(888, 232)
+dialogue_title = "DorathoryDoor"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger7" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_j1sge")
+
+[node name="DialogTrigger8" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(296, 664)
+dialogue_title = "MeanieRabbitDoor"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger8" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_j1sge")
+
+[node name="DialogTrigger9" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(8, 1176)
+dialogue_title = "MansonsonDoor"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger9" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_j1sge")
+
+[node name="DialogTrigger10" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(696, 1368)
+dialogue_title = "JohandsonsonDoor"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger10" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_j1sge")
+
+[node name="DialogTrigger11" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(1224, 1384)
+dialogue_title = "McGregorDoor"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogTrigger11" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_j1sge")
 
 [node name="Properties" type="Node2D" parent="."]
+visible = false
 
 [node name="PrivateProperty" parent="Properties" instance=ExtResource("9_vhaf2")]
 position = Vector2(836, 474)
@@ -3004,7 +3051,7 @@ position = Vector2(280, 248)
 position = Vector2(184, 513)
 
 [node name="FamilyFarmMarker" type="Marker2D" parent="."]
-position = Vector2(184, 332)
+position = Vector2(184, 340)
 
 [node name="CowMarker" type="Marker2D" parent="."]
 position = Vector2(849, 420)
@@ -3024,12 +3071,17 @@ enabled = true
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 
-[editable path="Characters/DialogTrigger"]
-[editable path="Characters/DialogTrigger2"]
-[editable path="Characters/DialogTrigger4"]
-[editable path="Characters/DialogTrigger5"]
-[editable path="Characters/DialogTrigger6"]
-[editable path="Characters/DialogTrigger3"]
+[editable path="Dialogues/DialogTrigger"]
+[editable path="Dialogues/DialogTrigger2"]
+[editable path="Dialogues/DialogTrigger4"]
+[editable path="Dialogues/DialogTrigger5"]
+[editable path="Dialogues/DialogTrigger6"]
+[editable path="Dialogues/DialogTrigger3"]
+[editable path="Dialogues/DialogTrigger7"]
+[editable path="Dialogues/DialogTrigger8"]
+[editable path="Dialogues/DialogTrigger9"]
+[editable path="Dialogues/DialogTrigger10"]
+[editable path="Dialogues/DialogTrigger11"]
 [editable path="Properties/PrivateProperty"]
 [editable path="Properties/PrivateProperty2"]
 [editable path="Properties/PrivateProperty3"]

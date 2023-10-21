@@ -12,6 +12,7 @@ enum CameraTargets{
 var current_camera_target : CameraTargets = CameraTargets.PLAYER
 var is_player_dead : bool = false
 var player_sleep_duration : int = 0
+var randomizer : float
 
 func camera_target_player():
 	current_camera_target = CameraTargets.PLAYER

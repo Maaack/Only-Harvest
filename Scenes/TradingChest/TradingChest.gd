@@ -29,5 +29,5 @@ func trade(trading : BaseQuantity):
 	if trading.name == buying.name and trading.quantity >= buying.quantity:
 		sell_amount_processing += selling.quantity
 	$Area2D.monitoring = false
-	await(get_tree().create_timer(0.1).timeout)
+	await(get_tree().create_timer(0.1, false).timeout)
 	$Area2D.monitoring = true

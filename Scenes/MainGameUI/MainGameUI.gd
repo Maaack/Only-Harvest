@@ -58,6 +58,7 @@ func _on_world_player_spawned():
 	$Transition.open()
 
 func _on_world_dialogue_started(title : String):
+	GameState.randomizer = randf()
 	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), title)
 	get_tree().paused = true
 	await(DialogueManager.dialogue_ended)

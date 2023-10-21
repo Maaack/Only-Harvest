@@ -12,8 +12,11 @@ var interactions = 0
 func start_dialogue():
 	if interactions > 0 and trigger_count == 0:
 		return
-	emit_signal("dialogue_triggered", dialogue_title)
 	interactions += 1
+	monitoring = false
+	emit_signal("dialogue_triggered", dialogue_title)
+	await(get_tree().create_timer(0.1, false).timeout)
+	monitoring = true
 
 func _on_body_entered(body):
 	if body is PlayerCharacter:

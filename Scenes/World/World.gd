@@ -24,6 +24,7 @@ var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
 @onready var characters_container = $Characters
 @onready var collectibles_container = $Collectibles
+@onready var dialogues_container = $Dialogues
 @onready var properties_container = $Properties
 @onready var player_character = %PlayerCharacter
 var world_time : int = 0
@@ -33,6 +34,7 @@ var period_of_day : Constants.Periods
 
 var has_trespassed_at_day : bool = false
 var has_trespassed_at_night : bool = false
+var has_started_first_night: bool = false
 
 func hold_player():
 	player_character.set_physics_process(false)
@@ -70,6 +72,9 @@ func _start_new_day():
 
 func _start_new_night():
 	has_trespassed_at_night = false
+	if not has_started_first_night:
+		has_started_first_night = true
+		_start_dialogue("FirstNight")
 
 func _update_period_of_day():
 	var new_period_of_day = _get_period_from_hour()
@@ -230,7 +235,7 @@ func _connect_dialogue_trigger(dialogue_area : Node2D):
 	dialogue_area.connect("dialogue_triggered", _start_dialogue)
 
 func _connect_dialogue_triggers():
-	var children : Array[Node] = characters_container.get_children()
+	var children : Array[Node] = dialogues_container.get_children()
 	for child in children:
 		if child is DialogueTrigger:
 			_connect_dialogue_trigger(child)
