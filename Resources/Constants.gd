@@ -40,8 +40,11 @@ enum Periods{
 
 const EGGPLANT_NAME : String = "Eggplant"
 const WHEAT_NAME : String = "Wheat"
-const MEANERRABBIT_NAME :String = "Meaner Rabbit"
-const MCGREGOR_NAME :String = "McGregor"
+const MEANERRABBIT_NAME : String = "Meaner Rabbit"
+const MCGREGOR_NAME : String = "McGregor"
+const JOHANSONSON_NAME : String = "Johansonson"
+const MADISONSON_NAME : String = "Madisonson"
+const DORATHORY_NAME : String = "Dorathory"
 const CREDITS_NAME : String = "Credit"
 const CRYPTOS_NAME : String = "Darko Crypto"
 
@@ -51,13 +54,16 @@ const CROP_NAMES : Dictionary = {
 }
 
 const CROP_GROWTH_RATES : Dictionary = {
-	EGGPLANT_NAME : [6,6,6],
-	WHEAT_NAME : [3,3,3],
+	EGGPLANT_NAME : [36,36,36],
+	WHEAT_NAME : [18,18,18],
 }
 
 const FACTION_NAMES : Dictionary = {
 	Factions.MEANERRABBIT : MEANERRABBIT_NAME,
-	Factions.MCGREGOR : MCGREGOR_NAME
+	Factions.MCGREGOR : MCGREGOR_NAME,
+	Factions.JOHANSONSON : JOHANSONSON_NAME,
+	Factions.MADISONSON : MADISONSON_NAME,
+	Factions.DORATHORY : DORATHORY_NAME,
 }
 
 static func get_crop_tilemap():
