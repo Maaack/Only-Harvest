@@ -120,6 +120,7 @@ func _place_crop_scene_at_tile(crop_stage_data : CropStage , tile_coord : Vector
 	crop_instance.position = Vector2(tile_coord * crop_tilemap.tile_set.tile_size) + tiles_offset
 	characters_container.add_child(crop_instance)
 	_set_planted_tile(tile_coord)
+	_connect_crop(crop_instance)
 
 func _clear_crop_tile(tile_coord : Vector2i):
 	crop_tilemap.set_cell(crop_tilemap_layer, tile_coord)
@@ -244,7 +245,6 @@ func _on_game_start_dialogue():
 func _ready():
 	_replace_crop_tiles_with_objects()
 	_connect_guard_dogs()
-	_connect_crops()
 	_connect_properties()
 	_connect_chests()
 	_connect_dialogue_triggers()
