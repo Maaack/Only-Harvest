@@ -37,6 +37,7 @@ var accessible_interactables : Array = []
 var inventory : BaseContainer
 var active_node
 var selected_slot = 0
+var is_dead : bool = false
 
 func face_direction(new_direction : Vector2):
 	facing_direction = new_direction.normalized()
@@ -202,12 +203,16 @@ func _on_pickup_collector_pickup_collected(pickup):
 		add_to_inventory(new_quantity)
 
 func kill():
+	if is_dead:
+		return
+	is_dead = true
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	set_physics_process(false)
 	emit_signal("killed")
 
 func revive():
+	is_dead = false
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	set_physics_process(true)
