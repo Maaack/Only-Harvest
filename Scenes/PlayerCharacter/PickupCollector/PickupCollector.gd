@@ -14,7 +14,7 @@ signal pickup_collected(pickup)
 	set(value):
 		collect_area_shape = value
 		_update_areas()
-@export var collect_delay : float = 0.25
+@export var collect_delay : float = 0.1
 @export var pull_distance_exponent : float = 2.0
 
 var can_collect : bool = true

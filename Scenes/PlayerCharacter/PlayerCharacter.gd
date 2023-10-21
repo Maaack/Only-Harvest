@@ -15,6 +15,12 @@ signal soil_hoed(target_position : Vector2)
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
 @export var friction : float = 600
+@export var move_mod : float = 1.0
+@export var pull_count : int = 1 :
+	set(value):
+		pull_count = value
+		if is_visible_in_tree():
+			$PickupCollector.pull_pickup_count = pull_count
 
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var animation_tree = %CharacterAnimationTree
@@ -98,7 +104,9 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	elif input_vector != Vector2.ZERO:
 		face_direction(input_vector)
-		velocity = velocity.move_toward(input_vector * max_speed * delta, acceleration * delta)
+		var desired_velocity = input_vector * max_speed * delta * move_mod
+		var desired_acceleration = acceleration * delta * move_mod
+		velocity = velocity.move_toward(desired_velocity, desired_acceleration)
 		animation_state.travel("Walk")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
@@ -109,6 +117,7 @@ func _physics_process(delta):
 	move_state(delta)
 
 func _ready():
+	pull_count = pull_count
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
 	add_to_inventory(axe_item.duplicate())

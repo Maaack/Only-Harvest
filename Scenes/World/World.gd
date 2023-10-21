@@ -48,12 +48,12 @@ func _start_trespassing_dialogue():
 	match period_of_day:
 		Constants.Periods.DAY:
 			if not has_trespassed_at_day:
-				_start_dialogue("DayTrespassing")
 				has_trespassed_at_day = true
+				_start_dialogue("DayTrespassing")
 		Constants.Periods.NIGHT:
 			if not has_trespassed_at_night:
-				_start_dialogue("NightTrespassing")
 				has_trespassed_at_night = true
+				_start_dialogue("NightTrespassing")
 
 func _check_start_trespassing_timers():
 	if player_trespassing_properties.size() == 0:
