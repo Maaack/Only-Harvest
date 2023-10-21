@@ -268,6 +268,8 @@ func pass_world_time(increments : int = 1, delay : float = 0.25):
 	emit_signal("time_passed")
 
 func _player_died():
+	$WarningShotTimer.stop()
+	$KillShotTimer.stop()
 	player_trespassing_properties.clear()
 	emit_signal("player_died")
 
@@ -326,7 +328,6 @@ func _on_player_character_soil_hoed(target_position):
 
 func _on_warning_shot_timer_timeout():
 	_start_dialogue("WarningShot")
-
 
 func _on_kill_shot_timer_timeout():
 	_start_dialogue("KillShot")
