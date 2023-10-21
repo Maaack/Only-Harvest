@@ -59,8 +59,8 @@ const CROP_NAMES : Dictionary = {
 }
 
 const CROP_GROWTH_RATES : Dictionary = {
-	EGGPLANT_NAME : [36,36,36],
-	WHEAT_NAME : [18,18,18],
+	EGGPLANT_NAME : [32,32,32],
+	WHEAT_NAME : [16,16,16],
 }
 
 const FACTION_NAMES : Dictionary = {

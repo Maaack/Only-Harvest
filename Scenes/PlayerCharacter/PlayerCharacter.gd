@@ -2,8 +2,6 @@ extends CharacterBody2D
 class_name PlayerCharacter
 
 signal jump
-signal item_equipped(item_name : String)
-signal item_received(item_name : String)
 signal killed
 signal quickslots_updated(slot_array : Array)
 signal quickslot_selected(slot : int)
@@ -75,9 +73,9 @@ func start_planting(target_position : Vector2):
 
 func start_action():
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
-	if selected_tool.name == "Axe":
+	if selected_tool.name == Constants.AXE_NAME:
 		animation_state.travel("Harvest")
-	elif selected_tool.name == "Hoe":
+	elif selected_tool.name == Constants.HOE_NAME:
 		animation_state.travel("Hoe")
 	elif selected_tool.name.contains("Seeds"):
 		if selected_tool.quantity < 1:

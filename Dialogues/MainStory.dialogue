@@ -52,6 +52,13 @@ Merchant: Take a look at my offerings in the convenience chests.
 
 => END
 
+~ ExchangeWelcome
+
+Merchant: Welcome to the seed exchange!
+Merchant: We trade crops for seeds, and seeds for other seeds.
+
+=> END
+
 ~ BlackmarketWelcome
 
 Dealer: I'll buy any crops you got on you.
