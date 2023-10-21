@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3el4"]
 radius = 4.0
-height = 16.0
+height = 15.0
 
 [sub_resource type="Animation" id="Animation_sg7jg"]
 resource_name = "FaceE"
