@@ -15,7 +15,7 @@ signal soil_hoed(target_position : Vector2)
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
 @export var friction : float = 600
-@export var move_mod : float = 1.0
+@export var speed_mod : float = 1.0
 @export var pull_count : int = 1 :
 	set(value):
 		pull_count = value
@@ -29,6 +29,7 @@ signal soil_hoed(target_position : Vector2)
 var axe_item : BaseUnit = preload("res://Resources/Items/Axe.tres")
 var hoe_item : BaseUnit = preload("res://Resources/Items/Hoe.tres")
 var seed_item : BaseUnit = preload("res://Resources/Items/SeedsWheat.tres")
+var clock_item : BaseUnit = preload("res://Resources/Items/TimeWarp.tres")
 var facing_direction : Vector2
 var is_jumping : bool = false
 var jump_input_flag : bool = false
@@ -104,12 +105,12 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	elif input_vector != Vector2.ZERO:
 		face_direction(input_vector)
-		var desired_velocity = input_vector * max_speed * delta * move_mod
-		var desired_acceleration = acceleration * delta * move_mod
+		var desired_velocity = input_vector * max_speed * delta * speed_mod
+		var desired_acceleration = acceleration * delta * speed_mod
 		velocity = velocity.move_toward(desired_velocity, desired_acceleration)
 		animation_state.travel("Walk")
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta * speed_mod)
 		animation_state.travel("Idle")
 	move_and_slide()
 
@@ -181,6 +182,10 @@ func add_to_inventory(item:BaseUnit):
 	var quantity = inventory.find_quantity(item.name)
 	$QuickslotManager.add_quantity(quantity)
 	emit_signal("quickslots_updated", $QuickslotManager.slot_array)
+	if item.taxonomy == Constants.PASSIVE_NAME:
+		if item.name == Constants.CLOCK_NAME:
+			speed_mod = 1.5
+			pull_count = 4
 
 func remove_from_inventory(content:BaseUnit):
 	if content == null:
@@ -195,7 +200,8 @@ func get_selected_item():
 
 func _on_pickup_collector_pickup_collected(pickup):
 	if pickup is QuantityPickup:
-		add_to_inventory(pickup.quantity.duplicate())
+		var new_quantity : BaseQuantity = pickup.quantity.duplicate()
+		add_to_inventory(new_quantity)
 
 func kill():
 	set_collision_layer_value(1, false)

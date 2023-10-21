@@ -1687,6 +1687,7 @@ motion_mode = 1
 script = ExtResource("1_a1020")
 acceleration = 2400.0
 friction = 1200.0
+pull_count = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -1739,7 +1740,6 @@ monitoring = false
 shape = SubResource("RectangleShape2D_6o2gc")
 
 [node name="PickupCollector" parent="." instance=ExtResource("5_33mgi")]
-pull_pickup_count = 3
 
 [node name="QuickslotManager" type="Node" parent="."]
 script = ExtResource("6_japog")

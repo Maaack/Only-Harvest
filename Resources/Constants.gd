@@ -47,6 +47,11 @@ const MADISONSON_NAME : String = "Madisonson"
 const DORATHORY_NAME : String = "Dorathory"
 const CREDITS_NAME : String = "Credit"
 const CRYPTOS_NAME : String = "Darko Crypto"
+const TOOL_NAME : String = "Tool"
+const PASSIVE_NAME : String = "Passive"
+const AXE_NAME : String = "Axe"
+const HOE_NAME : String = "Hoe"
+const CLOCK_NAME : String = "Time Warp"
 
 const CROP_NAMES : Dictionary = {
 	EGGPLANT_NAME : Crops.EGGPLANT,

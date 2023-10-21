@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseQuantity" load_steps=4 format=3 uid="uid://cppxu5plye2gj"]
+
+[ext_resource type="Texture2D" uid="uid://b3846xma3tu8x" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Furniture.png" id="1_kp67j"]
+[ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="2_6w0kv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbcmq"]
+atlas = ExtResource("1_kp67j")
+region = Rect2(96, 48, 16, 16)
+
+[resource]
+script = ExtResource("2_6w0kv")
+quantity = 1.0
+name = "Time Warp"
+icon = SubResource("AtlasTexture_vbcmq")
+taxonomy = "Passive"
+numerical_unit = 0
