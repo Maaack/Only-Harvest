@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=61 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -2374,6 +2374,8 @@ size = Vector2(360, 380)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u66xe"]
 size = Vector2(100, 230)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1sge"]
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("crop_tilemap")]
 texture_filter = 1
 script = ExtResource("1_rdfhq")
@@ -2531,6 +2533,16 @@ trigger_count = 1
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u66xe")
 
+[node name="DialogTrigger3" parent="Characters" instance=ExtResource("18_ejfg6")]
+position = Vector2(280, 200)
+dialogue_title = "OwnDoorInteract"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Characters/DialogTrigger3" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_j1sge")
+
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Properties" type="Node2D" parent="."]
@@ -2588,6 +2600,7 @@ enabled = true
 
 [editable path="Characters/DialogTrigger"]
 [editable path="Characters/DialogTrigger2"]
+[editable path="Characters/DialogTrigger3"]
 [editable path="Properties/PrivateProperty"]
 [editable path="Properties/PrivateProperty2"]
 [editable path="Properties/PrivateProperty3"]

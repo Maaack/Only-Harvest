@@ -11,6 +11,7 @@ enum CameraTargets{
 
 var current_camera_target : CameraTargets = CameraTargets.PLAYER
 var is_player_dead : bool = false
+var player_sleep_duration : int = 0
 
 func camera_target_player():
 	current_camera_target = CameraTargets.PLAYER
@@ -29,3 +30,6 @@ func player_died():
 
 func player_respawned():
 	is_player_dead = false
+
+func player_slept():
+	player_sleep_duration = 8

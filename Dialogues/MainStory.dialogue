@@ -119,5 +119,7 @@ do GameState.player_died()
 ~ OwnDoorInteract
 Would you like to go to sleep?
 - Yes
+	do GameState.player_slept()
+	You sleep for 8 hours.
 - No => END
 => END

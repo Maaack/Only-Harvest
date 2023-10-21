@@ -34,11 +34,13 @@ var period_of_day : Constants.Periods
 var has_trespassed_at_day : bool = false
 var has_trespassed_at_night : bool = false
 
-
-func _stop_player():
-	player_character.set_collision_layer_value(1, false)
-	player_character.set_collision_layer_value(5, false)
+func hold_player():
 	player_character.set_physics_process(false)
+	player_character.set_process_input(false)
+
+func release_player():
+	player_character.set_physics_process(true)
+	player_character.set_process_input(true)
 
 func _start_trespassing_dialogue():
 	if player_trespassing_properties.size() == 0:

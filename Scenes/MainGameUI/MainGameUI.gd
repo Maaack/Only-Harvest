@@ -61,7 +61,15 @@ func _on_world_dialogue_started(title : String):
 	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), title)
 	get_tree().paused = true
 	await(DialogueManager.dialogue_ended)
-	get_tree().paused = false
 	GameState.camera_target_player()
+	get_tree().paused = false
 	if GameState.is_player_dead:
 		%World.kill_player()
+	if GameState.player_sleep_duration > 0:
+		%World.hold_player()
+		%World.pass_world_time(GameState.player_sleep_duration)
+		$Transition.close()
+		await($Transition.transition_finished)
+		$Transition.open()
+		await($Transition.transition_finished)
+		%World.release_player()
