@@ -8,6 +8,8 @@ const MIN_TARGET_MOVE_DISTANCE = 3.0
 @export var movement_speed = 4000
 @export var friction : float = 1000
 @export var faction : Constants.Factions = Constants.Factions.NONE
+@export var nav_refresh_rate : float = 1.0
+@export_enum("Low", "High") var aggression_level : int = 0
 
 @onready var character_animation_tree = $AnimationTree
 @onready var character_state_machine : AnimationNodeStateMachinePlayback = character_animation_tree.get("parameters/playback")
@@ -18,7 +20,8 @@ var move_target : Vector2
 var next_navigation_points : Array[Vector2] = [] # the next navigation path where the character should head to
 
 func _get_movement_speed():
-	return movement_speed
+	var aggression_mod : float = 1.4 if aggression_level == 1 else 1.0
+	return movement_speed * aggression_mod
 
 func _face_direction(direction : Vector2):
 	character_animation_tree.set("parameters/Idle/blend_position", direction.x)
@@ -62,4 +65,8 @@ func _physics_process(delta):
 		return
 
 func _on_update_navigation_timer_timeout():
+	var aggression_mod : float = 0.5 if aggression_level == 1 else 1.0
+	var random_offset : float = clampf(randfn(nav_refresh_rate, 0.5), nav_refresh_rate * 0.5, nav_refresh_rate * 1.5)
+	var refresh_after : float = random_offset * aggression_mod
 	emit_signal("nav_update_requested")
+	$UpdateNavigationTimer.start(refresh_after)
