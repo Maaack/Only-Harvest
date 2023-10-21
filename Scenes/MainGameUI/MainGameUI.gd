@@ -72,4 +72,5 @@ func _on_world_dialogue_started(title : String):
 		await($Transition.transition_finished)
 		$Transition.open()
 		await($Transition.transition_finished)
+		GameState.player_sleep_duration = 0
 		%World.release_player()
