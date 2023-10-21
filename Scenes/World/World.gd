@@ -1,10 +1,13 @@
 extends Node2D
 
 signal time_updated
+signal time_passed
 signal quickslots_updated(slot_array)
 signal quickslot_selected(slot : int)
 signal player_started_trespassing(faction : Constants.Factions)
 signal player_stopped_trespassing(faction : Constants.Factions)
+signal player_died
+signal player_spawned
 signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
@@ -38,8 +41,7 @@ func increment_world_time(amount : int = 1):
 	for child in container_children:
 		if child is Crop:
 			child.increment_crop_age(amount)
-	if get_day() == game_over_days:
-		get_tree().paused = true
+	if world_time >= game_over_days * hours_in_day:
 		emit_signal("game_ended", get_day(), player_character.inventory.quantities)
 	emit_signal("time_updated")
 
@@ -202,11 +204,12 @@ func _ready():
 func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)
 
-func _respawn_player():
+func respawn_player():
 	player_character.position = %PlayerRespawnPoint.position
+	emit_signal("player_spawned")
 	player_character.revive()
 
-func _pass_world_time(increments : int = 1, delay : float = 0.25):
+func pass_world_time(increments : int = 1, delay : float = 0.25):
 	$Timer.paused = true
 	var passed_time = 0
 	while(passed_time < increments):
@@ -214,12 +217,10 @@ func _pass_world_time(increments : int = 1, delay : float = 0.25):
 		increment_world_time()
 		passed_time += 1
 	$Timer.paused = false
+	emit_signal("time_passed")
 
 func _kill_player():
-	player_character.position = %PlayerRespawnPoint.position
-	_pass_world_time(8, 0.25)
-	await(get_tree().create_timer(2, false, true).timeout)
-	_respawn_player()
+	emit_signal("player_died")
 
 func _on_player_character_killed():
 	_kill_player()

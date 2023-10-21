@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=8 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cj8ogciftt4ml" path="res://Scenes/Quickslots/Quickslots.tscn" id="4_igd4l"]
 [ext_resource type="PackedScene" uid="uid://cw2fi7fcnaeq1" path="res://Scenes/Inventory/InventorySlot/InventorySlot.tscn" id="5_5wpn5"]
 [ext_resource type="PackedScene" uid="uid://rriqgw05uops" path="res://Scenes/GameOver/GameOver.tscn" id="5_j3o8h"]
+[ext_resource type="PackedScene" uid="uid://dmoq4ilfi2wep" path="res://Scenes/MainGameUI/Transition.tscn" id="7_6fx7q"]
 
 [node name="MainGameUI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +34,11 @@ render_target_update_mode = 4
 
 [node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_vneci")]
 unique_name_in_owner = true
+process_mode = 1
+
+[node name="Transition" parent="." instance=ExtResource("7_6fx7q")]
+process_mode = 3
+layout_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -127,6 +134,8 @@ visible = false
 layout_mode = 1
 
 [connection signal="game_ended" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_game_ended"]
+[connection signal="player_died" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_player_died"]
+[connection signal="player_spawned" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_player_spawned"]
 [connection signal="player_started_trespassing" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_player_started_trespassing"]
 [connection signal="player_stopped_trespassing" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_player_stopped_trespassing"]
 [connection signal="quickslot_selected" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_quickslot_selected"]

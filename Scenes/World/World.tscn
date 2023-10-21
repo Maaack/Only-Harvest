@@ -1881,7 +1881,7 @@ taxonomy = "Tool"
 numerical_unit = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py56d"]
-size = Vector2(20, 447)
+size = Vector2(20, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u66xe"]
 size = Vector2(100, 230)
