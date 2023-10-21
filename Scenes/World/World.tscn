@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=100 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -2275,13 +2275,43 @@ icon = SubResource("AtlasTexture_ysp2y")
 taxonomy = "Passive"
 numerical_unit = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xl8vx"]
+load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dn25"]
+atlas = SubResource("CompressedTexture2D_xl8vx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_qett2"]
+script = ExtResource("12_1gmxm")
+quantity = 50.0
+name = "Darko Crypto"
+icon = SubResource("AtlasTexture_5dn25")
+taxonomy = "Money"
+numerical_unit = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1e3nl"]
+load_path = "res://.godot/imported/Basic tools and meterials.png-d7a03b4088c1d38bef5c962f78d0a191.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjoum"]
+atlas = SubResource("CompressedTexture2D_1e3nl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_4vvra"]
+script = ExtResource("12_1gmxm")
+quantity = 1.0
+name = "Hoe"
+icon = SubResource("AtlasTexture_jjoum")
+taxonomy = "Tool"
+numerical_unit = 0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlo12"]
 atlas = ExtResource("5_05bd4")
 region = Rect2(96, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_l8rh1"]
 script = ExtResource("12_1gmxm")
-quantity = 5.0
+quantity = 4.0
 name = "Stolen Eggplant"
 icon = SubResource("AtlasTexture_nlo12")
 taxonomy = "Harvest"
@@ -2328,7 +2358,7 @@ region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_4dxyk"]
 script = ExtResource("12_1gmxm")
-quantity = 5.0
+quantity = 4.0
 name = "Eggplant"
 icon = SubResource("AtlasTexture_4hsv4")
 taxonomy = "Harvest"
@@ -2342,18 +2372,18 @@ icon = SubResource("AtlasTexture_4jrjr")
 taxonomy = "Money"
 numerical_unit = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q5i65"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dsrwr"]
 load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oaaic"]
-atlas = SubResource("CompressedTexture2D_q5i65")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw0fu"]
+atlas = SubResource("CompressedTexture2D_dsrwr")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="Resource" id="Resource_oj80v"]
+[sub_resource type="Resource" id="Resource_y3i5q"]
 script = ExtResource("12_1gmxm")
-quantity = 10.0
+quantity = 5.0
 name = "Credit"
-icon = SubResource("AtlasTexture_oaaic")
+icon = SubResource("AtlasTexture_xw0fu")
 taxonomy = "Money"
 numerical_unit = 0
 
@@ -2366,7 +2396,7 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_gj456"]
 script = ExtResource("12_1gmxm")
-quantity = 5.0
+quantity = 20.0
 name = "Wheat Seeds"
 icon = SubResource("AtlasTexture_k1722")
 taxonomy = "Tool"
@@ -2402,6 +2432,21 @@ icon = SubResource("AtlasTexture_alvr3")
 taxonomy = "Tool"
 numerical_unit = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ri8rp"]
+load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ebab"]
+atlas = SubResource("CompressedTexture2D_ri8rp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8butl"]
+script = ExtResource("12_1gmxm")
+quantity = 5.0
+name = "Credit"
+icon = SubResource("AtlasTexture_6ebab")
+taxonomy = "Money"
+numerical_unit = 0
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bynb8"]
 load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
 
@@ -2411,7 +2456,7 @@ region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_k8xpo"]
 script = ExtResource("12_1gmxm")
-quantity = 5.0
+quantity = 8.0
 name = "Eggplant Seeds"
 icon = SubResource("AtlasTexture_b3qsu")
 taxonomy = "Tool"
@@ -2426,7 +2471,7 @@ region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_aell4"]
 script = ExtResource("12_1gmxm")
-quantity = 1.0
+quantity = 2.0
 name = "Wheat"
 icon = SubResource("AtlasTexture_vdc8e")
 taxonomy = "Harvest"
@@ -2441,7 +2486,7 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_2qfvy"]
 script = ExtResource("12_1gmxm")
-quantity = 1.0
+quantity = 5.0
 name = "Wheat Seeds"
 icon = SubResource("AtlasTexture_ny2me")
 taxonomy = "Tool"
@@ -2456,7 +2501,7 @@ region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_munno"]
 script = ExtResource("12_1gmxm")
-quantity = 1.0
+quantity = 2.0
 name = "Eggplant"
 icon = SubResource("AtlasTexture_aa77s")
 taxonomy = "Harvest"
@@ -2471,7 +2516,7 @@ region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_uoxsg"]
 script = ExtResource("12_1gmxm")
-quantity = 1.0
+quantity = 5.0
 name = "Eggplant Seeds"
 icon = SubResource("AtlasTexture_clb2q")
 taxonomy = "Tool"
@@ -2489,6 +2534,21 @@ script = ExtResource("12_1gmxm")
 quantity = 3.0
 name = "Wheat Seeds"
 icon = SubResource("AtlasTexture_conp5")
+taxonomy = "Tool"
+numerical_unit = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n2g8r"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtr1m"]
+atlas = SubResource("CompressedTexture2D_n2g8r")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_h33k6"]
+script = ExtResource("12_1gmxm")
+quantity = 1.0
+name = "Eggplant Seeds"
+icon = SubResource("AtlasTexture_dtr1m")
 taxonomy = "Tool"
 numerical_unit = 0
 
@@ -2558,7 +2618,7 @@ layer_5/modulate = Color(1, 1, 1, 1)
 layer_5/y_sort_enabled = false
 layer_5/y_sort_origin = 0
 layer_5/z_index = 0
-layer_5/tile_data = PackedInt32Array(1966126, 262147, 0, 2031662, 262147, 0, 2097198, 262147, 0, 2097199, 262147, 0, 2097200, 262147, 0, 2097201, 262147, 0, 2097202, 262147, 0, 2031666, 262147, 0, 1966130, 262147, 0, 1966129, 262147, 0, 1966128, 262147, 0, 1966127, 262147, 0, 2031663, 262147, 0, 2031664, 262147, 0, 2031665, 262147, 0, 1966134, 262147, 0, 2031670, 262147, 0, 2097206, 262147, 0, 2097207, 262147, 0, 2097208, 262147, 0, 2097209, 262147, 0, 2097210, 262147, 0, 2097211, 262147, 0, 2031675, 262147, 0, 1966139, 262147, 0, 1966138, 262147, 0, 1966137, 262147, 0, 1966136, 262147, 0, 1966135, 262147, 0, 2031671, 262147, 0, 2031672, 262147, 0, 2031673, 262147, 0, 2031674, 262147, 0, 1966125, 262147, 0, 2031661, 262147, 0, 2097197, 262147, 0, 2359341, 196611, 0, 2359342, 196611, 0, 2424878, 196611, 0, 2424879, 196611, 0, 2424880, 196611, 0, 2359344, 196611, 0, 2359345, 196611, 0, 2359346, 196611, 0, 2424882, 196611, 0, 2490418, 196611, 0, 2490417, 196611, 0, 2490416, 196611, 0, 2490415, 196611, 0, 2424881, 196611, 0, 2359343, 196611, 0, 2424877, 196611, 0, 2490413, 196611, 0, 2490414, 196611, 0, 2359350, 196611, 0, 2359351, 196611, 0, 2359352, 196611, 0, 2359353, 196611, 0, 2359354, 196611, 0, 2359355, 196611, 0, 2424891, 196611, 0, 2490427, 196611, 0, 2490426, 196611, 0, 2490425, 196611, 0, 2490424, 196611, 0, 2490423, 196611, 0, 2490422, 196611, 0, 2424886, 196611, 0, 2424887, 196611, 0, 2424888, 196611, 0, 2424889, 196611, 0, 2424890, 196611, 0, 2687032, 196611, 1, 2687031, 196611, 1, 2687030, 196611, 1, 2687026, 196611, 1, 2687025, 196611, 1, 2687024, 196611, 1, 1114158, 327684, 0, 1179701, 524292, 0, 1441803, 262147, 0, 1441795, 196611, 0, 589833, 262147, 0, 983045, 262147, 0, 1179661, 262147, 0, 786442, 327684, 0, 1310725, 327684, 2, 1310739, 196612, 2, 1376272, 196612, 2, 1179651, 262148, 2, 655364, 262148, 2, 524299, 327684, 2, 458756, 327684, 2, 589830, 458756, 2, 851980, 458756, 2, 524295, 393220, 2, 786440, 393220, 0, 1245194, 524292, 1, 1114123, 458756, 1, 1245201, 458756, 1, 1769476, 262147, 0, 1835012, 262147, 0, 1900548, 262147, 0, 1769477, 262147, 0, 1835013, 262147, 0, 1900549, 262147, 0, 1769478, 262147, 0, 1835014, 262147, 0, 1900550, 262147, 0, 1769488, 262147, 0, 1835024, 262147, 0, 1900560, 262147, 0, 1769489, 262147, 0, 1835025, 262147, 0, 1900561, 262147, 0, 1769490, 262147, 0, 1835026, 262147, 0, 1900562, 262147, 0, 1769482, 262147, 0, 1835018, 262147, 0, 1900554, 262147, 0, 1769483, 262147, 0, 1835019, 262147, 0, 1900555, 262147, 0, 1769484, 262147, 0, 1835020, 262147, 0, 1900556, 262147, 0, 2752521, 65540, 3, 2752522, 65540, 3, 2228242, 196612, 0, 2228240, 196612, 0, 2228238, 65540, 0, 2686984, 4, 3, 2752531, 524292, 3, 2686995, 524292, 2, 2424837, 458756, 0, 458758, 262147, 0, 786435, 196611, 0, 1310723, 262147, 0, 983054, 262147, 0, 196611, 262147, 0, 1114130, 262147, 0, 1245208, 262147, 0, 851974, 196611, 1, 5373960, 65539, 0, 5439496, 65539, 0, 5505032, 65539, 0, 5570568, 65539, 0, 5373961, 65539, 0, 5439497, 65539, 0, 5505033, 65539, 0, 5570569, 65539, 0, 5373962, 65539, 0, 5439498, 65539, 0, 5505034, 65539, 0, 5570570, 65539, 0, 5373963, 65539, 0, 5439499, 65539, 0, 5505035, 65539, 0, 5570571, 65539, 0, 5701640, 65539, 0, 5767176, 65539, 0, 5832712, 65539, 0, 5898248, 65539, 0, 5701641, 65539, 0, 5767177, 65539, 0, 5832713, 65539, 0, 5898249, 65539, 0, 5701642, 65539, 0, 5767178, 65539, 0, 5832714, 65539, 0, 5898250, 65539, 0, 5701643, 65539, 0, 5767179, 65539, 0, 5832715, 65539, 0, 5898251, 65539, 0, 6029320, 65539, 0, 6094856, 65539, 0, 6160392, 65539, 0, 6225928, 65539, 0, 6029321, 65539, 0, 6094857, 65539, 0, 6160393, 65539, 0, 6225929, 65539, 0, 6029322, 65539, 0, 6094858, 65539, 0, 6160394, 65539, 0, 6225930, 65539, 0, 6029323, 65539, 0, 6094859, 65539, 0, 6160395, 65539, 0, 6225931, 65539, 0, 6029313, 131075, 0, 6094849, 131075, 0, 6160385, 131075, 0, 6225921, 131075, 0, 6029314, 131075, 0, 6094850, 131075, 0, 6160386, 131075, 0, 6225922, 131075, 0, 6029315, 131075, 0, 6094851, 131075, 0, 6160387, 131075, 0, 6225923, 131075, 0, 6029316, 131075, 0, 6094852, 131075, 0, 6160388, 131075, 0, 6225924, 131075, 0, 5701633, 131075, 0, 5767169, 131075, 0, 5832705, 131075, 0, 5898241, 131075, 0, 5701634, 131075, 0, 5767170, 131075, 0, 5832706, 131075, 0, 5898242, 131075, 0, 5701635, 131075, 0, 5767171, 131075, 0, 5832707, 131075, 0, 5898243, 131075, 0, 5701636, 131075, 0, 5767172, 131075, 0, 5832708, 131075, 0, 5898244, 131075, 0, 5898234, 131075, 1, 5963770, 131075, 1, 5898235, 131075, 1, 5963771, 131075, 1, 5898236, 131075, 1, 5963772, 131075, 1, 5898237, 131075, 1, 5963773, 131075, 1, 6225914, 131075, 1, 6291450, 131075, 1, 6225915, 131075, 1, 6291451, 131075, 1, 6225916, 131075, 1, 6291452, 131075, 1, 6225917, 131075, 1, 6291453, 131075, 1)
+layer_5/tile_data = PackedInt32Array(1966126, 262147, 0, 2031662, 262147, 0, 2097198, 262147, 0, 2097199, 262147, 0, 2097200, 262147, 0, 2097201, 262147, 0, 2097202, 262147, 0, 2031666, 262147, 0, 1966130, 262147, 0, 1966129, 262147, 0, 1966128, 262147, 0, 1966127, 262147, 0, 2031663, 262147, 0, 2031664, 262147, 0, 2031665, 262147, 0, 1966134, 262147, 0, 2031670, 262147, 0, 2097206, 262147, 0, 2097207, 262147, 0, 2097208, 262147, 0, 2097209, 262147, 0, 2097210, 262147, 0, 2097211, 262147, 0, 2031675, 262147, 0, 1966139, 262147, 0, 1966138, 262147, 0, 1966137, 262147, 0, 1966136, 262147, 0, 1966135, 262147, 0, 2031671, 262147, 0, 2031672, 262147, 0, 2031673, 262147, 0, 2031674, 262147, 0, 1966125, 262147, 0, 2031661, 262147, 0, 2097197, 262147, 0, 2359341, 196611, 0, 2359342, 196611, 0, 2424878, 196611, 0, 2424879, 196611, 0, 2424880, 196611, 0, 2359344, 196611, 0, 2359345, 196611, 0, 2359346, 196611, 0, 2424882, 196611, 0, 2490418, 196611, 0, 2490417, 196611, 0, 2490416, 196611, 0, 2490415, 196611, 0, 2424881, 196611, 0, 2359343, 196611, 0, 2424877, 196611, 0, 2490413, 196611, 0, 2490414, 196611, 0, 2359350, 196611, 0, 2359351, 196611, 0, 2359352, 196611, 0, 2359353, 196611, 0, 2359354, 196611, 0, 2359355, 196611, 0, 2424891, 196611, 0, 2490427, 196611, 0, 2490426, 196611, 0, 2490425, 196611, 0, 2490424, 196611, 0, 2490423, 196611, 0, 2490422, 196611, 0, 2424886, 196611, 0, 2424887, 196611, 0, 2424888, 196611, 0, 2424889, 196611, 0, 2424890, 196611, 0, 2687032, 196611, 1, 2687031, 196611, 1, 2687030, 196611, 1, 2687026, 196611, 1, 2687025, 196611, 1, 2687024, 196611, 1, 1114158, 327684, 0, 1179701, 524292, 0, 1441803, 262147, 0, 1441795, 196611, 0, 589833, 131075, 0, 983045, 262147, 0, 1179661, 262147, 0, 786442, 327684, 0, 1310725, 327684, 2, 1310739, 196612, 2, 1376272, 196612, 2, 1179651, 262148, 2, 655364, 262148, 2, 524299, 327684, 2, 458756, 327684, 2, 589830, 458756, 2, 851980, 458756, 2, 524295, 393220, 2, 786440, 393220, 0, 1245194, 524292, 1, 1114123, 458756, 1, 1245201, 458756, 1, 1769476, 262147, 0, 1835012, 262147, 0, 1900548, 262147, 0, 1769477, 262147, 0, 1835013, 262147, 0, 1900549, 262147, 0, 1769478, 262147, 0, 1835014, 262147, 0, 1900550, 262147, 0, 1769488, 262147, 0, 1835024, 262147, 0, 1900560, 262147, 0, 1769489, 262147, 0, 1835025, 262147, 0, 1900561, 262147, 0, 1769490, 262147, 0, 1835026, 262147, 0, 1900562, 262147, 0, 1769482, 262147, 0, 1835018, 262147, 0, 1900554, 262147, 0, 1769483, 262147, 0, 1835019, 262147, 0, 1900555, 262147, 0, 1769484, 262147, 0, 1835020, 262147, 0, 1900556, 262147, 0, 2752521, 65540, 3, 2752522, 65540, 3, 2228242, 196612, 0, 2228240, 196612, 0, 2228238, 65540, 0, 2686984, 4, 3, 2752531, 524292, 3, 2686995, 524292, 2, 2424837, 458756, 0, 458758, 262147, 0, 786435, 196611, 0, 1310723, 262147, 0, 983054, 262147, 0, 196611, 262147, 0, 1114130, 262147, 0, 1245208, 262147, 0, 851974, 196611, 1, 5373960, 65539, 0, 5439496, 65539, 0, 5505032, 65539, 0, 5570568, 65539, 0, 5373961, 65539, 0, 5439497, 65539, 0, 5505033, 65539, 0, 5570569, 65539, 0, 5373962, 65539, 0, 5439498, 65539, 0, 5505034, 65539, 0, 5570570, 65539, 0, 5373963, 65539, 0, 5439499, 65539, 0, 5505035, 65539, 0, 5570571, 65539, 0, 5701640, 65539, 0, 5767176, 65539, 0, 5832712, 65539, 0, 5898248, 65539, 0, 5701641, 65539, 0, 5767177, 65539, 0, 5832713, 65539, 0, 5898249, 65539, 0, 5701642, 65539, 0, 5767178, 65539, 0, 5832714, 65539, 0, 5898250, 65539, 0, 5701643, 65539, 0, 5767179, 65539, 0, 5832715, 65539, 0, 5898251, 65539, 0, 6029320, 65539, 0, 6094856, 65539, 0, 6160392, 65539, 0, 6225928, 65539, 0, 6029321, 65539, 0, 6094857, 65539, 0, 6160393, 65539, 0, 6225929, 65539, 0, 6029322, 65539, 0, 6094858, 65539, 0, 6160394, 65539, 0, 6225930, 65539, 0, 6029323, 65539, 0, 6094859, 65539, 0, 6160395, 65539, 0, 6225931, 65539, 0, 6029313, 131075, 0, 6094849, 131075, 0, 6160385, 131075, 0, 6225921, 131075, 0, 6029314, 131075, 0, 6094850, 131075, 0, 6160386, 131075, 0, 6225922, 131075, 0, 6029315, 131075, 0, 6094851, 131075, 0, 6160387, 131075, 0, 6225923, 131075, 0, 6029316, 131075, 0, 6094852, 131075, 0, 6160388, 131075, 0, 6225924, 131075, 0, 5701633, 131075, 0, 5767169, 131075, 0, 5832705, 131075, 0, 5898241, 131075, 0, 5701634, 131075, 0, 5767170, 131075, 0, 5832706, 131075, 0, 5898242, 131075, 0, 5701635, 131075, 0, 5767171, 131075, 0, 5832707, 131075, 0, 5898243, 131075, 0, 5701636, 131075, 0, 5767172, 131075, 0, 5832708, 131075, 0, 5898244, 131075, 0, 5898234, 131075, 1, 5963770, 131075, 1, 5898235, 131075, 1, 5963771, 131075, 1, 5898236, 131075, 1, 5963772, 131075, 1, 5898237, 131075, 1, 5963773, 131075, 1, 6225914, 131075, 1, 6291450, 131075, 1, 6225915, 131075, 1, 6291451, 131075, 1, 6225916, 131075, 1, 6291452, 131075, 1, 6225917, 131075, 1, 6291453, 131075, 1, 1179655, 262147, 0, 1900578, 131075, 0, 3014665, 65539, 0, 2293784, 65539, 0, 1638410, 196611, 0, 1572877, 262147, 0, 1441798, 65539, 0)
 layer_6/name = "Walls"
 layer_6/enabled = true
 layer_6/modulate = Color(1, 1, 1, 1)
@@ -2647,6 +2707,11 @@ position = Vector2(1272, 872)
 buying = SubResource("Resource_k4q38")
 selling = SubResource("Resource_3jwit")
 
+[node name="TradingChest12" parent="Characters" instance=ExtResource("10_38t6v")]
+position = Vector2(1272, 1000)
+buying = SubResource("Resource_qett2")
+selling = SubResource("Resource_4vvra")
+
 [node name="TradingChest3" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(1144, 1000)
 buying = SubResource("Resource_l8rh1")
@@ -2664,7 +2729,7 @@ selling = SubResource("Resource_vtvd7")
 
 [node name="TradingChest5" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(360, 1056)
-buying = SubResource("Resource_oj80v")
+buying = SubResource("Resource_y3i5q")
 selling = SubResource("Resource_gj456")
 
 [node name="TradingChest6" parent="Characters" instance=ExtResource("10_38t6v")]
@@ -2674,7 +2739,7 @@ selling = SubResource("Resource_w43sr")
 
 [node name="TradingChest7" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(248, 1056)
-buying = SubResource("Resource_oj80v")
+buying = SubResource("Resource_8butl")
 selling = SubResource("Resource_k8xpo")
 
 [node name="TradingChest8" parent="Characters" instance=ExtResource("10_38t6v")]
@@ -2690,9 +2755,10 @@ selling = SubResource("Resource_uoxsg")
 [node name="TradingChest10" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(712, 1056)
 buying = SubResource("Resource_t3hxc")
-selling = SubResource("Resource_uoxsg")
+selling = SubResource("Resource_h33k6")
 
 [node name="DialogTrigger" parent="Characters" instance=ExtResource("18_ejfg6")]
+visible = false
 position = Vector2(848, 536)
 dialogue_title = "PreTrespassing"
 
@@ -2700,6 +2766,7 @@ dialogue_title = "PreTrespassing"
 shape = SubResource("RectangleShape2D_py56d")
 
 [node name="DialogTrigger2" parent="Characters" instance=ExtResource("18_ejfg6")]
+visible = false
 position = Vector2(256, 952)
 dialogue_title = "MarketInteract"
 trigger_mode = 1
@@ -2710,14 +2777,15 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u66xe")
 
 [node name="DialogTrigger4" parent="Characters" instance=ExtResource("18_ejfg6")]
+visible = false
 position = Vector2(304, 952)
 dialogue_title = "MarketWelcome"
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="Characters/DialogTrigger4" index="0"]
 shape = SubResource("RectangleShape2D_28e1t")
 
 [node name="DialogTrigger5" parent="Characters" instance=ExtResource("18_ejfg6")]
+visible = false
 position = Vector2(712, 952)
 dialogue_title = "ExchangeWelcome"
 
@@ -2726,6 +2794,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_7u38k")
 
 [node name="DialogTrigger6" parent="Characters" instance=ExtResource("18_ejfg6")]
+visible = false
 position = Vector2(1208, 936)
 dialogue_title = "BlackmarketWelcome"
 
@@ -2734,6 +2803,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_0nlrl")
 
 [node name="DialogTrigger3" parent="Characters" instance=ExtResource("18_ejfg6")]
+visible = false
 position = Vector2(280, 200)
 dialogue_title = "OwnDoorInteract"
 trigger_mode = 1
