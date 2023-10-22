@@ -151,7 +151,8 @@ func _input(event):
 	else:
 		jump_input_flag = false
 	if event.is_action_pressed("action"):
-		if active_node == null:
+		var current_item : BaseQuantity = $QuickslotManager.get_selected_quantity()
+		if current_item.taxonomy == Constants.TOOL_NAME and active_node == null:
 			action_input_flag = true
 		else:
 			_attempt_trade()
