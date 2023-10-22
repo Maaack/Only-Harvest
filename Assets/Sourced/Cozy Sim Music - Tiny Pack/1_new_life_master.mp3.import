@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqwxwep31yhmx"
+path="res://.godot/imported/1_new_life_master.mp3-0c304e7c5a17b375ce18967f452d40dd.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/1_new_life_master.mp3"
+dest_files=["res://.godot/imported/1_new_life_master.mp3-0c304e7c5a17b375ce18967f452d40dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

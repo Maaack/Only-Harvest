@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blxw0d577ww4j"
+path="res://.godot/imported/24_too_late!_stinger_master.mp3-c577f87c13117360a42780879f52fb84.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/24_too_late!_stinger_master.mp3"
+dest_files=["res://.godot/imported/24_too_late!_stinger_master.mp3-c577f87c13117360a42780879f52fb84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

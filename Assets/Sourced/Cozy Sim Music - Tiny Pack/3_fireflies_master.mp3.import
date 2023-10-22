@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnfufwn51lgcs"
+path="res://.godot/imported/3_fireflies_master.mp3-9a57e0ddba063d1c8a49fa99ede518a8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/3_fireflies_master.mp3"
+dest_files=["res://.godot/imported/3_fireflies_master.mp3-9a57e0ddba063d1c8a49fa99ede518a8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
