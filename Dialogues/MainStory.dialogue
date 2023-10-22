@@ -1,11 +1,13 @@
 ~ Start
 
 You: I guess this is the place...
+do GameState.camera_target_ghost()
 Ghost: ooooOOOOoooo- my son.
 You: Oh, my late father is a ghost now. Yay.
 Ghost: My son, I leave you this family farm,
 Ghost: -and its 100 Credit unpaid mortgage,
 Ghost: -due in a week.
+do GameState.camera_target_player()
 You: Gee thanks dad, but...
 You: -owning physical property is so last century.
 Ghost: Err. What now?
@@ -22,10 +24,11 @@ Ghost: But you need to do those other things to have anything to harvest!
 You: No, I don't.
 You: There are crops to harvest [do GameState.camera_target_neighbor()] right over there! 
 Ghost: But those- those aren't yours! They belong to the neighbors!
-do GameState.camera_target_player()
-Ghost: That would be theft!
+do GameState.camera_target_ghost()
+Ghost: That would be stealing!
 You: I'm taking the load off their hands, so it's even.
 Ghost: What kind of son did I raise?
+do GameState.camera_target_player()
 You: Then I'll exchange it for 1k Darko Cryptos to start my data mining venture.
 Ghost: Were those words?
 You: I'm a digital-soul-harvesting entrepreneur, dad. You wouldn't understand.

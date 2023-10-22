@@ -2739,11 +2739,12 @@ one_shot = true
 wait_time = 6.0
 one_shot = true
 
-[node name="SceneDirector" type="Node" parent="." node_paths=PackedStringArray("player_character", "scene_camera", "family_farm_marker", "neighbor_farm_marker", "cow_marker")]
+[node name="SceneDirector" type="Node" parent="." node_paths=PackedStringArray("player_character", "scene_camera", "ghost_marker", "family_farm_marker", "neighbor_farm_marker", "cow_marker")]
 process_mode = 3
 script = ExtResource("10_t1sxx")
 player_character = NodePath("../Characters/PlayerCharacter")
 scene_camera = NodePath("../Camera2D")
+ghost_marker = NodePath("../GhostMarker")
 family_farm_marker = NodePath("../FamilyFarmMarker")
 neighbor_farm_marker = NodePath("../NeighborFarmMarker")
 cow_marker = NodePath("../CowMarker")

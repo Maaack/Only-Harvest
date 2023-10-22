@@ -2,6 +2,7 @@ extends Node
 
 enum CameraTargets{
 	PLAYER,
+	GHOST,
 	FARM,
 	NEIGHBOR,
 	COWS,
@@ -16,6 +17,9 @@ var randomizer : float
 
 func camera_target_player():
 	current_camera_target = CameraTargets.PLAYER
+
+func camera_target_ghost():
+	current_camera_target = CameraTargets.GHOST
 
 func camera_target_farm():
 	current_camera_target = CameraTargets.FARM

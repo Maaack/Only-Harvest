@@ -5,6 +5,7 @@ const CAMERA_LOCK_DISTANCE : float = 16
 
 @export var player_character : Node2D
 @export var scene_camera : Camera2D
+@export var ghost_marker : Marker2D
 @export var family_farm_marker : Marker2D
 @export var neighbor_farm_marker : Marker2D
 @export var cow_marker : Marker2D
@@ -25,6 +26,8 @@ func _update_camera_position():
 	match(GameState.current_camera_target):
 		GameState.CameraTargets.PLAYER:
 			current_target = player_character.position
+		GameState.CameraTargets.GHOST:
+			current_target = ghost_marker.position
 		GameState.CameraTargets.FARM:
 			current_target = family_farm_marker.position
 		GameState.CameraTargets.NEIGHBOR:

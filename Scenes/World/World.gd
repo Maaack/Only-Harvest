@@ -340,7 +340,6 @@ func _on_player_character_soil_hoed(target_position):
 				crop_tilemap.set_cells_terrain_connect(layer, final_cells, 0, 0)
 			return
 
-
 func _on_warning_shot_timer_timeout():
 	_start_dialogue("WarningShot")
 
