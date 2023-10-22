@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Quickslots/Quickslots.gd" id="1_kshy4"]
 
 [node name="Quickslots" type="HBoxContainer"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 40)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
