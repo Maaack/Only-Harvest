@@ -11,6 +11,8 @@ signal player_spawned
 signal game_ended(days_passed : int, quantities : Array[BaseQuantity])
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
+signal dialogue_offered(action_name : String)
+signal dialogue_revoked
 signal dialogue_started(title : String)
 
 @export var crop_tilemap : TileMap
@@ -291,6 +293,12 @@ func _on_player_character_trading_offered(buying, selling):
 
 func _on_player_character_trading_revoked():
 	emit_signal("trading_revoked")
+
+func _on_player_character_dialogue_offered(action_name):
+	emit_signal("dialogue_offered", action_name)
+
+func _on_player_character_dialogue_revoked():
+	emit_signal("dialogue_revoked")
 
 func _on_player_character_quickslot_selected(slot):
 	emit_signal("quickslot_selected", slot)

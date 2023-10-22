@@ -6,6 +6,7 @@ signal dialogue_triggered(title)
 @export var dialogue_title : String
 @export_enum("Instant", "Action") var trigger_mode : int = 0
 @export_enum("Single", "Multiple") var trigger_count : int = 0
+@export var action_name : String = "Talk"
 
 var interactions = 0
 

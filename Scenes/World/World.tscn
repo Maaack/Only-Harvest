@@ -2944,6 +2944,7 @@ position = Vector2(280, 200)
 dialogue_title = "OwnDoorInteract"
 trigger_mode = 1
 trigger_count = 1
+action_name = "Sleep"
 
 [node name="CollisionShape2D" parent="Dialogues/DialogTrigger3" index="0"]
 position = Vector2(1, 0)
@@ -2954,6 +2955,7 @@ position = Vector2(888, 232)
 dialogue_title = "DorathoryDoor"
 trigger_mode = 1
 trigger_count = 1
+action_name = "Knock"
 
 [node name="CollisionShape2D" parent="Dialogues/DialogTrigger7" index="0"]
 position = Vector2(1, 0)
@@ -2964,6 +2966,7 @@ position = Vector2(296, 664)
 dialogue_title = "MeanieRabbitDoor"
 trigger_mode = 1
 trigger_count = 1
+action_name = "Knock"
 
 [node name="CollisionShape2D" parent="Dialogues/DialogTrigger8" index="0"]
 position = Vector2(1, 0)
@@ -2974,6 +2977,7 @@ position = Vector2(8, 1176)
 dialogue_title = "MansonsonDoor"
 trigger_mode = 1
 trigger_count = 1
+action_name = "Knock"
 
 [node name="CollisionShape2D" parent="Dialogues/DialogTrigger9" index="0"]
 position = Vector2(1, 0)
@@ -2984,6 +2988,7 @@ position = Vector2(696, 1368)
 dialogue_title = "JohandsonsonDoor"
 trigger_mode = 1
 trigger_count = 1
+action_name = "Knock"
 
 [node name="CollisionShape2D" parent="Dialogues/DialogTrigger10" index="0"]
 position = Vector2(1, 0)
@@ -2994,6 +2999,7 @@ position = Vector2(1224, 1384)
 dialogue_title = "McGregorDoor"
 trigger_mode = 1
 trigger_count = 1
+action_name = "Knock"
 
 [node name="CollisionShape2D" parent="Dialogues/DialogTrigger11" index="0"]
 position = Vector2(1, 0)
@@ -3063,6 +3069,8 @@ enabled = true
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WarningShotTimer" to="." method="_on_warning_shot_timer_timeout"]
 [connection signal="timeout" from="KillShotTimer" to="." method="_on_kill_shot_timer_timeout"]
+[connection signal="dialogue_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_dialogue_offered"]
+[connection signal="dialogue_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_dialogue_revoked"]
 [connection signal="killed" from="Characters/PlayerCharacter" to="." method="_on_player_character_killed"]
 [connection signal="quickslot_selected" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslot_selected"]
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]

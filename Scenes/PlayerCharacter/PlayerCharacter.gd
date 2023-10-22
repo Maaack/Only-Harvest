@@ -7,6 +7,8 @@ signal quickslots_updated(slot_array : Array)
 signal quickslot_selected(slot : int)
 signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
 signal trading_revoked
+signal dialogue_offered(action_name : String)
+signal dialogue_revoked
 signal seed_planted(seed : BaseQuantity, target_position : Vector2)
 signal soil_hoed(target_position : Vector2)
 
@@ -227,6 +229,8 @@ func revoke_trade():
 
 func offer_dialogue(dialogue_trigger : DialogueTrigger):
 	active_node = dialogue_trigger
+	emit_signal("dialogue_offered", dialogue_trigger.action_name)
 
 func revoke_dialogue():
 	active_node = null
+	emit_signal("dialogue_revoked")
