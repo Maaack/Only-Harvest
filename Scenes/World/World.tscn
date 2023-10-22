@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=123 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="11_wwwc8"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="12_1gmxm"]
 [ext_resource type="PackedScene" uid="uid://d21cgnefyjbu2" path="res://Scenes/Merchant/Merchant.tscn" id="14_hffgn"]
+[ext_resource type="Texture2D" uid="uid://dkt1nuw0utu2t" path="res://Assets/Originals/Sprites/Rabbit Character.png" id="15_c243b"]
 [ext_resource type="Texture2D" uid="uid://b6k2q4eb8dqq4" path="res://Assets/Originals/Sprites/Exchange Merchant.png" id="15_wk5q2"]
 [ext_resource type="Texture2D" uid="uid://e8k3hb3aatgt" path="res://Assets/Originals/Sprites/Blackmarket Dealer.png" id="16_nb1ku"]
 [ext_resource type="PackedScene" uid="uid://cs8jdsmhf6pce" path="res://Scenes/DialogueTriggers/DialogueTrigger.tscn" id="18_ejfg6"]
@@ -2215,6 +2216,10 @@ sources/5 = SubResource("TileSetAtlasSource_8rwgx")
 sources/7 = SubResource("TileSetAtlasSource_ec0i7")
 sources/8 = SubResource("TileSetAtlasSource_jobb0")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3xo"]
+atlas = ExtResource("15_c243b")
+region = Rect2(0, 0, 96, 48)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_timxd"]
 load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
 
@@ -2763,6 +2768,13 @@ position = Vector2(280, 248)
 [node name="Merchant" parent="Characters" instance=ExtResource("14_hffgn")]
 position = Vector2(256, 952)
 
+[node name="Ghost" parent="Characters" instance=ExtResource("14_hffgn")]
+modulate = Color(0.486275, 1, 1, 0.588235)
+position = Vector2(200, 176)
+
+[node name="Sprite2D" parent="Characters/Ghost" index="1"]
+texture = SubResource("AtlasTexture_5y3xo")
+
 [node name="ExchangeMerchant" parent="Characters" instance=ExtResource("14_hffgn")]
 position = Vector2(672, 1056)
 
@@ -2954,6 +2966,17 @@ trigger_count = 1
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u66xe")
 
+[node name="DialogueTrigger14" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(200, 176)
+dialogue_title = "GhostInteract"
+trigger_mode = 1
+trigger_count = 1
+action_name = "Commune"
+
+[node name="CollisionShape2D" parent="Dialogues/DialogueTrigger14" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_u66xe")
+
 [node name="DialogueTrigger4" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(304, 952)
 dialogue_title = "MarketWelcome"
@@ -3100,6 +3123,9 @@ position = Vector2(184, 340)
 [node name="CowMarker" type="Marker2D" parent="."]
 position = Vector2(849, 420)
 
+[node name="GhostMarker" type="Marker2D" parent="."]
+position = Vector2(200, 176)
+
 [node name="DayNightModulater" type="CanvasModulate" parent="."]
 script = ExtResource("20_aubqg")
 enabled = true
@@ -3117,12 +3143,14 @@ enabled = true
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 
+[editable path="Characters/Ghost"]
 [editable path="Characters/ExchangeMerchant"]
 [editable path="Characters/BlackMarketMerchant"]
 [editable path="Dialogues/DialogueTrigger"]
 [editable path="Dialogues/DialogueTrigger2"]
 [editable path="Dialogues/DialogueTrigger12"]
 [editable path="Dialogues/DialogueTrigger13"]
+[editable path="Dialogues/DialogueTrigger14"]
 [editable path="Dialogues/DialogueTrigger4"]
 [editable path="Dialogues/DialogueTrigger5"]
 [editable path="Dialogues/DialogueTrigger6"]
