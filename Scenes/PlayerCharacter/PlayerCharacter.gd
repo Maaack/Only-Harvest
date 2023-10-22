@@ -56,6 +56,7 @@ func start_jump():
 	set_collision_mask_value(1, false)
 	animation_state.travel("Jump")
 	is_jumping = true
+	$JumpStreamPlayer2D.play()
 	emit_signal("jump")
 
 func finish_jump():
@@ -78,8 +79,10 @@ func start_action():
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
 	if selected_tool.name == Constants.AXE_NAME:
 		animation_state.travel("Harvest")
+		$AxeSwingStreamPlayer2D.play()
 	elif selected_tool.name == Constants.HOE_NAME:
 		animation_state.travel("Hoe")
+		$HoeSwingStreamPlayer2D.play()
 	elif selected_tool.name.contains("Seeds"):
 		if selected_tool.quantity < 1:
 			return
@@ -122,7 +125,8 @@ func _ready():
 	pull_count = pull_count
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
-	add_to_inventory(axe_item.duplicate())
+	add_to_inventory(axe_item.duplicate(), true)
+	add_to_inventory(hoe_item.duplicate(), true)
 	_update_quickslot()
 
 func _attempt_trade():
@@ -177,12 +181,14 @@ func _on_action_area_area_entered(area):
 	if area is Crop:
 		area.try_harvest()
 
-func add_to_inventory(item:BaseUnit):
+func add_to_inventory(item : BaseUnit, quietly : bool = false):
 	if item == null:
 		return
 	inventory.add_content(item)
 	var quantity = inventory.find_quantity(item.name)
 	$QuickslotManager.add_quantity(quantity)
+	if not quietly:
+		$PickupStreamPlayer2D.play()
 	emit_signal("quickslots_updated", $QuickslotManager.slot_array)
 	if item.taxonomy == Constants.PASSIVE_NAME:
 		if item.name == Constants.CLOCK_NAME:

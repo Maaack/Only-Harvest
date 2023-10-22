@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://df6fcrlg0kjsv"]
+[gd_scene load_steps=91 format=3 uid="uid://df6fcrlg0kjsv"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/PlayerCharacter.gd" id="1_a1020"]
 [ext_resource type="Texture2D" uid="uid://my27r3aidjhe" path="res://Assets/Originals/Sprites/ShadowShape.png" id="2_uvjc1"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://clh5n41ahy0u3" path="res://Assets/Originals/Sprites/Rabbit Character Actions.png" id="4_4mtei"]
 [ext_resource type="PackedScene" uid="uid://dtgs43ojd5an4" path="res://Scenes/PlayerCharacter/PickupCollector/PickupCollector.tscn" id="5_33mgi"]
 [ext_resource type="Script" path="res://Scenes/PlayerCharacter/QuickslotManager.gd" id="6_japog"]
+[ext_resource type="AudioStream" uid="uid://bx80jhcavp5f7" path="res://Assets/Sourced/Elle-ui/Modern10.wav" id="7_2llsv"]
+[ext_resource type="AudioStream" uid="uid://h4ekejnnmxqc" path="res://Assets/Sourced/Elle-ui/Modern11.wav" id="8_jm4na"]
+[ext_resource type="AudioStream" uid="uid://cacf2l3g5qcjq" path="res://Assets/Sourced/Elle-ui/Modern12.wav" id="9_poxvo"]
+[ext_resource type="AudioStream" uid="uid://c6klpq0o4xh1i" path="res://Assets/Sourced/Filmcow/swoosh 9.wav" id="10_p0rj5"]
+[ext_resource type="AudioStream" uid="uid://b17lmd5jhsj1r" path="res://Assets/Sourced/Filmcow/wood bark friction 13.wav" id="11_u40am"]
+[ext_resource type="AudioStream" uid="uid://di1xd3470jg7k" path="res://Assets/Sourced/Filmcow/woosh 6.wav" id="12_axcuq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3el4"]
 radius = 4.0
@@ -1680,6 +1686,31 @@ graph_offset = Vector2(126, -71.3159)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6o2gc"]
 size = Vector2(16, 16)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4c1g6"]
+streams_count = 3
+random_pitch = 1.0
+stream_0/stream = ExtResource("7_2llsv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_jm4na")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_poxvo")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ieaoi"]
+streams_count = 1
+stream_0/stream = ExtResource("10_p0rj5")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_odc5f"]
+streams_count = 1
+stream_0/stream = ExtResource("11_u40am")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tw8bv"]
+streams_count = 1
+stream_0/stream = ExtResource("12_axcuq")
+stream_0/weight = 1.0
+
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_layer = 17
 collision_mask = 3
@@ -1743,6 +1774,26 @@ shape = SubResource("RectangleShape2D_6o2gc")
 
 [node name="QuickslotManager" type="Node" parent="."]
 script = ExtResource("6_japog")
+
+[node name="PickupStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_4c1g6")
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="AxeSwingStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ieaoi")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="HoeSwingStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_odc5f")
+volume_db = -1.0
+bus = &"SFX"
+
+[node name="JumpStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tw8bv")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="ActionArea" to="." method="_on_action_area_area_entered"]
 [connection signal="pickup_collected" from="PickupCollector" to="." method="_on_pickup_collector_pickup_collected"]
