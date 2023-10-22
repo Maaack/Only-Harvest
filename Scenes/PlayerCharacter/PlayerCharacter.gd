@@ -126,7 +126,6 @@ func _ready():
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
 	add_to_inventory(axe_item.duplicate(), true)
-	#add_to_inventory(hoe_item.duplicate(), true)
 	_update_quickslot()
 
 func _attempt_trade():
