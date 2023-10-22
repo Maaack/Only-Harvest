@@ -2,7 +2,12 @@ extends Control
 
 func _on_world_time_updated():
 	%DateTime.set_day(%World.get_day())
-	%DateTime.set_hour(%World.get_hour())
+	var hour = %World.get_hour()
+	%DateTime.set_hour(hour)
+	if hour > 6 and hour < 18:
+		%DateTime.set_mode(0)
+	else:
+		%DateTime.set_mode(1)
 
 
 func _on_world_quickslots_updated(slot_array):
@@ -14,10 +19,10 @@ func _on_world_player_started_trespassing(faction):
 		return
 	var owner_name = Constants.FACTION_NAMES[faction]
 	%TrespassingWarning.text = "You are trespassing on %s's property!" % owner_name
-	%TrespassingWarning.show()
+	%TrespassingBox.show()
 
 func _on_world_player_stopped_trespassing(faction):
-	%TrespassingWarning.hide()
+	%TrespassingBox.hide()
 
 func _on_world_game_ended(days_passed, quantities):
 	get_tree().paused = true
