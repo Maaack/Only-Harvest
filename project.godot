@@ -19,6 +19,8 @@ config/icon="res://icon.png"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GameState="*res://Resources/GameState.gd"
+InGameMenuController="*res://Scripts/InGameMenuController.gd"
+SceneLoader="*res://Scripts/SceneLoader.gd"
 
 [display]
 

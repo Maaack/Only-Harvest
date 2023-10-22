@@ -2,18 +2,14 @@
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
+[ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="1_ymad3"]
 [ext_resource type="PackedScene" uid="uid://burp6ip1d6yo" path="res://Scenes/MainGameUI/DateTime/DateTime.tscn" id="2_4pd0i"]
 [ext_resource type="PackedScene" uid="uid://cj8ogciftt4ml" path="res://Scenes/Quickslots/Quickslots.tscn" id="4_igd4l"]
 [ext_resource type="PackedScene" uid="uid://cw2fi7fcnaeq1" path="res://Scenes/Inventory/InventorySlot/InventorySlot.tscn" id="5_5wpn5"]
 [ext_resource type="PackedScene" uid="uid://rriqgw05uops" path="res://Scenes/GameOver/GameOver.tscn" id="5_j3o8h"]
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="6_82gva"]
 [ext_resource type="PackedScene" uid="uid://dmoq4ilfi2wep" path="res://Scenes/MainGameUI/Transition.tscn" id="7_6fx7q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ecx"]
-bg_color = Color(0.666819, 0.474342, 0.348791, 1)
-
-[sub_resource type="Theme" id="Theme_6rp5b"]
-Panel/styles/panel = SubResource("StyleBoxFlat_35ecx")
+[ext_resource type="Script" path="res://Scripts/PauseMenuController.gd" id="9_j13tb"]
 
 [node name="MainGameUI" type="Control"]
 process_mode = 3
@@ -23,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_6rp5b")
+theme = ExtResource("1_ymad3")
 script = ExtResource("1_8g0hl")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -254,6 +250,11 @@ process_mode = 3
 visible = false
 layout_mode = 1
 mouse_filter = 2
+
+[node name="PauseMenuController" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("9_j13tb")
 
 [connection signal="dialogue_offered" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_dialogue_offered"]
 [connection signal="dialogue_revoked" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_dialogue_revoked"]
