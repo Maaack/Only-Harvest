@@ -37,6 +37,8 @@ var period_of_day : Constants.Periods
 var has_trespassed_at_day : bool = false
 var has_trespassed_at_night : bool = false
 var has_started_first_night: bool = false
+var player_is_dead : bool = false
+var player_revivals : int = 0
 
 func hold_player():
 	player_character.set_physics_process(false)
@@ -74,7 +76,7 @@ func _start_new_day():
 
 func _start_new_night():
 	has_trespassed_at_night = false
-	if not has_started_first_night:
+	if not has_started_first_night and not player_is_dead:
 		has_started_first_night = true
 		_start_dialogue("FirstNight")
 
@@ -262,9 +264,22 @@ func _on_player_character_quickslots_updated(slot_array):
 	emit_signal("quickslots_updated", slot_array)
 
 func respawn_player():
+	if not player_is_dead:
+		return
+	player_is_dead = false
 	player_character.position = %PlayerRespawnPoint.position
 	emit_signal("player_spawned")
 	player_character.revive()
+	player_revivals += 1
+	match(player_revivals):
+		1:
+			_start_dialogue("FirstDeath")
+		2:
+			_start_dialogue("SecondDeath")
+		3:
+			_start_dialogue("ThirdDeath")
+		4:
+			_start_dialogue("FourthDeath")
 
 func pass_world_time(increments : int = 1, delay : float = 0.25):
 	$Timer.paused = true
@@ -277,9 +292,14 @@ func pass_world_time(increments : int = 1, delay : float = 0.25):
 	emit_signal("time_passed")
 
 func _player_died():
+	if player_is_dead:
+		return
+	player_is_dead = true
 	$WarningShotTimer.stop()
 	$KillShotTimer.stop()
-	player_trespassing_properties.clear()
+	if not player_trespassing_properties.is_empty():
+		emit_signal("player_stopped_trespassing", Constants.Factions.NONE)
+		player_trespassing_properties.clear()
 	emit_signal("player_died")
 
 func _on_player_character_killed():

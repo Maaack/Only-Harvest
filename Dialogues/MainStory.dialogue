@@ -184,6 +184,50 @@ else
 
 => END
 
+~ FirstDeath
+
+You: This was grandpas farm?
+Ghost: Hey son,[do GameState.camera_target_ghost()] did grandpa drag you out here, too?
+You: Dad? You're a ghost now, too?
+Ghost: Yeah, and I am to take my father's place,
+Ghost: -passing on the knowledge to you
+Ghost: -that he tried to pass onto me,
+Ghost: -when I still lived... yesterday.
+do GameState.camera_target_player()
+You: So, I can save grandpa's farm,
+You: -or start my own data-mining company,
+You: -after stealing your cryptocurrency.
+Ghost: Hey!- Well... This is all starting to make a lot of sense.
+
+=> END
+
+~ SecondDeath
+
+You: So this is the infamous family farm. What a dump.
+Ghost: Son![do GameState.camera_target_ghost()] Show a little respect!
+Ghost: It's called "quaint".
+do GameState.camera_target_player()
+You: Well it quaint what I expected.
+You: Actually... it's about what I expected.
+
+=> END
+
+~ ThirdDeath
+
+You: Multiple generations of my forefathers have died here
+You: -this week.
+Ghost: I'm sure you'll be fine...
+
+=> END
+
+~ FourthDeath
+
+You: The implications here are getting weird.
+You: Do I have a son, too?
+Ghost: I guess we'll find out!
+
+=> END
+
 ~ GhostInteract
 
 if GameState.randomizer < 0.1
