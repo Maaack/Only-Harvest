@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=127 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -24,6 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://e8k3hb3aatgt" path="res://Assets/Originals/Sprites/Blackmarket Dealer.png" id="16_nb1ku"]
 [ext_resource type="PackedScene" uid="uid://cs8jdsmhf6pce" path="res://Scenes/DialogueTriggers/DialogueTrigger.tscn" id="18_ejfg6"]
 [ext_resource type="Script" path="res://Scenes/World/DayNightModulater.gd" id="20_aubqg"]
+[ext_resource type="AudioStream" uid="uid://bqwxwep31yhmx" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/1_new_life_master.mp3" id="25_h2ive"]
+[ext_resource type="AudioStream" uid="uid://bnfufwn51lgcs" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/3_fireflies_master.mp3" id="26_264oo"]
+[ext_resource type="AudioStream" uid="uid://blxw0d577ww4j" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/24_too_late!_stinger_master.mp3" id="27_7tb3a"]
+[ext_resource type="AudioStream" uid="uid://vm1f0mu2dp2m" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/17_new_season_stinger_master.mp3" id="28_wmmi0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -2667,6 +2671,7 @@ script = ExtResource("1_rdfhq")
 crop_tilemap = NodePath("TileMap")
 crop_tilemap_layer = 5
 crop_source_id = 3
+game_over_days = 1
 clear_layers_for_planting = Array[int]([2, 3, 4, 5, 6, 7])
 hoeing_layers = Array[int]([5, 2])
 
@@ -3131,6 +3136,31 @@ position = Vector2(200, 176)
 [node name="DayNightModulater" type="CanvasModulate" parent="."]
 script = ExtResource("20_aubqg")
 enabled = true
+
+[node name="DayMusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("25_h2ive")
+volume_db = -26.0
+autoplay = true
+bus = &"Music"
+
+[node name="NightMusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("26_264oo")
+volume_db = -20.0
+bus = &"Music"
+
+[node name="DeathStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("27_7tb3a")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="GameOverStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("28_wmmi0")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WarningShotTimer" to="." method="_on_warning_shot_timer_timeout"]

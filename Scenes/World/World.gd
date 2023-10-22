@@ -73,10 +73,14 @@ func _check_start_trespassing_timers():
 
 func _start_new_day():
 	has_trespassed_at_day = false
+	$NightMusicStreamPlayer.stop()
+	$DayMusicStreamPlayer.play()
 
 func _start_new_night():
 	has_trespassed_at_night = false
-	if not has_started_first_night and not player_is_dead:
+	$DayMusicStreamPlayer.stop()
+	$NightMusicStreamPlayer.play()
+	if not has_started_first_night and not player_is_dead and player_trespassing_properties.is_empty():
 		has_started_first_night = true
 		_start_dialogue("FirstNight")
 
@@ -98,6 +102,9 @@ func increment_world_time(amount : int = 1):
 		if child is Crop:
 			child.increment_crop_age(amount)
 	if world_time >= game_over_days * hours_in_day:
+		$DayMusicStreamPlayer.stop()
+		$NightMusicStreamPlayer.stop()
+		$GameOverStreamPlayer.play()
 		emit_signal("game_ended", get_day(), player_character.inventory.quantities)
 	_update_period_of_day()
 	_start_trespassing_dialogue()
@@ -297,6 +304,7 @@ func _player_died():
 	player_is_dead = true
 	$WarningShotTimer.stop()
 	$KillShotTimer.stop()
+	$DeathStreamPlayer.play()
 	if not player_trespassing_properties.is_empty():
 		emit_signal("player_stopped_trespassing", Constants.Factions.NONE)
 		player_trespassing_properties.clear()
