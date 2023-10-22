@@ -34,11 +34,11 @@ func _display_reward():
 	if credits < CREDITS_GOAL and cryptos < CRYPTOS_GOAL:
 		%Meaning.text = "You lose the family farm!\nWhat you have left is not much to go on."
 	elif credits >= CREDITS_GOAL and cryptos < CRYPTOS_GOAL:
-		%Meaning.text = "You pay mortgage and keep your family farm!\nFor this week."
+		%Meaning.text = "You pay the mortgage and keep the family farm!\nFor this week."
 	elif credits < CREDITS_GOAL and cryptos >= CRYPTOS_GOAL:
-		%Meaning.text = "You lose the farm, but you are a king among thieves.\nStill homeless though."
+		%Meaning.text = "You successfully start your data mining enterprise!\nYou live in the office."
 	elif credits > CREDITS_GOAL and cryptos >= CRYPTOS_GOAL:
-		%Meaning.text = "You keep your family farm,\nand have earned \"honor\" among thieves."
+		%Meaning.text = "You keep your family farm,\nand start your enterprise!\nWay to show the world!"
 		
 
 func refresh_text():
