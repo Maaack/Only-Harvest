@@ -26,9 +26,10 @@ You: There are crops to harvest [do GameState.camera_target_neighbor()] right ov
 Ghost: But those- those aren't yours! They belong to the neighbors!
 do GameState.camera_target_ghost()
 Ghost: That would be stealing!
-You: I'm taking the load off their hands, so it's even.
-Ghost: What kind of son did I raise?
+You: They've hardly secured it at all.
 do GameState.camera_target_player()
+You: It's better I take it before some jerk does.
+Ghost: What kind of son did I raise?
 You: Then I'll exchange it for 1k Darko Cryptos to start my data mining venture.
 Ghost: Were those words?
 You: I'm a digital-soul-harvesting entrepreneur, dad. You wouldn't understand.
@@ -185,22 +186,36 @@ else
 
 ~ GhostInteract
 
-if GameState.randomizer < 0.20
-	Ghost: Why am I still here?
-	You: Unfinished business?
-	Ghost: Not like I can finish it now...
+if GameState.randomizer < 0.1
+	Ghost: You probably want to take your first harvest to the seed exchange.
+	Ghost: Hoeing can wait until you've made use of the space you have. 
+elif GameState.randomizer < 0.2
+	Ghost: I shouldn't help you with this...
+	Ghost: -but the blackmarket dealer is behind the seed exchange.
+elif GameState.randomizer < 0.3
+	Ghost: There was a rumor that the blackmarket dealer imported a unique device.
+	Ghost: Supposedly, it warps time and makes the owner run faster.
 elif GameState.randomizer < 0.4
-	Ghost: Eggplant takes twice as long as wheat to grow.
-	Ghost: But it'll sell for more than twice that of wheat on the market.
-elif GameState.randomizer < 0.6
+	Ghost: Wheat takes a day and a half to fully mature. Eggplant takes three.
+	Ghost: But eggplant sells for more than twice that of wheat on the market.
+elif GameState.randomizer < 0.5
 	Ghost: Some guard dogs are more aggressive than others.
 	Ghost: You'll only be able to tell when they start chasing you.
-elif GameState.randomizer < 0.8
+elif GameState.randomizer < 0.6
 	Ghost: The mortgage will get collected on Day 8, at noon.
 	Ghost: You have exactly 7 days to collect 100 Credits.
-else
+elif GameState.randomizer < 0.7
+	Ghost: I've got a line to my grandson.
+	Ghost: He can be here in 24 hours should you perish.
+elif GameState.randomizer < 0.8
+	Ghost: Trespassing during the day will get you shot dead.
+	Ghost: Trespassing at night still requires avoiding guard dogs.
+elif GameState.randomizer < 0.9
 	Ghost: Seed exchanges are more cost effective than buying seeds from a market.
 	Ghost: Assuming you have honestly harvested crops to exchange.
+else
+	Ghost: I have exactly 10 things to say to you.
+	Ghost: That was one of them.
 
 => END
 
