@@ -7,7 +7,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4")
+h1_font_size = 32
+h2_font_size = 24
+h3_font_size = 16
+h4_font_size = 12
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -21,27 +27,65 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 1024)
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1024, 0)
+custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
 bbcode_enabled = true
+text = "[center]
+[font_size=24]Collaborators[/font_size]
+
+[font_size=16]Game By[/font_size]
+[url=https://maaack.itch.io/]Maaack[/url]  
+
+
+[font_size=24]Sourced / Unaffiliated[/font_size]
+[font_size=16]Asset Type[/font_size]
+[font_size=12]Use Case[/font_size]
+Author: [url=]Name[/url]  
+Source: [url=]Domain : webpage.html[/url]  
+License: [url=]License[/url]
+
+
+[font_size=24]Tools[/font_size]
+[font_size=12]Godot[/font_size]
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=12]Git[/font_size]
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=24]Dedicated to[/font_size]
+Amy[/center]"
 fit_content = true
 scroll_active = false
 
 [node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 1024)
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
 
 [node name="ScrollResetTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
 
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="scroll_ended" from="ScrollContainer" to="." method="_on_ScrollContainer_scroll_ended"]
 [connection signal="gui_input" from="ScrollContainer/VBoxContainer/RichTextLabel" to="." method="_on_RichTextLabel_gui_input"]
 [connection signal="meta_clicked" from="ScrollContainer/VBoxContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="timeout" from="ScrollResetTimer" to="." method="_on_ScrollResetTimer_timeout"]
+[connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]

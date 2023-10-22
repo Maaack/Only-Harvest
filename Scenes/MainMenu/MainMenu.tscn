@@ -411,7 +411,7 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme_override_constants/margin_top = 128
+theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="Credits" parent="CreditsContainer" instance=ExtResource("5_auq65")]
