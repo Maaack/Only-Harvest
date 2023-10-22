@@ -63,7 +63,6 @@ Merchant: We trade crops for seeds, and seeds for other seeds.
 
 Dealer: I'll buy any crops you got on you.
 Dealer: No ownership implied.
-Dealer: My convenience chests have deals you won't see anywhere else.
 
 => END
 
@@ -181,6 +180,27 @@ else
 
 => END
 
+~ GhostInteract
+
+if GameState.randomizer < 0.20
+	Ghost: Why am I still here?
+	You: Unfinished business?
+	Ghost: Not like I can finish it now...
+elif GameState.randomizer < 0.4
+	Ghost: Eggplant takes twice as long as wheat to grow.
+	Ghost: But it'll sell for more than twice that of wheat on the market.
+elif GameState.randomizer < 0.6
+	Ghost: Some guard dogs are more aggressive than others.
+	Ghost: You'll only be able to tell when they start chasing you.
+elif GameState.randomizer < 0.8
+	Ghost: The mortgage will get collected on Day 8, at noon.
+	Ghost: You have exactly 7 days to collect 100 Credits.
+else
+	Ghost: Seed exchanges are more cost effective than buying seeds from a market.
+	Ghost: Assuming you have honestly harvested crops to exchange.
+
+=> END
+
 ~ MarketInteract
 
 if GameState.randomizer < 0.25
@@ -191,6 +211,19 @@ elif GameState.randomizer < 0.75
 	Merchant: I got seeds and hoes. Tools for an honest living.
 else
 	Merchant: This is no pawn shop. I buy and sell at market value.
+
+=> END
+
+~ ExchangeInteract
+
+if GameState.randomizer < 0.25
+	Merchant: You can get seeds here for better than market value.
+elif GameState.randomizer < 0.5
+	Merchant: Exchanging in bulk offers greater savings.
+elif GameState.randomizer < 0.75
+	Merchant: Eggplant takes twice as long as wheat to grow, so plan accordingly.
+else
+	Merchant: Only honest crops are accepted here.
 
 => END
 

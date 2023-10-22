@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=121 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -18,6 +18,9 @@
 [ext_resource type="Script" path="res://Scenes/World/SceneDirector.gd" id="10_t1sxx"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="11_wwwc8"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="12_1gmxm"]
+[ext_resource type="PackedScene" uid="uid://d21cgnefyjbu2" path="res://Scenes/Merchant/Merchant.tscn" id="14_hffgn"]
+[ext_resource type="Texture2D" uid="uid://b6k2q4eb8dqq4" path="res://Assets/Originals/Sprites/Exchange Merchant.png" id="15_wk5q2"]
+[ext_resource type="Texture2D" uid="uid://e8k3hb3aatgt" path="res://Assets/Originals/Sprites/Blackmarket Dealer.png" id="16_nb1ku"]
 [ext_resource type="PackedScene" uid="uid://cs8jdsmhf6pce" path="res://Scenes/DialogueTriggers/DialogueTrigger.tscn" id="18_ejfg6"]
 [ext_resource type="Script" path="res://Scenes/World/DayNightModulater.gd" id="20_aubqg"]
 
@@ -2757,6 +2760,21 @@ y_sort_enabled = true
 unique_name_in_owner = true
 position = Vector2(280, 248)
 
+[node name="Merchant" parent="Characters" instance=ExtResource("14_hffgn")]
+position = Vector2(256, 952)
+
+[node name="ExchangeMerchant" parent="Characters" instance=ExtResource("14_hffgn")]
+position = Vector2(672, 1056)
+
+[node name="Sprite2D" parent="Characters/ExchangeMerchant" index="1"]
+texture = ExtResource("15_wk5q2")
+
+[node name="BlackMarketMerchant" parent="Characters" instance=ExtResource("14_hffgn")]
+position = Vector2(1080, 920)
+
+[node name="Sprite2D" parent="Characters/BlackMarketMerchant" index="1"]
+texture = ExtResource("16_nb1ku")
+
 [node name="GuardDog" parent="Characters" instance=ExtResource("7_n0m51")]
 position = Vector2(968, 432)
 
@@ -2913,6 +2931,26 @@ trigger_mode = 1
 trigger_count = 1
 
 [node name="CollisionShape2D" parent="Dialogues/DialogueTrigger2" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_u66xe")
+
+[node name="DialogueTrigger12" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(672, 1056)
+dialogue_title = "ExchangeInteract"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogueTrigger12" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_u66xe")
+
+[node name="DialogueTrigger13" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(1080, 920)
+dialogue_title = "BlackmarketInteract"
+trigger_mode = 1
+trigger_count = 1
+
+[node name="CollisionShape2D" parent="Dialogues/DialogueTrigger13" index="0"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u66xe")
 
@@ -3079,8 +3117,12 @@ enabled = true
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 
+[editable path="Characters/ExchangeMerchant"]
+[editable path="Characters/BlackMarketMerchant"]
 [editable path="Dialogues/DialogueTrigger"]
 [editable path="Dialogues/DialogueTrigger2"]
+[editable path="Dialogues/DialogueTrigger12"]
+[editable path="Dialogues/DialogueTrigger13"]
 [editable path="Dialogues/DialogueTrigger4"]
 [editable path="Dialogues/DialogueTrigger5"]
 [editable path="Dialogues/DialogueTrigger6"]
