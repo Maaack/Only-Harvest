@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=11 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="6_82gva"]
 [ext_resource type="PackedScene" uid="uid://dmoq4ilfi2wep" path="res://Scenes/MainGameUI/Transition.tscn" id="7_6fx7q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ecx"]
+bg_color = Color(0.666819, 0.474342, 0.348791, 1)
+
+[sub_resource type="Theme" id="Theme_6rp5b"]
+Panel/styles/panel = SubResource("StyleBoxFlat_35ecx")
+
 [node name="MainGameUI" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -17,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_6rp5b")
 script = ExtResource("1_8g0hl")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -108,7 +115,7 @@ grow_vertical = 2
 text = "You are trespassing on someone's property!"
 horizontal_alignment = 1
 
-[node name="TradePanel" type="Panel" parent="MarginContainer/InGameUI"]
+[node name="TradePanel" type="NinePatchRect" parent="MarginContainer/InGameUI"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -123,7 +130,12 @@ offset_right = 93.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+texture = ExtResource("6_82gva")
+region_rect = Rect2(107, 155, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/InGameUI/TradePanel"]
 layout_mode = 1
@@ -154,6 +166,14 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 
+[node name="NinePatchRect" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer/BuyingSlot" index="0"]
+texture = ExtResource("6_82gva")
+region_rect = Rect2(11, 107, 26, 28)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 6
+
 [node name="Label" type="Label" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "for"
@@ -164,7 +184,15 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 
-[node name="DialoguePanel" type="Panel" parent="MarginContainer/InGameUI"]
+[node name="NinePatchRect" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer/SellingSlot" index="0"]
+texture = ExtResource("6_82gva")
+region_rect = Rect2(11, 107, 26, 28)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="DialoguePanel" type="NinePatchRect" parent="MarginContainer/InGameUI"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -179,7 +207,12 @@ offset_right = 93.0
 offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+texture = ExtResource("6_82gva")
+region_rect = Rect2(107, 155, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/InGameUI/DialoguePanel"]
 layout_mode = 1
@@ -235,3 +268,6 @@ mouse_filter = 2
 [connection signal="time_updated" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_time_updated"]
 [connection signal="trading_offered" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_trading_offered"]
 [connection signal="trading_revoked" from="SubViewportContainer/SubViewport/World" to="." method="_on_world_trading_revoked"]
+
+[editable path="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer/BuyingSlot"]
+[editable path="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer/SellingSlot"]

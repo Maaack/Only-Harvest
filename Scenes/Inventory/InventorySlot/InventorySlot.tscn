@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Inventory/InventorySlot/InventorySlot.gd" id="1_c0ilr"]
 
 [node name="InventorySlot" type="Control"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_c0ilr")
@@ -23,10 +23,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="Control" type="Control" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
