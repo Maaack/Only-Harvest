@@ -2985,7 +2985,7 @@ shape = SubResource("RectangleShape2D_j1sge")
 
 [node name="DialogTrigger10" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(696, 1368)
-dialogue_title = "JohandsonsonDoor"
+dialogue_title = "JohansonsonDoor"
 trigger_mode = 1
 trigger_count = 1
 action_name = "Knock"
