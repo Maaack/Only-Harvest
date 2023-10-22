@@ -3,6 +3,7 @@ extends Node2D
 
 signal pickup_collected(pickup)
 
+@export var enabled : bool = true
 @export var pull_area_force : float = 10
 @export var pull_max_speed : float = 100
 @export var pull_pickup_count : int = 1
@@ -40,6 +41,8 @@ func _drop_pickup(pickup : Pickup):
 	pickup.is_dragged = false
 
 func _physics_process(delta):
+	if not enabled:
+		return
 	if pulling_pickups.size() == 0:
 		return
 	var pickups_array : Array = pulling_pickups.values()

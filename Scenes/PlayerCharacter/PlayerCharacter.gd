@@ -205,6 +205,12 @@ func _on_pickup_collector_pickup_collected(pickup):
 		var new_quantity : BaseQuantity = pickup.quantity.duplicate()
 		add_to_inventory(new_quantity)
 
+func _drop_all(quantity_name : String):
+	var quantity = inventory.find_quantity(quantity_name)
+	if quantity == null:
+		return
+	inventory.remove_content(quantity.duplicate())
+
 func kill():
 	if is_dead:
 		return
@@ -212,6 +218,9 @@ func kill():
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	set_physics_process(false)
+	$PickupCollector.enabled = false
+	_drop_all(Constants.STOLEN_EGGPLANT_NAME)
+	_drop_all(Constants.STOLEN_WHEAT_NAME)
 	emit_signal("killed")
 
 func revive():
@@ -219,6 +228,7 @@ func revive():
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	set_physics_process(true)
+	$PickupCollector.enabled = true
 
 func offer_trade(chest_node : TradingChest):
 	active_node = chest_node

@@ -52,6 +52,9 @@ const PASSIVE_NAME : String = "Passive"
 const AXE_NAME : String = "Axe"
 const HOE_NAME : String = "Hoe"
 const CLOCK_NAME : String = "Time Warp"
+const STOLEN_WHEAT_NAME : String = "Stolen Wheat"
+const STOLEN_EGGPLANT_NAME : String = "Stolen Eggplant"
+
 
 const CROP_NAMES : Dictionary = {
 	EGGPLANT_NAME : Crops.EGGPLANT,
