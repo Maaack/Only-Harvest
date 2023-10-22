@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwa30ox5nmgq7"]
+[gd_scene load_steps=10 format=3 uid="uid://bwa30ox5nmgq7"]
 
 [ext_resource type="Script" path="res://Scenes/TradingChest/TradingChest.gd" id="1_l7t0c"]
 [ext_resource type="Texture2D" uid="uid://bhjytby2ycvpn" path="res://Assets/Sourced/Sprout Lands/Objects/Chest.png" id="1_tli8s"]
+[ext_resource type="AudioStream" uid="uid://claqpo5v2gv3t" path="res://Assets/Sourced/Filmcow/wood bark friction 10.wav" id="3_gvm00"]
 
 [sub_resource type="Animation" id="Animation_guclc"]
 resource_name = "Idle"
@@ -60,6 +61,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikv6r"]
 size = Vector2(80, 80)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2ydly"]
+streams_count = 1
+stream_0/stream = ExtResource("3_gvm00")
+stream_0/weight = 1.0
+
 [node name="TradingChest" type="Node2D"]
 script = ExtResource("1_l7t0c")
 
@@ -79,6 +85,11 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ikv6r")
+
+[node name="OpenStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_2ydly")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

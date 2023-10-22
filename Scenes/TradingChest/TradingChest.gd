@@ -11,6 +11,7 @@ var sell_amount_processing : int = 0
 func _on_area_2d_body_entered(body):
 	if body is PlayerCharacter:
 		$AnimationPlayer.play("Opening")
+		$OpenStreamPlayer2D.play()
 		body.offer_trade(self)
 
 func _on_area_2d_body_exited(body):
