@@ -5,6 +5,7 @@ signal dropped(quantity : BaseQuantity)
 
 @export var buying : BaseQuantity
 @export var selling : BaseQuantity
+@export var selling_chunk_size : int = 1
 
 var sell_amount_processing : int = 0
 
@@ -22,9 +23,10 @@ func _on_area_2d_body_exited(body):
 func _physics_process(delta):
 	if sell_amount_processing > 0:
 		var selling_one : BaseQuantity = selling.duplicate()
-		selling_one.quantity = 1
+		var chunk_size : int = min(selling_chunk_size, sell_amount_processing)
+		selling_one.quantity = chunk_size
 		emit_signal("dropped", selling_one)
-		sell_amount_processing -= 1
+		sell_amount_processing -= chunk_size
 
 func trade(trading : BaseQuantity):
 	if trading.name == buying.name and trading.quantity >= buying.quantity:
