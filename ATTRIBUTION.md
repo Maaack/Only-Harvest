@@ -6,11 +6,21 @@
 
 
 ## Sourced / Unaffiliated
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+### Art
+#### World
+Author: [Cup Nooble](https://cupnooble.itch.io/)  
+Source: [itch.io : sprout-lands-asset-pack](https://cupnooble.itch.io/sprout-lands-asset-pack)  
+License: [Free License](https://cupnooble.itch.io/sprout-lands-asset-pack)  
+
+#### UI
+Author: [Cup Nooble](https://cupnooble.itch.io/)  
+Source: [itch.io : sprout-lands-ui-pack](https://cupnooble.itch.io/sprout-lands-ui-pack)  
+License: [Free License](https://cupnooble.itch.io/sprout-lands-ui-pack)  
+
+### Music
+Author: [Rest!](https://richarrest.itch.io/)  
+Source: [itch.io : cozy-sim-music-pack-town-life](https://richarrest.itch.io/cozy-sim-music-pack-town-life)  
+License: [Free License](https://richarrest.itch.io/cozy-sim-music-pack-town-life)  
 
 
 ## Tools
