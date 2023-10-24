@@ -2233,7 +2233,7 @@ region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_0unv2"]
 script = ExtResource("12_1gmxm")
-quantity = 10.0
+quantity = 5.0
 name = "Stolen Wheat"
 icon = SubResource("AtlasTexture_b1wck")
 taxonomy = "Harvest"
@@ -2347,7 +2347,7 @@ region = Rect2(96, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_l8rh1"]
 script = ExtResource("12_1gmxm")
-quantity = 10.0
+quantity = 5.0
 name = "Stolen Eggplant"
 icon = SubResource("AtlasTexture_nlo12")
 taxonomy = "Harvest"
@@ -2860,6 +2860,7 @@ aggression_level = 1
 position = Vector2(1168, 872)
 buying = SubResource("Resource_0unv2")
 selling = SubResource("Resource_3g100")
+selling_chunk_size = 5
 
 [node name="TradingChest11" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(1272, 872)
@@ -2880,16 +2881,19 @@ selling = SubResource("Resource_qmbf6")
 position = Vector2(1168, 976)
 buying = SubResource("Resource_l8rh1")
 selling = SubResource("Resource_mxybt")
+selling_chunk_size = 5
 
 [node name="TradingChest2" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(360, 952)
 buying = SubResource("Resource_xsimk")
 selling = SubResource("Resource_66d52")
+selling_chunk_size = 2
 
 [node name="TradingChest4" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(248, 952)
 buying = SubResource("Resource_4dxyk")
 selling = SubResource("Resource_vtvd7")
+selling_chunk_size = 2
 
 [node name="TradingChest5" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(360, 1056)
@@ -2934,6 +2938,7 @@ selling = SubResource("Resource_dbhe7")
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Dialogues" type="Node2D" parent="."]
+visible = false
 
 [node name="DialogueTrigger" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(848, 536)
