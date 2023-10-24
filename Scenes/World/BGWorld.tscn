@@ -2203,6 +2203,7 @@ sources/8 = SubResource("TileSetAtlasSource_jobb0")
 [sub_resource type="Animation" id="Animation_l57ob"]
 resource_name = "CameraPanning"
 length = 60.0
+loop_mode = 1
 step = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
