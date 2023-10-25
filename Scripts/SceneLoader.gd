@@ -30,7 +30,7 @@ func get_progress():
 		return
 	var progress_array : Array = []
 	ResourceLoader.load_threaded_get_status(scene_to_load, progress_array)
-	return progress_array.pop_back()
+	return progress_array.pop_back() * 100.0
 
 func get_resource():
 	if scene_to_load == null or scene_to_load == "":
