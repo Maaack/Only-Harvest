@@ -11,6 +11,7 @@ signal dialogue_offered(action_name : String)
 signal dialogue_revoked
 signal seed_planted(seed : BaseQuantity, target_position : Vector2)
 signal soil_hoed(target_position : Vector2)
+signal tile_highlighted(target_position : Vector2, tool_type: Constants.TileTool)
 
 @export var acceleration : float = 600
 @export var max_speed : float = 7500
@@ -66,12 +67,12 @@ func finish_jump():
 	is_jumping = false
 	jump_input_flag = false
 
-func start_hoeing(target_position : Vector2):
-	target_position += position
+func start_hoeing():
+	var target_position : Vector2 = position + $ActionMarker2D.position
 	emit_signal("soil_hoed", target_position)
 
-func start_planting(target_position : Vector2):
-	target_position += position
+func start_planting():
+	var target_position : Vector2 = position + $ActionMarker2D.position
 	var selected_tool : BaseQuantity = $QuickslotManager.get_selected_quantity()
 	emit_signal("seed_planted", selected_tool, target_position)
 
@@ -118,14 +119,24 @@ func move_state(delta):
 		animation_state.travel("Idle")
 	move_and_slide()
 
+func _highlight_active_tile():
+	var selected_item = get_selected_item()
+	if selected_item is BaseQuantity and selected_item.name in Constants.HIGHLIGHT_TILE_TOOLS:
+		var tool_type : Constants.TileTool = Constants.TileTool.SEEDS if selected_item.name in Constants.SEED_NAMES else Constants.TileTool.HOE
+		var total_position : Vector2 = position + $ActionMarker2D.position 
+		emit_signal("tile_highlighted", total_position, tool_type)
+
 func _physics_process(delta):
 	move_state(delta)
+	_highlight_active_tile()
 
 func _ready():
 	pull_count = pull_count
 	await get_tree().create_timer(0.05).timeout
 	inventory = BaseContainer.new()
 	add_to_inventory(axe_item.duplicate(), true)
+	# add_to_inventory(hoe_item.duplicate(), true)
+	# add_to_inventory(seed_item.duplicate(), true)
 	_update_quickslot()
 
 func _attempt_trade():

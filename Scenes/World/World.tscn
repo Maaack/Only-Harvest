@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=130 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://bnfufwn51lgcs" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/3_fireflies_master.mp3" id="26_264oo"]
 [ext_resource type="AudioStream" uid="uid://blxw0d577ww4j" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/24_too_late!_stinger_master.mp3" id="27_7tb3a"]
 [ext_resource type="AudioStream" uid="uid://vm1f0mu2dp2m" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/17_new_season_stinger_master.mp3" id="28_wmmi0"]
+[ext_resource type="Texture2D" uid="uid://cfejvlmen5pai" path="res://Assets/Originals/Sprites/WhiteRoundedCorners.png" id="30_q4eya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2v0he"]
 texture = ExtResource("1_nqhau")
@@ -2840,8 +2841,6 @@ script = ExtResource("1_rdfhq")
 crop_tilemap = NodePath("TileMap")
 crop_tilemap_layer = 5
 crop_source_id = 3
-clear_layers_for_planting = Array[int]([2, 3, 4, 5, 6, 7])
-hoeing_layers = Array[int]([5, 2])
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -3335,6 +3334,10 @@ stream = ExtResource("28_wmmi0")
 volume_db = -10.0
 bus = &"SFX"
 
+[node name="TileHighlighter" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("30_q4eya")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WarningShotTimer" to="." method="_on_warning_shot_timer_timeout"]
 [connection signal="timeout" from="KillShotTimer" to="." method="_on_kill_shot_timer_timeout"]
@@ -3345,6 +3348,7 @@ bus = &"SFX"
 [connection signal="quickslots_updated" from="Characters/PlayerCharacter" to="." method="_on_player_character_quickslots_updated"]
 [connection signal="seed_planted" from="Characters/PlayerCharacter" to="." method="_on_player_character_seed_planted"]
 [connection signal="soil_hoed" from="Characters/PlayerCharacter" to="." method="_on_player_character_soil_hoed"]
+[connection signal="tile_highlighted" from="Characters/PlayerCharacter" to="." method="_on_player_character_tile_highlighted"]
 [connection signal="trading_offered" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_offered"]
 [connection signal="trading_revoked" from="Characters/PlayerCharacter" to="." method="_on_player_character_trading_revoked"]
 

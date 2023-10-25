@@ -56,6 +56,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(16, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wro26"]
 resource_name = "FaceN"
@@ -95,6 +107,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -16)]
 }
 
 [sub_resource type="Animation" id="Animation_glsuh"]
@@ -136,6 +160,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 8)]
+}
 
 [sub_resource type="Animation" id="Animation_0p56g"]
 resource_name = "FaceW"
@@ -175,6 +211,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1an7e"]
@@ -251,7 +299,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(4, -2)]
 }
 
@@ -329,7 +377,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -8)]
 }
 
@@ -407,7 +455,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 0)]
 }
 
@@ -485,7 +533,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, -2)]
 }
 
@@ -538,12 +586,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(14, -2)],
+"args": [],
 "method": &"start_hoeing"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_frajr"]
@@ -595,12 +655,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(0, -16)],
+"args": [],
 "method": &"start_hoeing"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -16)]
 }
 
 [sub_resource type="Animation" id="Animation_rixfo"]
@@ -652,12 +724,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(0, 12)],
+"args": [],
 "method": &"start_hoeing"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_gcx77"]
@@ -709,12 +793,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(-14, -2)],
+"args": [],
 "method": &"start_hoeing"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_d0j60"]
@@ -1030,12 +1126,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(14, -2)],
+"args": [],
 "method": &"start_planting"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hi5wg"]
@@ -1087,12 +1195,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(0, -16)],
+"args": [],
 "method": &"start_planting"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -16)]
 }
 
 [sub_resource type="Animation" id="Animation_eannm"]
@@ -1144,12 +1264,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(0, 12)],
+"args": [],
 "method": &"start_planting"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_rv8vq"]
@@ -1201,12 +1333,24 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [Vector2(-14, -2)],
+"args": [],
 "method": &"start_planting"
 }, {
 "args": [],
 "method": &"finish_action"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionMarker2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_u0c54"]
@@ -1292,8 +1436,20 @@ tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 4)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ActionMarker2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1wg2r"]
@@ -1337,6 +1493,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(16, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_h1tsu"]
 resource_name = "WalkN"
@@ -1378,6 +1546,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -16)]
 }
 
 [sub_resource type="Animation" id="Animation_2lbmg"]
@@ -1421,6 +1601,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 8)]
+}
 
 [sub_resource type="Animation" id="Animation_yirlr"]
 resource_name = "WalkW"
@@ -1462,6 +1654,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActionMarker2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-16, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jxgy"]
@@ -1798,6 +2002,8 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_tw8bv")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="ActionMarker2D" type="Marker2D" parent="."]
 
 [connection signal="area_entered" from="ActionArea" to="." method="_on_action_area_area_entered"]
 [connection signal="pickup_collected" from="PickupCollector" to="." method="_on_pickup_collector_pickup_collected"]

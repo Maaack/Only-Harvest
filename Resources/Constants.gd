@@ -40,6 +40,8 @@ enum Periods{
 
 const EGGPLANT_NAME : String = "Eggplant"
 const WHEAT_NAME : String = "Wheat"
+const EGGPLANT_SEEDS_NAME : String = "Eggplant Seeds"
+const WHEAT_SEEDS_NAME : String = "Wheat Seeds"
 const MEANERRABBIT_NAME : String = "Meaner Rabbit"
 const MCGREGOR_NAME : String = "McGregor"
 const JOHANSONSON_NAME : String = "Johansonson"
@@ -66,6 +68,46 @@ const CROP_NAMES : Dictionary = {
 const CROP_GROWTH_RATES : Dictionary = {
 	EGGPLANT_NAME : [24,24,24],
 	WHEAT_NAME : [12,12,12],
+}
+
+const SEED_NAMES : Array = [
+	EGGPLANT_SEEDS_NAME,
+	WHEAT_SEEDS_NAME,
+]
+
+const HIGHLIGHT_TILE_TOOLS : Array = [
+	EGGPLANT_SEEDS_NAME,
+	WHEAT_SEEDS_NAME,
+	HOE_NAME
+]
+
+const EMPTY_LAYERS_FOR_PLANTING : Array = [
+	0,
+	2,
+	3,
+	4,
+	5,
+	6,
+	7,
+]
+
+const EMPTY_LAYERS_FOR_HOEING : Array = [
+	0,
+	3,
+	4,
+	6,
+	7,
+]
+
+# Hoe higher layers before lower layers
+const FILLED_LAYERS_FOR_HOEING : Array = [
+	5,
+	2,
+]
+
+enum TileTool {
+	SEEDS,
+	HOE
 }
 
 const FACTION_NAMES : Dictionary = {

@@ -20,8 +20,6 @@ signal dialogue_started(title : String)
 @export var crop_source_id : int = 0
 @export var game_over_days : int = 7
 @export var start_time_offset : int = 12
-@export var clear_layers_for_planting : Array[int] = []
-@export var hoeing_layers : Array[int] = []
 var base_crop_scene = preload("res://Scenes/Crop/Crop.tscn")
 var base_pickups_scene = preload("res://Scenes/Pickups/QuantityPickup.tscn")
 @onready var characters_container = $Characters
@@ -187,8 +185,8 @@ func _on_crop_harvested(dropped : BaseQuantity, crop_node : Crop):
 	if crop_node == null:
 		return
 	drop_crop_pickups(crop_node.position, dropped)
-	var cell_coord : Vector2i = Vector2i(crop_node.position) / crop_tilemap.tile_set.tile_size
-	_clear_crop_tile(cell_coord)
+	var tile_coord : Vector2i = _get_tile_coord_from_position(crop_node.position)
+	_clear_crop_tile(tile_coord)
 
 func _connect_crop(crop_node : Crop):
 	crop_node.connect("harvested", _on_crop_harvested.bind(crop_node))
@@ -330,13 +328,37 @@ func _on_player_character_dialogue_revoked():
 
 func _on_player_character_quickslot_selected(slot):
 	emit_signal("quickslot_selected", slot)
+	$TileHighlighter.hide()
 
-func _is_tile_clear(tile_coord : Vector2i):
-	for layer in clear_layers_for_planting:
+func _is_tile_clear_for_tool(tile_coord : Vector2i, tile_tool : Constants.TileTool):
+	var layers : Array
+	match(tile_tool):
+		Constants.TileTool.SEEDS:
+			layers = Constants.EMPTY_LAYERS_FOR_PLANTING
+		Constants.TileTool.HOE:
+			layers = Constants.EMPTY_LAYERS_FOR_HOEING
+	for layer in layers:
 		var source_id : int = crop_tilemap.get_cell_source_id(layer, tile_coord)
 		if source_id > -1:
 			return false
 	return true
+
+func _is_tile_filled_for_tool(tile_coord : Vector2i, tile_tool : Constants.TileTool):
+	var layers : Array
+	match(tile_tool):
+		Constants.TileTool.SEEDS:
+			# Map condition enforces this by using dirt tiles everywhere
+			return true
+		Constants.TileTool.HOE:
+			layers = Constants.FILLED_LAYERS_FOR_HOEING
+	for layer in layers:
+		var source_id : int = crop_tilemap.get_cell_source_id(layer, tile_coord)
+		if source_id > -1:
+			return true
+	return false
+
+func _get_tile_coord_from_position(target_position):
+	return Vector2i(target_position) / crop_tilemap.tile_set.tile_size
 
 func _on_player_character_seed_planted(seed, target_position):
 	var crop_type : Constants.Crops
@@ -345,21 +367,21 @@ func _on_player_character_seed_planted(seed, target_position):
 	elif seed.name.contains(Constants.EGGPLANT_NAME):
 		crop_type = Constants.Crops.EGGPLANT
 	var crop_stage_data : CropStage = CropStage.new(crop_type, Constants.Stages.ONE)
-	var cell_coord : Vector2i = Vector2i(target_position) / crop_tilemap.tile_set.tile_size
-	if not _is_tile_clear(cell_coord):
+	var tile_coord : Vector2i = _get_tile_coord_from_position(target_position)
+	if not _is_tile_clear_for_tool(tile_coord, Constants.TileTool.SEEDS):
 		return
-	_place_crop_scene_at_tile(crop_stage_data, cell_coord)
+	_place_crop_scene_at_tile(crop_stage_data, tile_coord)
 	var one_seed : BaseQuantity = seed.duplicate()
 	one_seed.quantity = 1
 	player_character.inventory.remove_content(one_seed)
 
 func _on_player_character_soil_hoed(target_position):
-	for layer in hoeing_layers:
-		var cell_coord : Vector2i = Vector2i(target_position) / crop_tilemap.tile_set.tile_size
-		if crop_tilemap.get_cell_source_id(layer, cell_coord) > -1:
-			crop_tilemap.set_cell(layer, cell_coord)
+	for layer in Constants.FILLED_LAYERS_FOR_HOEING:
+		var tile_coord : Vector2i = Vector2i(target_position) / crop_tilemap.tile_set.tile_size
+		if crop_tilemap.get_cell_source_id(layer, tile_coord) > -1:
+			crop_tilemap.set_cell(layer, tile_coord)
 			if layer == 2:
-				var surrounding_cells = crop_tilemap.get_surrounding_cells(cell_coord)
+				var surrounding_cells = crop_tilemap.get_surrounding_cells(tile_coord)
 				var used_cells = crop_tilemap.get_used_cells(layer)
 				var final_cells : Array = []
 				for cell in surrounding_cells:
@@ -373,3 +395,15 @@ func _on_warning_shot_timer_timeout():
 
 func _on_kill_shot_timer_timeout():
 	_start_dialogue("KillShot")
+
+func _center_to_tile(target_position):
+	var tile_coord : Vector2i = _get_tile_coord_from_position(target_position)
+	return Vector2(tile_coord * crop_tilemap.tile_set.tile_size + crop_tilemap.tile_set.tile_size / 2)
+
+func _on_player_character_tile_highlighted(target_position, tile_tool):
+	var tile_coord : Vector2i = _get_tile_coord_from_position(target_position)
+	if not _is_tile_clear_for_tool(tile_coord, tile_tool) or not _is_tile_filled_for_tool(tile_coord, tile_tool):
+		$TileHighlighter.hide()
+		return
+	$TileHighlighter.show()
+	$TileHighlighter.position = _center_to_tile(target_position)
