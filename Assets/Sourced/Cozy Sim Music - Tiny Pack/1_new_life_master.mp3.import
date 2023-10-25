@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/1_new_life_master.mp3-0c304e7c5a17b375ce18967
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

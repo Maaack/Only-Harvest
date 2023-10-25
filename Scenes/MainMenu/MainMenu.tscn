@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b0vs5cplaalr0"]
+[gd_scene load_steps=23 format=3 uid="uid://b0vs5cplaalr0"]
 
 [ext_resource type="PackedScene" uid="uid://crmqy2drqxyqr" path="res://Scenes/World/BGWorld.tscn" id="2_0dbi4"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="2_oqhdw"]
 [ext_resource type="Texture2D" uid="uid://c6n4qjsjjmknw" path="res://Assets/Originals/Sprites/Logo.png" id="2_u6p4w"]
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://Scenes/Credits/Credits.tscn" id="5_auq65"]
 [ext_resource type="PackedScene" uid="uid://doj1dmgtf0a71" path="res://Scenes/UI/SoundButton/SoundButton.tscn" id="6_0nx1m"]
+[ext_resource type="AudioStream" uid="uid://bqwxwep31yhmx" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/1_new_life_master.mp3" id="6_3jf18"]
 
 [sub_resource type="Animation" id="5"]
 resource_name = "CloseSubMenu"
@@ -442,6 +443,12 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 62.0
 text = "Back"
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3jf18")
+volume_db = -26.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/MainContainer/OptionsMargins/Control/OptionsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainContainer/OptionsMargins/Control/OptionsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
