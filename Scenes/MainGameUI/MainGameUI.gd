@@ -46,9 +46,11 @@ func _on_world_trading_offered(buying, selling, can_buy):
 	%BuyingSlot.quantity = buying
 	%SellingSlot.quantity = selling
 	%TradeDisabledTexture.visible = not can_buy
+	%StolenGoodsBox.visible = buying.name in Constants.CROP_NAMES.keys()
 
 func _on_world_trading_revoked():
 	%TradePanel.hide()
+	%StolenGoodsBox.hide()
 
 func _on_world_dialogue_offered(action_name):
 	%DialoguePanel.show()

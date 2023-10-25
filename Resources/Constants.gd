@@ -107,7 +107,7 @@ const FILLED_LAYERS_FOR_HOEING : Array = [
 
 enum TileTool {
 	SEEDS,
-	HOE
+	HOE,
 }
 
 const FACTION_NAMES : Dictionary = {

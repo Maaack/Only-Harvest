@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=28 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
@@ -9,19 +9,59 @@
 [ext_resource type="PackedScene" uid="uid://rriqgw05uops" path="res://Scenes/GameOver/GameOver.tscn" id="5_j3o8h"]
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="6_82gva"]
 [ext_resource type="PackedScene" uid="uid://dmoq4ilfi2wep" path="res://Scenes/MainGameUI/Transition.tscn" id="7_6fx7q"]
+[ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="8_lo5wi"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="8_q4qrl"]
 [ext_resource type="Script" path="res://Scripts/PauseMenuController.gd" id="9_j13tb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p8jcm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_thjn2"]
 atlas = ExtResource("8_q4qrl")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6fhxr"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fbq5c"]
 load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj6mb"]
-atlas = SubResource("CompressedTexture2D_6fhxr")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuswj"]
+atlas = SubResource("CompressedTexture2D_fbq5c")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w6s28"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj6mb"]
+atlas = ExtResource("8_lo5wi")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5xyn1"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptuh7"]
+atlas = SubResource("CompressedTexture2D_5xyn1")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jcm"]
+atlas = ExtResource("6_82gva")
+region = Rect2(242, 66, 12, 12)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5rp2j"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlbrs"]
+atlas = SubResource("CompressedTexture2D_5rp2j")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ph0tm"]
+load_path = "res://.godot/imported/Basic Plants.png-389afe5261373776482861ddb7d156bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gft6s"]
+atlas = SubResource("CompressedTexture2D_ph0tm")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rkftf"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5i8h"]
+atlas = SubResource("CompressedTexture2D_rkftf")
+region = Rect2(242, 82, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnmvc"]
 atlas = ExtResource("6_82gva")
@@ -181,7 +221,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer/CreditGoalContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_p8jcm")
+texture = SubResource("AtlasTexture_thjn2")
 stretch_mode = 3
 
 [node name="CryptoGoalContainer" type="HBoxContainer" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer"]
@@ -201,7 +241,85 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer/CryptoGoalContainer"]
 layout_mode = 2
+texture = SubResource("AtlasTexture_yuswj")
+stretch_mode = 3
+
+[node name="StolenGoodsBox" type="NinePatchRect" parent="MarginContainer/InGameUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -60.0
+offset_right = -96.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_w6s28")
+region_rect = Rect2(107, 155, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InGameUI/StolenGoodsBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 texture = SubResource("AtlasTexture_aj6mb")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ptuh7")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_p8jcm")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_rlbrs")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gft6s")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/InGameUI/StolenGoodsBox/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_h5i8h")
 stretch_mode = 3
 
 [node name="TradePanel" type="NinePatchRect" parent="MarginContainer/InGameUI"]
@@ -216,7 +334,7 @@ anchor_bottom = 0.5
 offset_left = -93.0
 offset_top = -132.0
 offset_right = 93.0
-offset_bottom = -17.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_82gva")
@@ -225,6 +343,7 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/InGameUI/TradePanel"]
 layout_mode = 1
