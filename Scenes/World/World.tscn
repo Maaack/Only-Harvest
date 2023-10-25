@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://bvnmn54l06oqq"]
+[gd_scene load_steps=134 format=3 uid="uid://bvnmn54l06oqq"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="1_nqhau"]
 [ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_rdfhq"]
@@ -2835,6 +2835,18 @@ size = Vector2(240, 240)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1sge"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg2da"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuurx"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c6m2"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w575o"]
+size = Vector2(48, 16)
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("crop_tilemap")]
 texture_filter = 1
 script = ExtResource("1_rdfhq")
@@ -3106,7 +3118,6 @@ selling = SubResource("Resource_dbhe7")
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Dialogues" type="Node2D" parent="."]
-visible = false
 
 [node name="DialogueTrigger" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(848, 536)
@@ -3245,6 +3256,30 @@ action_name = "Knock"
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_j1sge")
 
+[node name="DialogueTrigger15" parent="Dialogues" instance=ExtResource("18_ejfg6")]
+position = Vector2(488, 784)
+dialogue_title = "WalkingIn"
+
+[node name="CollisionShape2D" parent="Dialogues/DialogueTrigger15" index="0"]
+position = Vector2(-192, -96)
+shape = SubResource("RectangleShape2D_vg2da")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialogues/DialogueTrigger15"]
+position = Vector2(216, -456)
+shape = SubResource("RectangleShape2D_yuurx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Dialogues/DialogueTrigger15"]
+position = Vector2(-392, 408)
+shape = SubResource("RectangleShape2D_8c6m2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Dialogues/DialogueTrigger15"]
+position = Vector2(0.5, 512)
+shape = SubResource("RectangleShape2D_w575o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Dialogues/DialogueTrigger15"]
+position = Vector2(528, 512)
+shape = SubResource("RectangleShape2D_w575o")
+
 [node name="Properties" type="Node2D" parent="."]
 visible = false
 
@@ -3369,6 +3404,7 @@ texture = ExtResource("30_q4eya")
 [editable path="Dialogues/DialogueTrigger9"]
 [editable path="Dialogues/DialogueTrigger10"]
 [editable path="Dialogues/DialogueTrigger11"]
+[editable path="Dialogues/DialogueTrigger15"]
 [editable path="Properties/PrivateProperty"]
 [editable path="Properties/PrivateProperty2"]
 [editable path="Properties/PrivateProperty3"]

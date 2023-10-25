@@ -2,7 +2,7 @@
 
 You: I guess this is the place...
 do GameState.camera_target_ghost()
-Ghost: ooooOOOOoooo- my son.
+Ghost: [wave amp=50.0 freq=5.0 connected=1]ooooOOOOoooo-[/wave] my son.
 You: Oh, my late father is a ghost now. Yay.
 Ghost: My son, I leave you this family farm,
 Ghost: -and its 100 Credit unpaid mortgage,
@@ -19,7 +19,7 @@ You: Ha, hoeing.
 do GameState.camera_target_player()
 You: Sorry dad, but I am not about that life.
 You: I live for one thing.
-You: HARVESTING!
+You: [rainbow freq=1.0 sat=0.8 val=0.8]HARVESTING![/rainbow]
 Ghost: But you need to do those other things to have anything to harvest!
 You: No, I don't.
 You: There are crops to harvest [do GameState.camera_target_neighbor()] right over there! 
@@ -46,6 +46,12 @@ Guard Dog 1: Roo... f.
 Guard Dog 2: Mroof!
 do GameState.camera_target_player()
 Ghost: Just look at how they tore up Dorathory's lawn. Do you want to end up like that?
+
+=> END
+
+~ WalkingIn
+You: I could [i]jump[/i] over the fence...
+You: I'm just feeling polite at the moment.
 
 => END
 
