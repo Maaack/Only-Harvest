@@ -9,10 +9,17 @@ func _on_world_time_updated():
 	else:
 		%DateTime.set_mode(1)
 
+func _update_goal_meter(slot_array):
+	for slot in slot_array:
+		if slot is BaseQuantity and is_instance_valid(slot):
+			if slot.name == Constants.CREDIT_NAME:
+				%CreditGoal.text = "%d/%d" % [slot.quantity, Constants.CREDIT_GOAL]
+			elif slot is BaseQuantity and slot.name == Constants.CRYPTO_NAME:
+				%CryptoGoal.text = "%d/%d" % [slot.quantity, Constants.CRYPTO_GOAL]
 
 func _on_world_quickslots_updated(slot_array):
 	%Quickslots.update_quickslots(slot_array)
-
+	_update_goal_meter(slot_array)
 
 func _on_world_player_started_trespassing(faction):
 	if faction not in Constants.FACTION_NAMES:

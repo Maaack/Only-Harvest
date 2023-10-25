@@ -9,9 +9,9 @@ const CRYPTOS_GOAL = 1000
 		earnings = value
 		for quantity in earnings:
 			match(quantity.name):
-				Constants.CREDITS_NAME:
+				Constants.CREDIT_NAME:
 					credits += quantity.quantity
-				Constants.CRYPTOS_NAME:
+				Constants.CRYPTO_NAME:
 					cryptos += quantity.quantity
 
 var credits : int

@@ -45,8 +45,8 @@ const MCGREGOR_NAME : String = "McGregor"
 const JOHANSONSON_NAME : String = "Johansonson"
 const MADISONSON_NAME : String = "Madisonson"
 const DORATHORY_NAME : String = "Dorathory"
-const CREDITS_NAME : String = "Credit"
-const CRYPTOS_NAME : String = "Darko Crypto"
+const CREDIT_NAME : String = "Credit"
+const CRYPTO_NAME : String = "Darko Crypto"
 const TOOL_NAME : String = "Tool"
 const PASSIVE_NAME : String = "Passive"
 const AXE_NAME : String = "Axe"
@@ -55,6 +55,8 @@ const CLOCK_NAME : String = "Time Warp"
 const STOLEN_WHEAT_NAME : String = "Stolen Wheat"
 const STOLEN_EGGPLANT_NAME : String = "Stolen Eggplant"
 
+const CREDIT_GOAL : int = 100
+const CRYPTO_GOAL : int = 1000
 
 const CROP_NAMES : Dictionary = {
 	EGGPLANT_NAME : Crops.EGGPLANT,

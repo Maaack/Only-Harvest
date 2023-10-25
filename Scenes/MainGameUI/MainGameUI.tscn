@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=15 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
@@ -9,7 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://rriqgw05uops" path="res://Scenes/GameOver/GameOver.tscn" id="5_j3o8h"]
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="6_82gva"]
 [ext_resource type="PackedScene" uid="uid://dmoq4ilfi2wep" path="res://Scenes/MainGameUI/Transition.tscn" id="7_6fx7q"]
+[ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="8_q4qrl"]
 [ext_resource type="Script" path="res://Scripts/PauseMenuController.gd" id="9_j13tb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jcm"]
+atlas = ExtResource("8_q4qrl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6fhxr"]
+load_path = "res://.godot/imported/Monies.png-070ea86274a21f324666ba80ce63e9d0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj6mb"]
+atlas = SubResource("CompressedTexture2D_6fhxr")
+region = Rect2(16, 0, 16, 16)
 
 [node name="MainGameUI" type="Control"]
 process_mode = 3
@@ -110,6 +122,83 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "You are trespassing on someone's property!"
 horizontal_alignment = 1
+
+[node name="GoalsBox" type="NinePatchRect" parent="MarginContainer/InGameUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6_82gva")
+region_rect = Rect2(153, 105, 30, 30)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InGameUI/GoalsBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="CreditGoalContainer" type="HBoxContainer" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CreditGoal" type="Label" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer/CreditGoalContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "0/100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer/CreditGoalContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_p8jcm")
+stretch_mode = 3
+
+[node name="CryptoGoalContainer" type="HBoxContainer" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CryptoGoal" type="Label" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer/CryptoGoalContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "0/1000
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/InGameUI/GoalsBox/MarginContainer/VBoxContainer/CryptoGoalContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aj6mb")
+stretch_mode = 3
 
 [node name="TradePanel" type="NinePatchRect" parent="MarginContainer/InGameUI"]
 unique_name_in_owner = true
@@ -245,11 +334,18 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
 
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/InGameUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="GameOver" parent="." instance=ExtResource("5_j3o8h")]
 process_mode = 3
 visible = false
 layout_mode = 1
 mouse_filter = 2
+days_passed = null
+earnings = null
 
 [node name="PauseMenuController" type="Control" parent="."]
 anchors_preset = 0
