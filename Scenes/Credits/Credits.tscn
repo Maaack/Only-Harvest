@@ -39,60 +39,60 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 2
 bbcode_enabled = true
 text = "[center]
-[font_size=24]Collaborators[/font_size]
+[font_size=28]Collaborators[/font_size]
 
-[font_size=16]Game By[/font_size]
+[font_size=24]Game By[/font_size]
 [url=https://maaack.itch.io/]Maaack[/url]  
 
-[font_size=16]Supported By[/font_size]
+[font_size=24]Supported By[/font_size]
 Amy
 
-[font_size=24]Sourced / Unaffiliated[/font_size]
-[font_size=16]Art[/font_size]
-[font_size=12]World[/font_size]
+[font_size=28]Sourced / Unaffiliated[/font_size]
+[font_size=24]Art[/font_size]
+[font_size=20]World[/font_size]
 Author: [url=https://cupnooble.itch.io/]Cup Nooble[/url]  
 Source: [url=https://cupnooble.itch.io/sprout-lands-asset-pack]itch.io : sprout-lands-asset-pack[/url]  
 License: [url=https://cupnooble.itch.io/sprout-lands-asset-pack]Free NC License[/url]  
 
-[font_size=12]UI[/font_size]
+[font_size=20]UI[/font_size]
 Author: [url=https://cupnooble.itch.io/]Cup Nooble[/url]  
 Source: [url=https://cupnooble.itch.io/sprout-lands-ui-pack]itch.io : sprout-lands-ui-pack[/url]  
 License: [url=https://cupnooble.itch.io/sprout-lands-ui-pack]Free NC License[/url]  
 
-[font_size=16]Music[/font_size]
+[font_size=24]Music[/font_size]
 Author: [url=https://richarrest.itch.io/]Rest![/url]  
 Source: [url=https://richarrest.itch.io/cozy-sim-music-pack-town-life]itch.io : cozy-sim-music-pack-town-life[/url]  
 License: [url=https://creativecommons.org/licenses/by-sa/4.0/]Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)[/url]  
 
-[font_size=16]SFX[/font_size]
-[font_size=12]Interactions[/font_size]
+[font_size=24]SFX[/font_size]
+[font_size=20]Interactions[/font_size]
 Author: [url=https://filmcow.itch.io/]FilmCow[/url]  
 Source: [url=https://filmcow.itch.io/filmcow-sfx]itch.io : filmcow-sfx[/url]  
 License: [url=https://filmcow.itch.io/filmcow-sfx]Royalty-Free License[/url]  
 
-[font_size=12]Collecting & UI[/font_size]
+[font_size=20]Collecting & UI[/font_size]
 Author: [url=https://filmcow.itch.io/]FilmCow[/url]  
 Source: [url=https://ellr.itch.io/universal-ui-soundpack]itch.io : universal-ui-soundpack[/url]  
 License: [url=https://creativecommons.org/licenses/by/4.0/]Attribution 4.0 International (CC BY 4.0)[/url]  
 
 
-[font_size=24]Tools[/font_size]
-[font_size=12]Godot[/font_size]
+[font_size=28]Tools[/font_size]
+[font_size=24]Godot[/font_size]
 Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
 Source: [url=https://godotengine.org/]godotengine.org[/url]  
 License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
 
-[font_size=12]Piskel[/font_size]
+[font_size=24]Piskel[/font_size]
 Author: [url=https://github.com/juliandescottes]Julian Descottes[/url]  
 Source: [url=https://www.piskelapp.com/]piskelapp.com[/url]  
 License: [url=https://github.com/piskelapp/piskel/blob/master/LICENSE]Apache License 2.0[/url]  
 
-[font_size=12]Git[/font_size]
+[font_size=24]Git[/font_size]
 Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
 Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
 License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]  
 
-[font_size=24]Dedicated to[/font_size]
+[font_size=28]Dedicated to[/font_size]
 Amy[/center]"
 fit_content = true
 scroll_active = false
