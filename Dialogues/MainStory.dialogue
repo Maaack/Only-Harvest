@@ -45,7 +45,7 @@ Ghost: You are clearly mistaken, they are obvioiusly vicious attack dogs.
 Guard Dog 1: Roo... f.
 Guard Dog 2: Mroof!
 do GameState.camera_target_player()
-Ghost: See! They'll tear you to pieces!
+Ghost: Just look at how they tore up Dorathory's lawn. Do you want to end up like that?
 
 => END
 
