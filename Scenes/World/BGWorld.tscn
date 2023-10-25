@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://crmqy2drqxyqr"]
+[gd_scene load_steps=115 format=3 uid="uid://crmqy2drqxyqr"]
 
 [ext_resource type="Texture2D" uid="uid://bngfh7nslvij1" path="res://Assets/Sourced/Sprout Lands/Tilesets/Grass.png" id="2_udwml"]
 [ext_resource type="Texture2D" uid="uid://d1c7tdeg77os" path="res://Assets/Sourced/Sprout Lands/Tilesets/Tilled Dirt.png" id="3_hhfnr"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bwa30ox5nmgq7" path="res://Scenes/TradingChest/TradingChest.tscn" id="15_fpdl2"]
 [ext_resource type="Script" path="res://Resources/BaseQuantity.gd" id="16_krav2"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="17_i2l0v"]
+[ext_resource type="Script" path="res://Scenes/World/DayNightModulater.gd" id="18_1buwl"]
 
 [sub_resource type="Animation" id="Animation_l57ob"]
 resource_name = "CameraPanning"
@@ -3087,6 +3088,16 @@ selling = SubResource("Resource_06bko")
 position = Vector2(664, 1056)
 buying = SubResource("Resource_odyny")
 selling = SubResource("Resource_rbvsf")
+
+[node name="DayNightModulater" type="CanvasModulate" parent="."]
+script = ExtResource("18_1buwl")
+enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="DayNightModulater" method="increment_time"]
 
 [editable path="Characters/Ghost"]
 [editable path="Characters/ExchangeMerchant"]

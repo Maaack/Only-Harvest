@@ -94,7 +94,7 @@ func _update_period_of_day():
 
 func increment_world_time(amount : int = 1):
 	world_time += amount
-	$DayNightModulater.increment_time(amount)
+	$DayNightModulater.add_time(amount)
 	var container_children : Array[Node] = characters_container.get_children()
 	for child in container_children:
 		if child is Crop:

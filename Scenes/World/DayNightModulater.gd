@@ -7,13 +7,16 @@ extends CanvasModulate
 
 var _time : int = 0
 
-func increment_time(time_increment : int) -> void:
+func add_time(time_increment : int = 1) -> void:
 	if not enabled:
 		return
 	var value : float
 	_time += time_increment 
 	value = 1 - clamp((cos(float(_time) * PI / float(day_length * 0.5)) + 0.5), 0, 1)
 	color = source_color.lerp(target_color, value)
+
+func increment_time() -> void:
+	add_time(1)
 
 func reset_time() -> void:
 	_time = 0
