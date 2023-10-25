@@ -1,6 +1,38 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bmf31mho1mjjt"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bmf31mho1mjjt"]
 
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_52xqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wschf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2x107"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_krtg3"]
+texture = SubResource("CompressedTexture2D_2x107")
+texture_margin_left = 6.0
+texture_margin_top = 8.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(343, 100, 18, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfb1j"]
+texture = ExtResource("1_52xqy")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(311, 101, 18, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yqs8j"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h462y"]
+texture = SubResource("CompressedTexture2D_yqs8j")
+texture_margin_left = 6.0
+texture_margin_top = 10.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(375, 100, 18, 21)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ecx"]
 bg_color = Color(0.666819, 0.474342, 0.348791, 1)
@@ -23,6 +55,10 @@ texture_margin_bottom = 2.0
 region_rect = Rect2(402, 73, 28, 14)
 
 [resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_wschf")
+Button/styles/hover = SubResource("StyleBoxTexture_krtg3")
+Button/styles/normal = SubResource("StyleBoxTexture_hfb1j")
+Button/styles/pressed = SubResource("StyleBoxTexture_h462y")
 Panel/styles/panel = SubResource("StyleBoxFlat_35ecx")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_xbpyb")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_avs0p")

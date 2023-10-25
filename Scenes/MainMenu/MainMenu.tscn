@@ -276,7 +276,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_oqhdw")
 game_scene = "res://Scenes/MainGameUI/MainGameUI.tscn"
-version_name = "1.0.0"
+version_name = "1.1.0"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -296,8 +296,9 @@ render_target_update_mode = 4
 
 [node name="LogoRect" type="TextureRect" parent="."]
 layout_mode = 2
+offset_top = -16.0
 offset_right = 640.0
-offset_bottom = 360.0
+offset_bottom = 344.0
 texture = ExtResource("2_u6p4w")
 
 [node name="MenuAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -346,7 +347,7 @@ horizontal_alignment = 1
 [node name="OptionsMargins" type="MarginContainer" parent="MarginContainer/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_top = 188
+theme_override_constants/margin_top = 192
 
 [node name="Control" type="Control" parent="MarginContainer/MainContainer/OptionsMargins"]
 layout_mode = 2
@@ -365,7 +366,7 @@ offset_right = 64.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 10
 
 [node name="PlayButton" parent="MarginContainer/MainContainer/OptionsMargins/Control/OptionsContainer" instance=ExtResource("6_0nx1m")]
 layout_mode = 2
