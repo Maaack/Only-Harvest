@@ -97,13 +97,15 @@ func remove_contents(values):
 	for value in values:
 		remove_content(value)
 
-func has_content(value:BaseUnit):
+func has_content(value:BaseUnit) -> bool:
 	if value == null:
 		return false
 	if value is BaseQuantity:
 		var content = find_content(value.name)
 		if content is BaseQuantity:
 			return content.quantity >= value.quantity
+		else:
+			return false
 	else:
 		return find_content(value.name) != null
 

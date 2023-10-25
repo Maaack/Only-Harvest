@@ -314,8 +314,8 @@ func _on_player_character_killed():
 func kill_player():
 	player_character.kill()
 
-func _on_player_character_trading_offered(buying, selling):
-	emit_signal("trading_offered", buying, selling)
+func _on_player_character_trading_offered(buying, selling, can_buy):
+	emit_signal("trading_offered", buying, selling, can_buy)
 
 func _on_player_character_trading_revoked():
 	emit_signal("trading_revoked")

@@ -5,7 +5,7 @@ signal jump
 signal killed
 signal quickslots_updated(slot_array : Array)
 signal quickslot_selected(slot : int)
-signal trading_offered(buying : BaseQuantity, selling : BaseQuantity)
+signal trading_offered(buying : BaseQuantity, selling : BaseQuantity, can_buy : bool)
 signal trading_revoked
 signal dialogue_offered(action_name : String)
 signal dialogue_revoked
@@ -248,7 +248,8 @@ func revive():
 
 func offer_trade(chest_node : TradingChest):
 	active_node = chest_node
-	emit_signal("trading_offered", chest_node.buying, chest_node.selling)
+	var can_buy : bool = inventory.has_content(chest_node.buying)
+	emit_signal("trading_offered", chest_node.buying, chest_node.selling, can_buy)
 
 func revoke_trade():
 	active_node = null
