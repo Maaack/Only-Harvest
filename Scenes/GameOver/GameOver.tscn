@@ -11,7 +11,7 @@ grow_vertical = 2
 script = ExtResource("1_lewmr")
 
 [node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(320, 240)
+custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
@@ -37,12 +37,12 @@ horizontal_alignment = 1
 [node name="Earnings" type="Label" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "
+"
 horizontal_alignment = 1
 
 [node name="Meaning" type="Label" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "You lose the family farm!
-What you have left is not much to go on."
 horizontal_alignment = 1
 autowrap_mode = 2
