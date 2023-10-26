@@ -7,6 +7,7 @@ You: Oh, my late father is a ghost now. Yay.
 Ghost: My son, I leave you this family farm,
 Ghost: -and its [color=#9d8c00]100 Credit[/color] unpaid mortgage,
 Ghost: -due in a week.
+do GameState.add_credits_goal()
 do GameState.camera_target_player()
 You: Gee thanks dad, but...
 You: -owning physical property is so last century.
@@ -31,6 +32,7 @@ do GameState.camera_target_player()
 You: It's better I take it before some jerk does.
 Ghost: What kind of son did I raise?
 You: Then I'll exchange it for [color=#552a81]1k Darko Cryptos[/color] to start my data mining venture.
+do GameState.add_cryptos_goal()
 Ghost: Were those words?
 You: I'm a digital-soul-harvesting entrepreneur, dad. You wouldn't understand.
 Ghost: Oh, it keeps getting worse. Where's that light? Take me already.

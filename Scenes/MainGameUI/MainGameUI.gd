@@ -99,4 +99,20 @@ func _on_world_dialogue_started(title : String):
 		%World.release_player()
 
 func _ready():
+	GameState.reset_game_state()
 	$Transition.open()
+
+func _on_new_goal_timer_timeout():
+	var new_goal = GameState.get_next_pending_goal()
+	if new_goal == null:
+		if not GameState.reached_max_goals():
+			$NewGoalTimer.start()
+		return
+	match(new_goal):
+		GameState.Goals.CREDITS:
+			%NewGoalMessage.text = "New Goal: Raise %d %ss" % [Constants.CREDIT_GOAL, Constants.CREDIT_NAME]
+		GameState.Goals.CRYPTOS:
+			%NewGoalMessage.text = "New Goal: Raise %d %ss" % [Constants.CRYPTO_GOAL, Constants.CRYPTO_NAME]
+	$NewGoalAnimationPlayer.play("NewGoalAnimation")
+	await ($NewGoalAnimationPlayer.animation_finished)
+	$NewGoalTimer.start()
