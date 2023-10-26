@@ -27,6 +27,7 @@ func _on_ExitBtn_pressed():
 	$Control/ConfirmExit.popup_centered()
 
 func _on_ConfirmRestart_confirmed():
+	InGameMenuController.close_menu()
 	SceneLoader.reload_current_scene()
 
 func _on_ConfirmMainMenu_confirmed():
