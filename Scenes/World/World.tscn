@@ -2430,7 +2430,7 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_k4q38"]
 script = ExtResource("12_1gmxm")
-quantity = 500.0
+quantity = 350.0
 name = "Darko Crypto"
 icon = SubResource("AtlasTexture_klcq5")
 taxonomy = "Money"
@@ -2460,7 +2460,7 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_qett2"]
 script = ExtResource("12_1gmxm")
-quantity = 125.0
+quantity = 100.0
 name = "Darko Crypto"
 icon = SubResource("AtlasTexture_5dn25")
 taxonomy = "Money"
@@ -3123,6 +3123,7 @@ selling_chunk_size = 2
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Dialogues" type="Node2D" parent="."]
+visible = false
 
 [node name="DialogueTrigger" parent="Dialogues" instance=ExtResource("18_ejfg6")]
 position = Vector2(976, 536)
