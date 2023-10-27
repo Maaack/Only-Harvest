@@ -6,8 +6,8 @@ Ghost: [wave amp=50.0 freq=5.0 connected=1]ooooOOOOoooo-[/wave] my son.
 You: Oh, my late father is a ghost now. Yay.
 Ghost: My son, I leave you this family farm,
 Ghost: -and its [color=#9d8c00]100 Credit[/color] unpaid mortgage,
-Ghost: -due in a week.
 do GameState.add_credits_goal()
+Ghost: -due in a week.
 do GameState.camera_target_player()
 You: Gee thanks dad, but...
 You: -owning physical property is so last century.

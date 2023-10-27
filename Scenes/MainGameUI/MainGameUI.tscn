@@ -605,8 +605,6 @@ process_mode = 3
 visible = false
 layout_mode = 1
 mouse_filter = 2
-days_passed = null
-earnings = null
 
 [node name="PauseMenuController" type="Control" parent="."]
 anchors_preset = 0

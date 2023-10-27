@@ -45,7 +45,7 @@ func _display_reward():
 	elif credits < CREDITS_GOAL and cryptos >= CRYPTOS_GOAL:
 		reward_text = "You invest in your own future and leave the past behind. You lose the family farm, but you gain... the gains!\nYou harvest those gains to feed your data-mining venture. Weeks later, you get hacked and all the data is leaked. You decide you like harvesting gains more anyway. \nYou eventually buy a small Orwellian country... in cyberspace."
 	elif credits > CREDITS_GOAL and cryptos >= CRYPTOS_GOAL:
-		reward_text = "You beat the odds! You saved your family's past and secured your own future. You live to pursue your passion!\nAt your farm you harvest crops.\nAt your company you harvest data.\nAt the currency exchange you harvest gains.\nYou spend the rest of your days happily harvesting."
+		reward_text = "You beat the odds! You saved your family's past and secured your own future. You live to pursue your passion!\nAt your farm you harvest crops.\nAt your company you harvest data.\nAt the currency exchange you harvest gains.\nWhen you die, the reaper even let's you harvest your own soul."
 	%Meaning.text = reward_text
 
 func refresh_text():
