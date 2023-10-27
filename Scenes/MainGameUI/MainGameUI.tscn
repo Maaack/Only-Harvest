@@ -119,7 +119,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(111, 439)]
+"values": [Vector2(111, 420)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -260,9 +260,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -201.0
-offset_top = 267.0
+offset_top = 248.0
 offset_right = 201.0
-offset_bottom = 309.0
+offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_82gva")
