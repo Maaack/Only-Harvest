@@ -3081,6 +3081,7 @@ selling_chunk_size = 2
 position = Vector2(488, 1056)
 buying = SubResource("Resource_y3i5q")
 selling = SubResource("Resource_gj456")
+selling_chunk_size = 2
 
 [node name="TradingChest6" parent="Characters" instance=ExtResource("10_38t6v")]
 position = Vector2(376, 848)

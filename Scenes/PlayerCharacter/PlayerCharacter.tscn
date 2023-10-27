@@ -1925,7 +1925,7 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_a1020")
 acceleration = 2400.0
-friction = 1200.0
+friction = 2400.0
 pull_count = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
