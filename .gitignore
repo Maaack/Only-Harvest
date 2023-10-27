@@ -1,2 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+
+Exports/
+export_presets.cfg
+addons/
+Media/
