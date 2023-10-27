@@ -213,7 +213,6 @@ layout_mode = 1
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 0.0
-mouse_filter = 2
 
 [node name="TrespassingBox" type="NinePatchRect" parent="MarginContainer/InGameUI"]
 unique_name_in_owner = true
@@ -512,7 +511,6 @@ alignment = 1
 [node name="BuyingSlot" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer" instance=ExtResource("5_5wpn5")]
 unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 2
 
 [node name="NinePatchRect" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer/BuyingSlot" index="0"]
 texture = ExtResource("6_82gva")
@@ -530,7 +528,6 @@ horizontal_alignment = 1
 [node name="SellingSlot" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer" instance=ExtResource("5_5wpn5")]
 unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 2
 
 [node name="NinePatchRect" parent="MarginContainer/InGameUI/TradePanel/VBoxContainer/HBoxContainer/SellingSlot" index="0"]
 texture = ExtResource("6_82gva")

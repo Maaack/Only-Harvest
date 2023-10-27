@@ -6,6 +6,7 @@
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_c0ilr")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -23,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -30,6 +32,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Control" type="Control" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/Control"]
 unique_name_in_owner = true
@@ -39,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Count" type="Label" parent="NinePatchRect/MarginContainer/Control"]
 unique_name_in_owner = true
