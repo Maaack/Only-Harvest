@@ -6,6 +6,7 @@
 
 [node name="StyledPauseMenu" instance=ExtResource("1_08eqf")]
 layer = 128
+main_menu_path = "res://Scenes/MainMenu/MainMenu.tscn"
 
 [node name="Control" parent="." index="0"]
 theme = ExtResource("2_fa33q")
@@ -45,3 +46,9 @@ anchors_preset = 5
 offset_top = 26.0
 offset_bottom = 107.0
 grow_horizontal = 2
+
+[node name="MainMenuBtn" parent="Control/ButtonsContainer" index="2"]
+visible = false
+
+[node name="ExitBtn" parent="Control/ButtonsContainer" index="3"]
+visible = false

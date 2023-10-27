@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+
+@export_file("*.tscn") var main_menu_path : String
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if $Control/ConfirmExit.visible:
@@ -31,13 +34,15 @@ func _on_ConfirmRestart_confirmed():
 	SceneLoader.reload_current_scene()
 
 func _on_ConfirmMainMenu_confirmed():
-	InGameMenuController.close_menu()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene_to_file("res://Scenes/MainMenu/MainMenu.tscn")
+	InGameMenuController.close_menu()
+	SceneLoader.load_scene(main_menu_path)
 
 func _on_ConfirmExit_confirmed():
 	get_tree().quit()
 
 func _ready():
-	if OS.has_feature("web"):
-		$Control/ButtonsContainer/ExitBtn.hide()
+	if not OS.has_feature("web"):
+		$Control/ButtonsContainer/ExitBtn.show()
+	if not main_menu_path.is_empty():
+		$Control/ButtonsContainer/MainMenuBtn.show()
