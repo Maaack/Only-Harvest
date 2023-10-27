@@ -2912,7 +2912,7 @@ layer_7/tile_data = PackedInt32Array(4521985, 262152, 0, 4587521, 262152, 1, 465
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 5.0
+wait_time = 6.0
 autostart = true
 
 [node name="WarningShotTimer" type="Timer" parent="."]
