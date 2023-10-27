@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://rriqgw05uops"]
+[gd_scene load_steps=4 format=3 uid="uid://rriqgw05uops"]
 
+[ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="1_80pp4"]
 [ext_resource type="Script" path="res://Scenes/GameOver/GameOver.gd" id="1_lewmr"]
+[ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="3_0bc8o"]
 
 [node name="GameOver" type="CenterContainer"]
 anchors_preset = 15
@@ -8,41 +10,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_80pp4")
 script = ExtResource("1_lewmr")
+main_menu_path = "res://Scenes/MainMenu/MainMenu.tscn"
 
-[node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(500, 300)
+[node name="Control" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(540, 320)
 layout_mode = 2
+texture = ExtResource("3_0bc8o")
+region_rect = Rect2(201, 9, 30, 30)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
 
-[node name="GameOver" type="Label" parent="Control/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+
+[node name="GameOver" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="TimePassed" type="Label" parent="Control/VBoxContainer"]
+[node name="TimePassed" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "After 7 days you earned:"
 horizontal_alignment = 1
 
-[node name="Earnings" type="Label" parent="Control/VBoxContainer"]
+[node name="Earnings" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "
-"
+theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 
-[node name="Meaning" type="Label" parent="Control/VBoxContainer"]
+[node name="Meaning" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Restart
+"
+
+[node name="MainMenuButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
