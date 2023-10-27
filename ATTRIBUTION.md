@@ -42,6 +42,11 @@ Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org
 Source: [godotengine.org](https://godotengine.org/)  
 License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt) 
 
+### Dialogue Manager
+Author: [Nathan Hoad](https://nathanhoad.itch.io/)  
+Source: [itch.io: godot-dialogue-manager](https://nathanhoad.itch.io/godot-dialogue-manager)  
+License: [MIT License](https://github.com/nathanhoad/godot_dialogue_manager/blob/main/LICENSE) 
+
 ### Piskel
 Author: [Julian Descottes](https://github.com/juliandescottes)  
 Source: [piskelapp.com](https://www.piskelapp.com/)  
