@@ -1,6 +1,17 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bmf31mho1mjjt"]
+[gd_resource type="Theme" load_steps=28 format=3 uid="uid://bmf31mho1mjjt"]
 
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_52xqy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ppko1"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytkor"]
+texture = SubResource("CompressedTexture2D_ppko1")
+texture_margin_left = 6.0
+texture_margin_top = 9.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(375, 5, 18, 20)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wschf"]
 
@@ -34,8 +45,13 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(375, 100, 18, 21)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ecx"]
-bg_color = Color(0.666819, 0.474342, 0.348791, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hdkho"]
+texture = ExtResource("1_52xqy")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(107, 107, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xbpyb"]
 texture = ExtResource("1_52xqy")
@@ -89,12 +105,53 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(375, 68, 18, 21)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_du1jg"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7ncx"]
+texture = SubResource("CompressedTexture2D_du1jg")
+texture_margin_left = 6.0
+texture_margin_top = 9.0
+texture_margin_right = 6.0
+region_rect = Rect2(375, 101, 18, 14)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eowac"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pkuo0"]
+texture = SubResource("CompressedTexture2D_eowac")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+region_rect = Rect2(375, 72, 18, 11)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w1443"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgud8"]
+texture = SubResource("CompressedTexture2D_w1443")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+region_rect = Rect2(311, 69, 18, 11)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q832a"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdddf"]
+texture = SubResource("CompressedTexture2D_q832a")
+texture_margin_left = 6.0
+texture_margin_top = 9.0
+texture_margin_right = 6.0
+region_rect = Rect2(375, 69, 18, 14)
+
 [resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_ytkor")
 Button/styles/focus = SubResource("StyleBoxEmpty_wschf")
 Button/styles/hover = SubResource("StyleBoxTexture_krtg3")
 Button/styles/normal = SubResource("StyleBoxTexture_hfb1j")
 Button/styles/pressed = SubResource("StyleBoxTexture_h462y")
-Panel/styles/panel = SubResource("StyleBoxFlat_35ecx")
+Panel/styles/panel = SubResource("StyleBoxTexture_hdkho")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_xbpyb")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_avs0p")
 SkipButton/base_type = &"Button"
@@ -102,3 +159,8 @@ SkipButton/styles/focus = SubResource("StyleBoxEmpty_u8k4n")
 SkipButton/styles/hover = SubResource("StyleBoxTexture_b5k0e")
 SkipButton/styles/normal = SubResource("StyleBoxTexture_0dk3e")
 SkipButton/styles/pressed = SubResource("StyleBoxTexture_f8y6s")
+TabContainer/styles/panel = SubResource("StyleBoxTexture_hdkho")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_a7ncx")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_pkuo0")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_vgud8")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_qdddf")

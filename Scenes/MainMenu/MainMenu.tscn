@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddygtr2exuici"]
+[gd_scene load_steps=28 format=3 uid="uid://b0vs5cplaalr0"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bvwl11s2p0hd" path="res://Scenes/OptionsMenu/MasterOptionsMenu.tscn" id="3"]
@@ -56,6 +56,18 @@ tracks/3/path = NodePath("LogoRect:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/OptionsControl:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -139,6 +151,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/OptionsControl:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="6"]
 resource_name = "MainMenuOpen"
@@ -203,6 +227,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/OptionsControl:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="4"]
 resource_name = "OpenSubMenu"
@@ -250,6 +286,18 @@ tracks/3/path = NodePath("LogoRect:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/OptionsControl:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -329,6 +377,18 @@ tracks/5/path = NodePath("LogoRect:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/OptionsControl:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -418,6 +478,7 @@ render_target_update_mode = 4
 [node name="BGWorld" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_3hxfd")]
 
 [node name="LogoRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = -16.0
 offset_right = 640.0
 offset_bottom = 344.0
@@ -472,7 +533,6 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="TitlesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TitlesMargin"]
-visible = false
 layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/TitlesMargin/TitlesContainer"]
@@ -518,20 +578,16 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="OptionsControl" type="Control" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="OptionsButton" parent="MarginContainer/Control" instance=ExtResource("5")]
+[node name="OptionsButton" parent="MarginContainer/OptionsControl" instance=ExtResource("5")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -24.0
+offset_right = 24.0
 offset_bottom = 30.0
-grow_horizontal = 0
 icon = SubResource("AtlasTexture_tqf27")
 
 [node name="OptionsContainer" type="MarginContainer" parent="."]
@@ -588,5 +644,5 @@ bus = &"Music"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuMargin/MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuMargin/MenuButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuMargin/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OptionsControl/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="FlowControlContainer/FlowControl/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,22 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp3rgqaehb3xu"]
+[gd_scene load_steps=8 format=3 uid="uid://dp3rgqaehb3xu"]
 
 [ext_resource type="Script" path="res://Scenes/OptionsMenu/Input/InputOptionsMenu.gd" id="1"]
-[ext_resource type="Theme" path="res://Resources/MainGameUITheme.tres" id="2"]
+[ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="2_2e053"]
 [ext_resource type="Script" path="res://Scenes/OptionsMenu/Input/KeyAssignmentDialog.gd" id="3_wsh2h"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7h8wy"]
-size = Vector2(16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3ho5"]
+atlas = ExtResource("2_2e053")
+region = Rect2(869, 134, 22, 22)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nq02i"]
-size = Vector2(16, 16)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f17i5"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oydjo"]
+atlas = SubResource("CompressedTexture2D_f17i5")
+region = Rect2(869, 166, 22, 22)
 
 [node name="Input" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1")
-add_button_texture = SubResource("PlaceholderTexture2D_7h8wy")
-remove_button_texture = SubResource("PlaceholderTexture2D_nq02i")
+add_button_texture = SubResource("AtlasTexture_n3ho5")
+remove_button_texture = SubResource("AtlasTexture_oydjo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 280)
