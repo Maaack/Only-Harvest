@@ -6,7 +6,6 @@ var scene_to_load : String
 
 func reload_current_scene() -> void:
 	get_tree().reload_current_scene()
-	#load_scene(scene_to_load)
 
 func load_scene(path : String) -> void:
 	if path == "":
@@ -30,7 +29,7 @@ func get_progress():
 		return
 	var progress_array : Array = []
 	ResourceLoader.load_threaded_get_status(scene_to_load, progress_array)
-	return progress_array.pop_back() * 100.0
+	return progress_array.pop_back()
 
 func get_resource():
 	if scene_to_load == null or scene_to_load == "":

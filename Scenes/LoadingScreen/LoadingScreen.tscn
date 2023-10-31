@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://djrbrlvejoeo"]
+[gd_scene load_steps=3 format=3 uid="uid://cd0jbh4metflb"]
 
 [ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2_wv3e2"]
 [ext_resource type="Script" path="res://Scenes/LoadingScreen/LoadingScreen.gd" id="3"]
@@ -40,7 +40,8 @@ horizontal_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+max_value = 1.0
 
 [node name="ErrorMsg" type="AcceptDialog" parent="Control"]
 
-[connection signal="confirmed" from="Control/ErrorMsg" to="Control" method="_on_ErrorMsg_confirmed"]
+[connection signal="confirmed" from="Control/ErrorMsg" to="." method="_on_error_msg_confirmed"]

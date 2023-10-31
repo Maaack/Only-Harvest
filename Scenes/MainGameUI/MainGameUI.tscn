@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c80ux1nhtyq3n"]
+[gd_scene load_steps=32 format=3 uid="uid://c80ux1nhtyq3n"]
 
 [ext_resource type="Script" path="res://Scenes/MainGameUI/MainGameUI.gd" id="1_8g0hl"]
 [ext_resource type="PackedScene" uid="uid://bvnmn54l06oqq" path="res://Scenes/World/World.tscn" id="1_vneci"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="8_lo5wi"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="8_q4qrl"]
 [ext_resource type="Script" path="res://Scripts/PauseMenuController.gd" id="9_j13tb"]
+[ext_resource type="PackedScene" uid="uid://bpd2adgnvkm2a" path="res://Scenes/PauseMenu/StyledPauseMenu.tscn" id="13_q80iw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thjn2"]
 atlas = ExtResource("8_q4qrl")
@@ -606,10 +607,9 @@ visible = false
 layout_mode = 1
 mouse_filter = 2
 
-[node name="PauseMenuController" type="Control" parent="."]
-anchors_preset = 0
-mouse_filter = 1
+[node name="PauseMenuController" type="Node" parent="."]
 script = ExtResource("9_j13tb")
+pause_menu_packed = ExtResource("13_q80iw")
 
 [node name="NewGoalAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
