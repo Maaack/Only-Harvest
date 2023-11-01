@@ -34,7 +34,6 @@ func _popup_add_action_event(item : TreeItem) -> void:
 	$KeyAssignmentDialog.title = _get_action_readable_name(editing_action_name)
 	$KeyAssignmentDialog.dialog_text = placeholder_text
 	$KeyAssignmentDialog.get_ok_button().disabled = true
-	$KeyAssignmentDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$KeyAssignmentDialog.popup_centered()
 
 func _get_action_keycode(action_event : InputEvent):
@@ -123,9 +122,15 @@ func _get_action_for_input_event(input_event : InputEvent) -> String:
 		return assigned_input_events[InputEventHelper.get_text(input_event)] 
 	return ""
 
+func _horizontally_align_popup_labels():
+	$KeyAssignmentDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	$OneInputMinimumDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	$AlreadyAssignedDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
 func _ready():
 	_build_assigned_input_events()
 	_build_ui_tree()
+	_horizontally_align_popup_labels()
 
 func _on_KeyAssignmentDialog_confirmed():
 	var last_input_event = $KeyAssignmentDialog.last_input_event

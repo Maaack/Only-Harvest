@@ -38,11 +38,17 @@ func _setup_main_menu():
 	if main_menu_scene.is_empty():
 		%MainMenuButton.hide()
 
+func _horizontally_align_popup_labels():
+	$Control/ConfirmRestart.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	$Control/ConfirmMainMenu.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	$Control/ConfirmExit.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
 func _ready():
 	if OS.has_feature("web"):
 		%ExitButton.hide()
 	_setup_options()
 	_setup_main_menu()
+	_horizontally_align_popup_labels()
 
 func _on_resume_button_pressed():
 	InGameMenuController.close_menu()
