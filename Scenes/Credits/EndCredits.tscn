@@ -1,16 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://djoy112dkgjda"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://Scenes/Credits/Credits.tscn" id="1"]
-[ext_resource type="Theme" path="res://Themes/MainMenuTheme.tres" id="2"]
+[ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2"]
 [ext_resource type="Script" path="res://Scenes/Credits/EndCredits.gd" id="4"]
 
 [node name="EndCredits" instance=ExtResource("1")]
-grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("2")
 script = ExtResource("4")
+main_menu_scene = "res://Scenes/MainMenu/MainMenu.tscn"
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,7 +41,9 @@ anchor_bottom = 1.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Thanks for playing"
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/EndMessagePanel/VBoxContainer" index="1"]
 layout_mode = 2
@@ -46,6 +56,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 24
 
 [node name="MenuButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3

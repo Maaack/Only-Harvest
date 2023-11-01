@@ -3,7 +3,7 @@ extends Node
 const CREDITS_GOAL = 100
 const CRYPTOS_GOAL = 1000
 
-@export_file("*.tscn") var main_menu_path : String
+@export_file("*.tscn") var next_scene_path : String
 @export var days_passed : int = 7
 @export var earnings : Array :
 	set(value):
@@ -53,11 +53,14 @@ func refresh_text():
 	_display_time_passed()
 	_display_earnings()
 	_display_reward()
-	if not main_menu_path.is_empty():
-		%MainMenuButton.show()
+	if not next_scene_path.is_empty():
+		%NextSceneButton.show()
 
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_main_menu_button_pressed():
-	SceneLoader.load_scene(main_menu_path)
+	SceneLoader.load_scene(next_scene_path)
+
+func _ready():
+	refresh_text()

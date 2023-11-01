@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_80pp4")
 script = ExtResource("1_lewmr")
-main_menu_path = "res://Scenes/MainMenu/MainMenu.tscn"
+next_scene_path = "res://Scenes/Credits/EndCredits.tscn"
 
 [node name="Control" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(540, 320)
@@ -77,12 +77,12 @@ theme_override_font_sizes/font_size = 12
 text = "Restart
 "
 
-[node name="MainMenuButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NextSceneButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Main Menu"
+text = "Continue"
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/NextSceneButton" to="." method="_on_main_menu_button_pressed"]
