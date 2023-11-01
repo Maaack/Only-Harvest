@@ -1,0 +1,144 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs3h2ivfoewfi"]
+
+[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://Scenes/OptionsMenu/OptionsMenu.tscn" id="1"]
+[ext_resource type="Script" path="res://Scenes/PauseMenu/PauseMenu.gd" id="2"]
+[ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2_wxnmy"]
+[ext_resource type="PackedScene" uid="uid://doj1dmgtf0a71" path="res://Scenes/UI/SoundButton/SoundButton.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="4_lu3lj"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 110
+script = ExtResource("2")
+options_packed_scene = ExtResource("1")
+main_menu_scene = "res://Scenes/MainMenu/MainMenu.tscn"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_wxnmy")
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -170.0
+offset_right = 150.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lu3lj")
+region_rect = Rect2(201, 105, 30, 30)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MenuContainer" type="MarginContainer" parent="Control/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 16
+
+[node name="OptionsMenuContainer" type="VBoxContainer" parent="Control/NinePatchRect/MenuContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer"]
+layout_mode = 2
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="MenuButtons" type="VBoxContainer" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ResumeButton" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons" instance=ExtResource("4")]
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons" instance=ExtResource("4")]
+layout_mode = 2
+text = "Restart"
+
+[node name="OptionsButton" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
+[node name="MainMenuButton" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Return to Main Menu"
+
+[node name="ExitButton" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit Game"
+
+[node name="SubMenuContainer" type="VBoxContainer" parent="Control/NinePatchRect/MenuContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionsContainer" type="MarginContainer" parent="Control/NinePatchRect/MenuContainer/SubMenuContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MenuContainer/SubMenuContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Control/NinePatchRect/MenuContainer/SubMenuContainer/HBoxContainer"]
+layout_mode = 2
+text = "back"
+
+[node name="ConfirmRestart" type="ConfirmationDialog" parent="Control"]
+unique_name_in_owner = true
+dialog_text = "Restart the game?"
+
+[node name="ConfirmMainMenu" type="ConfirmationDialog" parent="Control"]
+unique_name_in_owner = true
+dialog_text = "Go back to main menu?"
+
+[node name="ConfirmExit" type="ConfirmationDialog" parent="Control"]
+unique_name_in_owner = true
+dialog_text = "Quit the game?"
+
+[connection signal="pressed" from="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Control/NinePatchRect/MenuContainer/SubMenuContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="confirmed" from="Control/ConfirmRestart" to="." method="_on_confirm_restart_confirmed"]
+[connection signal="confirmed" from="Control/ConfirmMainMenu" to="." method="_on_confirm_main_menu_confirmed"]
+[connection signal="confirmed" from="Control/ConfirmExit" to="." method="_on_confirm_exit_confirmed"]

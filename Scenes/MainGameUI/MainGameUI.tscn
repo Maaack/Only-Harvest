@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://m0j0oacx0vki" path="res://Assets/Sourced/Sprout Lands/Objects/Basic Plants.png" id="8_lo5wi"]
 [ext_resource type="Texture2D" uid="uid://bxfxttff1vm3v" path="res://Assets/Originals/Sprites/Monies.png" id="8_q4qrl"]
 [ext_resource type="Script" path="res://Scripts/PauseMenuController.gd" id="9_j13tb"]
-[ext_resource type="PackedScene" uid="uid://bpd2adgnvkm2a" path="res://Scenes/PauseMenu/StyledPauseMenu.tscn" id="13_q80iw"]
+[ext_resource type="PackedScene" uid="uid://cs3h2ivfoewfi" path="res://Scenes/PauseMenu/PauseMenu.tscn" id="13_geswe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thjn2"]
 atlas = ExtResource("8_q4qrl")
@@ -609,7 +609,7 @@ mouse_filter = 2
 
 [node name="PauseMenuController" type="Node" parent="."]
 script = ExtResource("9_j13tb")
-pause_menu_packed = ExtResource("13_q80iw")
+pause_menu_packed = ExtResource("13_geswe")
 
 [node name="NewGoalAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
