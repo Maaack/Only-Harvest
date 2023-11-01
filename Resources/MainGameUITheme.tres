@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=28 format=3 uid="uid://bmf31mho1mjjt"]
+[gd_resource type="Theme" load_steps=45 format=3 uid="uid://bmf31mho1mjjt"]
 
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_52xqy"]
 
@@ -44,6 +44,86 @@ texture_margin_top = 10.0
 texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(375, 100, 18, 21)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ab7fw"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43wcw"]
+atlas = SubResource("CompressedTexture2D_ab7fw")
+region = Rect2(242, 67, 12, 12)
+margin = Rect2(4, 4, 6, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tb0ab"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7reh"]
+atlas = SubResource("CompressedTexture2D_tb0ab")
+region = Rect2(242, 82, 12, 12)
+margin = Rect2(4, 0, 8, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2541"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pgc0"]
+atlas = SubResource("CompressedTexture2D_g2541")
+region = Rect2(375, 71, 18, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_50v8f"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w81rj"]
+atlas = SubResource("CompressedTexture2D_50v8f")
+region = Rect2(375, 7, 18, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1nw1"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu3vw"]
+atlas = SubResource("CompressedTexture2D_h1nw1")
+region = Rect2(343, 38, 18, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ho3t"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5hmu"]
+atlas = SubResource("CompressedTexture2D_2ho3t")
+region = Rect2(292, 35, 8, 5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ocfjj"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y4yfd"]
+texture = SubResource("CompressedTexture2D_ocfjj")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(466, 73, 28, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r8ma"]
+texture = SubResource("CompressedTexture2D_g2541")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(402, 73, 28, 14)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17a01"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6s65"]
+texture = SubResource("CompressedTexture2D_17a01")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(277, 166, 38, 4)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hdkho"]
 texture = ExtResource("1_52xqy")
@@ -151,6 +231,16 @@ Button/styles/focus = SubResource("StyleBoxEmpty_wschf")
 Button/styles/hover = SubResource("StyleBoxTexture_krtg3")
 Button/styles/normal = SubResource("StyleBoxTexture_hfb1j")
 Button/styles/pressed = SubResource("StyleBoxTexture_h462y")
+CheckButton/icons/checked = SubResource("AtlasTexture_43wcw")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_l7reh")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxTexture_krtg3")
+HSlider/icons/grabber = SubResource("AtlasTexture_1pgc0")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_w81rj")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_pu3vw")
+HSlider/icons/tick = SubResource("AtlasTexture_i5hmu")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_y4yfd")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_4r8ma")
+HSlider/styles/slider = SubResource("StyleBoxTexture_w6s65")
 Panel/styles/panel = SubResource("StyleBoxTexture_hdkho")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_xbpyb")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_avs0p")
