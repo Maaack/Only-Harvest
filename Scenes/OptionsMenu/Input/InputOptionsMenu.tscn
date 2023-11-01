@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp3rgqaehb3xu"]
+[gd_scene load_steps=9 format=3 uid="uid://dp3rgqaehb3xu"]
 
 [ext_resource type="Script" path="res://Scenes/OptionsMenu/Input/InputOptionsMenu.gd" id="1"]
 [ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2"]
@@ -16,6 +16,14 @@ load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472
 atlas = SubResource("CompressedTexture2D_f17i5")
 region = Rect2(869, 166, 22, 22)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8m065"]
+texture = ExtResource("2_2e053")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+region_rect = Rect2(201, 105, 30, 30)
+
 [node name="Input" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +37,24 @@ custom_minimum_size = Vector2(300, 280)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Tree" type="Tree" parent="VBoxContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_8m065")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Tree" type="Tree" parent="VBoxContainer/Panel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -58,7 +83,7 @@ size = Vector2i(398, 100)
 title = "Already Assigned"
 size = Vector2i(398, 100)
 
-[connection signal="button_clicked" from="VBoxContainer/Tree" to="." method="_on_tree_button_clicked"]
+[connection signal="button_clicked" from="VBoxContainer/Panel/MarginContainer/Tree" to="." method="_on_tree_button_clicked"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="canceled" from="KeyAssignmentDialog" to="." method="_on_key_assignment_dialog_canceled"]
 [connection signal="confirmed" from="KeyAssignmentDialog" to="." method="_on_KeyAssignmentDialog_confirmed"]

@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 tab_alignment = 1
 
-[node name="Input" parent="TabContainer" instance=ExtResource("4")]
+[node name="Controls" parent="TabContainer" instance=ExtResource("4")]
 layout_mode = 2
 
 [node name="Audio" parent="TabContainer" instance=ExtResource("1")]

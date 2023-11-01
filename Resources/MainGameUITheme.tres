@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=45 format=3 uid="uid://bmf31mho1mjjt"]
+[gd_resource type="Theme" load_steps=55 format=3 uid="uid://bmf31mho1mjjt"]
 
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_52xqy"]
 
@@ -225,6 +225,58 @@ texture_margin_top = 9.0
 texture_margin_right = 6.0
 region_rect = Rect2(375, 69, 18, 14)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02d5e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7rkp3"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m0caa"]
+texture = SubResource("CompressedTexture2D_7rkp3")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+expand_margin_left = 1.0
+region_rect = Rect2(277, 133, 7, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q8ljk"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_241c5"]
+texture = SubResource("CompressedTexture2D_q8ljk")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+expand_margin_left = 1.0
+region_rect = Rect2(293, 133, 7, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tc71f"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta4qm"]
+texture = SubResource("CompressedTexture2D_tc71f")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+expand_margin_left = 1.0
+region_rect = Rect2(309, 133, 7, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r1xr2"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_si1xo"]
+texture = SubResource("CompressedTexture2D_r1xr2")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+expand_margin_left = 1.0
+region_rect = Rect2(326, 133, 4, 38)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iefc1"]
+
 [resource]
 Button/styles/disabled = SubResource("StyleBoxTexture_ytkor")
 Button/styles/focus = SubResource("StyleBoxEmpty_wschf")
@@ -254,3 +306,9 @@ TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_a7ncx")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_pkuo0")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_vgud8")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_qdddf")
+Tree/styles/panel = SubResource("StyleBoxEmpty_02d5e")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_m0caa")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_241c5")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_ta4qm")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_si1xo")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_iefc1")

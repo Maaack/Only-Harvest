@@ -8,7 +8,11 @@ const ONE_INPUT_MINIMUM_TEXT : String = "%s must have at least one key or button
 	"move_down" : "Down",
 	"move_left" : "Left",
 	"move_right" : "Right",
-	"interact" : "Interact"
+	"jump" : "Jump",
+	"action" : "Action",
+	"select_slot" : "Select Slot",
+	"next_slot" : "Next Slot",
+	"prev_slot" : "Previous Slot",
 }
 @export var add_button_texture : Texture2D
 @export var remove_button_texture : Texture2D
