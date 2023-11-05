@@ -1982,6 +1982,7 @@ shape = SubResource("RectangleShape2D_6o2gc")
 
 [node name="QuickslotManager" type="Node" parent="."]
 script = ExtResource("6_japog")
+quickslots_available = 11
 
 [node name="PickupStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_4c1g6")

@@ -4,7 +4,7 @@ extends Node
 var slot_array = []
 var selected_slot = 0
 
-func _init():
+func _ready():
 	var quickslot_range = range(quickslots_available)
 	slot_array = quickslot_range.duplicate()
 	for i in quickslot_range:

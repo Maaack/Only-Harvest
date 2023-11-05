@@ -1,8 +1,6 @@
 extends HBoxContainer
 
 
-@export var quickslots_available : int = 10
-
 var quickslot_scene = preload("res://Scenes/Quickslots/Quickslot/Quickslot.tscn")
 var slot_array : Array = []
 

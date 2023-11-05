@@ -213,7 +213,8 @@ layout_mode = 1
 [node name="Quickslots" parent="MarginContainer/InGameUI" instance=ExtResource("4_igd4l")]
 unique_name_in_owner = true
 layout_mode = 1
-offset_top = 0.0
+offset_top = -40.0
+offset_right = -88.0
 
 [node name="TrespassingBox" type="NinePatchRect" parent="MarginContainer/InGameUI"]
 unique_name_in_owner = true
@@ -595,11 +596,6 @@ offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/InGameUI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="GameOver" parent="." instance=ExtResource("5_j3o8h")]
 process_mode = 3
