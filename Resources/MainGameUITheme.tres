@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=63 format=3 uid="uid://bmf31mho1mjjt"]
+[gd_resource type="Theme" load_steps=64 format=3 uid="uid://bmf31mho1mjjt"]
 
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_52xqy"]
 
@@ -28,7 +28,20 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(375, 5, 18, 20)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wschf"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mef3n"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ctvm"]
+texture = SubResource("CompressedTexture2D_mef3n")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 9.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(180, 148, 24, 25)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2x107"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
@@ -324,7 +337,7 @@ region_rect = Rect2(107, 155, 26, 26)
 [resource]
 AcceptDialog/styles/panel = SubResource("StyleBoxTexture_w4jy1")
 Button/styles/disabled = SubResource("StyleBoxTexture_ytkor")
-Button/styles/focus = SubResource("StyleBoxEmpty_wschf")
+Button/styles/focus = SubResource("StyleBoxTexture_7ctvm")
 Button/styles/hover = SubResource("StyleBoxTexture_krtg3")
 Button/styles/normal = SubResource("StyleBoxTexture_hfb1j")
 Button/styles/pressed = SubResource("StyleBoxTexture_h462y")

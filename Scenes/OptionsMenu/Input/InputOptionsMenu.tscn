@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp3rgqaehb3xu"]
+[gd_scene load_steps=10 format=3 uid="uid://dp3rgqaehb3xu"]
 
 [ext_resource type="Script" path="res://Scenes/OptionsMenu/Input/InputOptionsMenu.gd" id="1"]
 [ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="2_2e053"]
+[ext_resource type="Script" path="res://Scripts/CaptureFocus.gd" id="3_hpjry"]
 [ext_resource type="Script" path="res://Scenes/OptionsMenu/Input/KeyAssignmentDialog.gd" id="3_wsh2h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3ho5"]
@@ -53,6 +54,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
+script = ExtResource("3_hpjry")
 
 [node name="Tree" type="Tree" parent="VBoxContainer/Panel/MarginContainer"]
 unique_name_in_owner = true

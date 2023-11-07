@@ -36,7 +36,9 @@ func intro_done():
 
 func _input(event):
 	if animation_state_machine.get_current_node() == "Intro" and \
-		(event is InputEventMouseButton or event is InputEventKey):
+		(event is InputEventMouseButton or \
+		event is InputEventJoypadButton or \
+		event is InputEventKey):
 		intro_done()
 
 func _setup_for_web():
@@ -91,7 +93,8 @@ func _on_exit_button_pressed():
 	get_tree().quit()
 
 func _on_credits_end_reached():
-	_close_sub_menu()
+	if sub_menu == credits_scene:
+		_close_sub_menu()
 
 func _on_back_button_pressed():
 	_close_sub_menu()

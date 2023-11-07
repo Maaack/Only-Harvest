@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djoy112dkgjda"]
+[gd_scene load_steps=6 format=3 uid="uid://djoy112dkgjda"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://Scenes/Credits/Credits.tscn" id="1"]
 [ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2"]
 [ext_resource type="Script" path="res://Scenes/Credits/EndCredits.gd" id="4"]
+[ext_resource type="Script" path="res://Scripts/CaptureFocus.gd" id="4_5rdwb"]
 [ext_resource type="AudioStream" uid="uid://bnfufwn51lgcs" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/3_fireflies_master.mp3" id="4_8ctgh"]
 
 [node name="EndCredits" instance=ExtResource("1")]
@@ -55,6 +56,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 24
+script = ExtResource("4_5rdwb")
 
 [node name="MenuButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="0"]
 unique_name_in_owner = true

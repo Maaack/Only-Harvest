@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vh1ucj2rfbby"]
+[gd_scene load_steps=4 format=3 uid="uid://vh1ucj2rfbby"]
 
 [ext_resource type="Script" path="res://Scenes/OptionsMenu/OptionsMenu.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://bosy6wwf0vleq" path="res://Scenes/UI/AudioControl/AudioControl.tscn" id="2_xrxr1"]
+[ext_resource type="Script" path="res://Scripts/CaptureFocus.gd" id="3_5bnij"]
 
 [node name="OptionsMenu" type="VBoxContainer"]
 custom_minimum_size = Vector2(260, 260)
@@ -24,6 +25,8 @@ audio_control_scene = ExtResource("2_xrxr1")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 8
+script = ExtResource("3_5bnij")
+search_depth = 2
 
 [node name="MuteControl" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 40)

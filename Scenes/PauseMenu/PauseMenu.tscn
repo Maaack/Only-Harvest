@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs3h2ivfoewfi"]
+[gd_scene load_steps=7 format=3 uid="uid://cs3h2ivfoewfi"]
 
 [ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://Scenes/OptionsMenu/OptionsMenu.tscn" id="1"]
 [ext_resource type="Script" path="res://Scenes/PauseMenu/PauseMenu.gd" id="2"]
 [ext_resource type="Theme" uid="uid://bmf31mho1mjjt" path="res://Resources/MainGameUITheme.tres" id="2_wxnmy"]
 [ext_resource type="PackedScene" uid="uid://doj1dmgtf0a71" path="res://Scenes/UI/SoundButton/SoundButton.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="4_lu3lj"]
+[ext_resource type="Script" path="res://Scripts/CaptureFocus.gd" id="5_dhs0o"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -78,6 +79,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 alignment = 1
+script = ExtResource("5_dhs0o")
 
 [node name="ResumeButton" parent="Control/NinePatchRect/MenuContainer/OptionsMenuContainer/MenuButtons" instance=ExtResource("4")]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b0vs5cplaalr0"]
+[gd_scene load_steps=29 format=3 uid="uid://b0vs5cplaalr0"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bvwl11s2p0hd" path="res://Scenes/OptionsMenu/MasterOptionsMenu.tscn" id="3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://doj1dmgtf0a71" path="res://Scenes/UI/SoundButton/SoundButton.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://crmqy2drqxyqr" path="res://Scenes/World/BGWorld.tscn" id="5_3hxfd"]
 [ext_resource type="Texture2D" uid="uid://c6n4qjsjjmknw" path="res://Assets/Originals/Sprites/Logo.png" id="6_qa1bk"]
+[ext_resource type="Script" path="res://Scripts/CaptureFocus.gd" id="7_pxf8l"]
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://Scenes/Credits/Credits.tscn" id="8"]
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="8_0tc6x"]
 [ext_resource type="AudioStream" uid="uid://bqwxwep31yhmx" path="res://Assets/Sourced/Cozy Sim Music - Tiny Pack/1_new_life_master.mp3" id="8_qnlfg"]
@@ -562,6 +563,7 @@ theme_override_constants/margin_bottom = 16
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+script = ExtResource("7_pxf8l")
 
 [node name="PlayButton" parent="MarginContainer/VBoxContainer/MenuMargin/MenuButtons" instance=ExtResource("5")]
 unique_name_in_owner = true
