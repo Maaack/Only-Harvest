@@ -127,5 +127,3 @@ func _process(_delta):
 	if not get_tree().paused:
 		if is_instance_valid(balloon):
 			get_tree().paused = true
-			if get_viewport().gui_get_focus_owner() != balloon:
-				balloon.balloon.grab_focus()
