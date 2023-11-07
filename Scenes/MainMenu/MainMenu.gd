@@ -40,6 +40,8 @@ func _input(event):
 		event is InputEventJoypadButton or \
 		event is InputEventKey):
 		intro_done()
+	if event.is_action_released("ui_accept") and get_viewport().gui_get_focus_owner() == null:
+		%PlayButton.grab_focus()
 
 func _setup_for_web():
 	if OS.has_feature("web"):
