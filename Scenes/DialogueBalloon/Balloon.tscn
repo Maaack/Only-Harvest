@@ -94,6 +94,7 @@ layout_mode = 2
 text = "Response example"
 
 [node name="SkipButton" type="Button" parent="MarginContainer/Balloon"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -115,4 +116,5 @@ icon_alignment = 2
 
 [connection signal="gui_input" from="MarginContainer/Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="MarginContainer/Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="gui_input" from="MarginContainer/Balloon/SkipButton" to="." method="_on_skip_button_gui_input"]
 [connection signal="pressed" from="MarginContainer/Balloon/SkipButton" to="." method="_on_skip_button_pressed"]

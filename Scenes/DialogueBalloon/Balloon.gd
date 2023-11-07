@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
+@onready var skip_button: Button = %SkipButton
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -117,13 +118,13 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
+	elif (event.is_action_pressed("ui_accept") or event.is_action_pressed("action")) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
-
+	elif event.is_action_pressed("ui_select") or event.is_action_pressed("jump"):
+		skip_button.grab_focus()
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
-
 
 func _process(delta):
 	if skipping:
@@ -131,3 +132,7 @@ func _process(delta):
 
 func _on_skip_button_pressed():
 	skipping = true
+
+func _on_skip_button_gui_input(event):
+	if event.is_action_pressed("ui_select") or event.is_action_pressed("jump"):
+		balloon.grab_focus()
