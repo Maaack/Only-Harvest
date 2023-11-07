@@ -1,5 +1,7 @@
 extends Control
 
+var balloon_packed_scene : PackedScene = preload("res://Scenes/DialogueBalloon/Balloon.tscn")
+
 var balloon
 
 func _on_world_time_updated():
@@ -83,7 +85,9 @@ func _on_world_player_spawned():
 
 func _on_world_dialogue_started(title : String):
 	GameState.randomizer = randf()
-	balloon = DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), title)
+	balloon = balloon_packed_scene.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(load("res://Dialogues/MainStory.dialogue"), title)
 	await(DialogueManager.dialogue_ended)
 	balloon = null
 	GameState.camera_target_player()
