@@ -1,5 +1,7 @@
 extends Control
 
+var balloon
+
 func _on_world_time_updated():
 	%DateTime.set_day(%World.get_day())
 	var hour = %World.get_hour()
@@ -81,9 +83,9 @@ func _on_world_player_spawned():
 
 func _on_world_dialogue_started(title : String):
 	GameState.randomizer = randf()
-	DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), title)
-	get_tree().paused = true
+	balloon = DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/MainStory.dialogue"), title)
 	await(DialogueManager.dialogue_ended)
+	balloon = null
 	GameState.camera_target_player()
 	get_tree().paused = false
 	if GameState.is_player_dead:
@@ -116,3 +118,10 @@ func _on_new_goal_timer_timeout():
 	$NewGoalAnimationPlayer.play("NewGoalAnimation")
 	await ($NewGoalAnimationPlayer.animation_finished)
 	$NewGoalTimer.start()
+
+func _process(_delta):
+	if not get_tree().paused:
+		if is_instance_valid(balloon):
+			get_tree().paused = true
+			if get_viewport().gui_get_focus_owner() != balloon:
+				balloon.balloon.grab_focus()
