@@ -162,12 +162,20 @@ func _remove_action_event(item : TreeItem):
 	var parent_tree_item = item.get_parent()
 	parent_tree_item.remove_child(item)
 
-func _on_tree_button_clicked(item, column, id, mouse_button_index):
+func _check_item_actions(item):
 	if item in tree_item_add_map:
 		_popup_add_action_event(item)
 	elif item in tree_item_remove_map:
 		_remove_action_event(item)
 
+func _on_tree_button_clicked(item, _column, _id, _mouse_button_index):
+	_check_item_actions(item)
+
 func _on_reset_button_pressed():
 	AppSettings.reset_to_default_inputs()
 	_build_ui_tree()
+
+func _on_tree_item_activated():
+	var item = %Tree.get_selected()
+	_check_item_actions(item)
+
