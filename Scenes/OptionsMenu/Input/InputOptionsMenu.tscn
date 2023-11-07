@@ -34,7 +34,7 @@ add_button_texture = SubResource("AtlasTexture_n3ho5")
 remove_button_texture = SubResource("AtlasTexture_oydjo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 280)
+custom_minimum_size = Vector2(340, 280)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -77,6 +77,12 @@ theme = ExtResource("2")
 dialog_text = "Press a key or button..."
 script = ExtResource("3_wsh2h")
 
+[node name="KeyDeletionDialog" type="ConfirmationDialog" parent="."]
+title = "Remove Key"
+size = Vector2i(419, 100)
+theme = ExtResource("2")
+dialog_text = "Are you sure you want to remove KEY from ACTION?"
+
 [node name="OneInputMinimumDialog" type="AcceptDialog" parent="."]
 title = "Cannot Remove"
 size = Vector2i(398, 100)
@@ -90,3 +96,4 @@ size = Vector2i(398, 100)
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="canceled" from="KeyAssignmentDialog" to="." method="_on_key_assignment_dialog_canceled"]
 [connection signal="confirmed" from="KeyAssignmentDialog" to="." method="_on_KeyAssignmentDialog_confirmed"]
+[connection signal="confirmed" from="KeyDeletionDialog" to="." method="_on_key_deletion_dialog_confirmed"]

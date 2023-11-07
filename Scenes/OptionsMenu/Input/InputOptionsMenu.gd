@@ -2,6 +2,7 @@ extends Control
 
 const ALREADY_ASSIGNED_TEXT : String = "%s already assigned to %s."
 const ONE_INPUT_MINIMUM_TEXT : String = "%s must have at least one key or button assigned."
+const KEY_DELETION_TEXT : String = "Are you sure you want to remove %s from %s?"
 
 @export var action_name_map : Dictionary = {
 	"move_up" : "Up",
@@ -17,7 +18,7 @@ const ONE_INPUT_MINIMUM_TEXT : String = "%s must have at least one key or button
 @export var add_button_texture : Texture2D
 @export var remove_button_texture : Texture2D
 
-@onready var placeholder_text = $KeyAssignmentDialog.dialog_text
+@onready var assignment_placeholder_text = $KeyAssignmentDialog.dialog_text
 var tree_item_add_map : Dictionary = {}
 var tree_item_remove_map : Dictionary = {}
 var tree_item_action_map : Dictionary = {}
@@ -31,10 +32,20 @@ func _popup_add_action_event(item : TreeItem) -> void:
 		return
 	editing_item = item
 	editing_action_name = tree_item_add_map[item]
-	$KeyAssignmentDialog.title = _get_action_readable_name(editing_action_name)
-	$KeyAssignmentDialog.dialog_text = placeholder_text
+	$KeyAssignmentDialog.title = "Assign Key for %s" % _get_action_readable_name(editing_action_name)
+	$KeyAssignmentDialog.dialog_text = assignment_placeholder_text
 	$KeyAssignmentDialog.get_ok_button().disabled = true
 	$KeyAssignmentDialog.popup_centered()
+
+func _popup_remove_action_event(item : TreeItem) -> void:
+	if item not in tree_item_remove_map:
+		return
+	editing_item = item
+	editing_action_name = tree_item_action_map[item]
+	var readable_action_name = _get_action_readable_name(editing_action_name)
+	$KeyDeletionDialog.title = "Remove Key for %s" % readable_action_name
+	$KeyDeletionDialog.dialog_text = KEY_DELETION_TEXT % [item.get_text(0), readable_action_name]
+	$KeyDeletionDialog.popup_centered()
 
 func _get_action_keycode(action_event : InputEvent):
 	if action_event is InputEventMouse:
@@ -124,6 +135,7 @@ func _get_action_for_input_event(input_event : InputEvent) -> String:
 
 func _horizontally_align_popup_labels():
 	$KeyAssignmentDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	$KeyDeletionDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$OneInputMinimumDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$AlreadyAssignedDialog.get_label().horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
@@ -166,7 +178,7 @@ func _check_item_actions(item):
 	if item in tree_item_add_map:
 		_popup_add_action_event(item)
 	elif item in tree_item_remove_map:
-		_remove_action_event(item)
+		_popup_remove_action_event(item)
 
 func _on_tree_button_clicked(item, _column, _id, _mouse_button_index):
 	_check_item_actions(item)
@@ -179,3 +191,6 @@ func _on_tree_item_activated():
 	var item = %Tree.get_selected()
 	_check_item_actions(item)
 
+func _on_key_deletion_dialog_confirmed():
+	if is_instance_valid(editing_item):
+		_remove_action_event(editing_item)
