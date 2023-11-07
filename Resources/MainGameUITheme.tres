@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=64 format=3 uid="uid://bmf31mho1mjjt"]
+[gd_resource type="Theme" load_steps=71 format=3 uid="uid://bmf31mho1mjjt"]
 
 [ext_resource type="Texture2D" uid="uid://bef816edvcpop" path="res://Assets/Sourced/Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_52xqy"]
 
@@ -89,6 +89,58 @@ atlas = SubResource("CompressedTexture2D_tb0ab")
 region = Rect2(242, 82, 12, 12)
 margin = Rect2(4, 0, 8, 2)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kej3f"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gpgw"]
+texture = SubResource("CompressedTexture2D_kej3f")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 3.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(247, 164, 18, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k7fbb"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22jjy"]
+texture = SubResource("CompressedTexture2D_k7fbb")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 3.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(247, 148, 18, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2of72"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2s22"]
+texture = SubResource("CompressedTexture2D_2of72")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 3.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(247, 132, 18, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5117"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ia7ny"]
+texture = SubResource("CompressedTexture2D_m5117")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 1.0
+expand_margin_top = 3.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(277, 166, 38, 4)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2541"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
 
@@ -177,8 +229,6 @@ texture_margin_top = 4.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(402, 73, 28, 14)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8k4n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tygud"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-0f928c627b472588e7480dbd82d8143f.ctex"
@@ -344,6 +394,10 @@ Button/styles/pressed = SubResource("StyleBoxTexture_h462y")
 CheckButton/icons/checked = SubResource("AtlasTexture_43wcw")
 CheckButton/icons/unchecked = SubResource("AtlasTexture_l7reh")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxTexture_krtg3")
+HScrollBar/styles/grabber = SubResource("StyleBoxTexture_6gpgw")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_22jjy")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_m2s22")
+HScrollBar/styles/scroll = SubResource("StyleBoxTexture_ia7ny")
 HSlider/icons/grabber = SubResource("AtlasTexture_1pgc0")
 HSlider/icons/grabber_disabled = SubResource("AtlasTexture_w81rj")
 HSlider/icons/grabber_highlight = SubResource("AtlasTexture_pu3vw")
@@ -357,7 +411,7 @@ PopupPanel/styles/panel = SubResource("StyleBoxTexture_w4jy1")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_xbpyb")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_avs0p")
 SkipButton/base_type = &"Button"
-SkipButton/styles/focus = SubResource("StyleBoxEmpty_u8k4n")
+SkipButton/styles/focus = SubResource("StyleBoxTexture_7ctvm")
 SkipButton/styles/hover = SubResource("StyleBoxTexture_b5k0e")
 SkipButton/styles/normal = SubResource("StyleBoxTexture_0dk3e")
 SkipButton/styles/pressed = SubResource("StyleBoxTexture_f8y6s")
