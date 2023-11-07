@@ -19,4 +19,5 @@ func close_menu() -> void:
 		current_menu.queue_free()
 	Input.set_mouse_mode(saved_mouse_mode)
 	get_tree().paused = false
-	saved_focus_control.grab_focus()
+	if is_instance_valid(saved_focus_control):
+		saved_focus_control.grab_focus()
