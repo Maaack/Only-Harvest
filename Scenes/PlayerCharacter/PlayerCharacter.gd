@@ -161,19 +161,15 @@ func _update_quickslot():
 	emit_signal("quickslot_selected", selected_slot)
 
 func _input(event):
-	if event.is_action_pressed("jump"):
+	if event.get_action_strength("jump"):
 		jump_input_flag = true
-	else:
-		jump_input_flag = false
-	if event.is_action_pressed("action"):
+	if event.get_action_strength("action"):
 		var current_item : BaseQuantity = $QuickslotManager.get_selected_quantity()
 		if current_item.taxonomy == Constants.TOOL_NAME and active_node == null:
 			action_input_flag = true
 		else:
 			_attempt_trade()
 			_attempt_dialogue()
-	else:
-		action_input_flag = false
 	if event is InputEventKey and event.is_action_pressed("select_slot"):
 		var key_code = event.keycode
 		if key_code >= KEY_0 and key_code <= KEY_9 or key_code >= KEY_KP_0 and key_code <= KEY_KP_9:
